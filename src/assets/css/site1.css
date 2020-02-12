@@ -1,0 +1,488 @@
+/*!
+ * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+body{font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', HiraginoCustom, 'Hiragino Kaku Gothic ProN', YuGothic, 'Yu Gothic Medium', Meiryo, sans-serif}
+#top-contact{background-color:#009bdd;color:#FFF;font-size:.8rem;line-height:2rem}
+#top-contact-tel{font-size:1.2rem;vertical-align:middle;margin-right:5px}
+#top-contact a{font-weight:bold;color:#fff;background:#}
+
+
+#top_head{background:url(../images/top_bg.jpg); background-size:cover;position:relative}
+#top_head.company{background:url(../images/index_bg.jpg);background-position:center}
+#top_head.callcenter{background:url(./../images/call_bg.jpg);background-position:center;background-size:cover;position:relative}
+
+#top_head.terms{background:url(../images/terms_bg.jpg)}
+#top_head.support{background:url(../images/support_bg.jpg)}
+#top_head.insurance{background:url(../images/insurance_bg.jpg)}
+#top_head.law{background:url(../images/law_bg.jpg)}
+#top_head.certificate{background:url(../images/certificate_bg.jpg)}
+#top_head.unit{background:url(../images/unit_bg.jpg)}
+#top_head.guide{background:url(../images/guide_bg.jpg)}
+#top_head.group{background:url(../images/group_bg.jpg)}
+#top_head.career{background:url(../images/career_bg.jpg)}
+#top_head.fresh{background:url(../images/fresh_bg.jpg)}
+#top_head.info{background:url(../images/info_bg.jpg)}
+#top_head.product_bg{background:url(../images/product_bg.jpg)}
+#top_head.catalog_bg{background:url(../images/catalog_bg.jpg)}
+#top_head.img_simulation{background:url(../images/simulation/bg.jpg)}
+#top_head.used_bg{background:url(../images/used_bg.jpg)}
+#top_head.policy_bg{background:url(../images/policy_bg.jpg)}
+#top_head.bg_center{background-position:center;background-size:cover;position:relative}
+
+#top_head h1{width:100%;color:#FFF;z-index:2;position:relative;font-size:1.5rem}
+#top_head h1 span{display:block;font-size:1rem;margin-top:.5rem;text-transform:uppercase}
+#top_head::before{background:rgba(0,0,0,0.5);content:' ';position:absolute;width:100%;height:100%;top:0;left:0;z-index:1}
+
+
+#index_head{background:url(../images/index_bg.jpg); background-size:cover;position:relative; background-position:center}
+#index_head::before{background:rgba(0,0,0,0.5);content:' ';position:absolute;width:100%;height:100%;top:0;left:0;z-index:1}
+#index_head h1{width:100%;color:#FFF;z-index:2;position:relative; font-size:1rem;font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif}
+#index_head h1 span{font-size:2rem}
+
+#actio_group a{color:#000}#actio_group a:hover{text-decoration:none}
+
+#logo{display:block;width:180px;height:60px;font-size:0;background:url(../images/kouyou_kenki_logo.gif) left top/300px auto no-repeat;background-size:contain;background-position:center}
+.navbar-brand{margin-right:3rem}
+.navbar{border-bottom:#f95800 10px solid}
+.navbar:after {content:" ";position:absolute;z-index:-1;left:0;right:0;bottom:0;border-bottom:10px solid #0851c9}
+.navbar-toggler{border-color:#0851c9}
+.nav-pills .nav-link{border-radius:0}
+.nav-pills .nav-link.active{background:#0851c9;color:#FFF}
+.list-group-horizontal-sm .list-group-item:first-child,
+.list-group-horizontal-sm .list-group-item:last-child {border-radius:0}
+
+
+.nav-fill .nav-item{text-align:left}
+.navbar-toggler-icon {background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(10,80,200, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")}
+
+#sub-menu{background:#0851c9}
+#sub-menu-content{font-size:.75em}
+#sub-menu-content a{color:#0851c9;font-weight:bold;display:block}
+#sub-menu-content a:hover{background:#009bdd;color:#FFF;text-decoration:none}
+#sub-menu-content a.active:before{content:"● ";color:#f95800}
+
+.side_menu{display:block;background:#009bdd;color:#FFF;padding:.75rem 1.25rem}
+.side_menu:hover{text-decoration:none;background:#069;color:#FFF}
+.side_menu:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 15px;
+  content: "\E800";
+}
+.side_menu[aria-expanded="true"]:after {
+  content: "\E801";
+}
+
+
+#side_search{background:#009bdd}
+#side_search input{border-radius:0}
+#side_search button{background:#f95800;color:#FFF;border-radius:0}
+#side_navi a{background:#f95800;display:block;color:#FFF;padding:.75rem 1.25rem;border-bottom:1px solid #C60}
+#side_navi a:hover{text-decoration:none;background:#C60}
+#side_docs a{background:#009bdd;display:block;color:#FFF;padding:.75rem 1.25rem;border-bottom:1px solid #069}
+#side_docs a:first-child{border-top:1px solid #069}
+#side_docs a:hover,#side_docs a.selected{text-decoration:none;background:#069}
+
+#accordion .card{border-radius:0; border-bottom-width:0}
+#accordion .card-body{padding:0}
+#accordion .card{background:#495e93}
+#accordion .card .card{border-left:0;border-right:0;background:#51774f;border-bottom:0;margin-left:10px}
+#accordion .card a.product{background:#fa6c1c;padding-left:10px;padding-right:30px}
+#accordion .card:last-child{border-bottom-width:1px}
+#accordion a{display:block;color:#FFF;padding:.75rem 1.25rem}
+#accordion a:hover{text-decoration:none}
+
+#accordion .card-body > a:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 15px;
+  content: "\E800";
+}
+#accordion .card-body > a[aria-expanded="true"]:after {
+  content: "\E801";
+}
+
+#accordion .card-body .card > a:after,
+#side_navi a:after,
+#side_docs a:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 15px;
+  content: "\E802";
+	
+}
+#side_navi a:after{right:15px}
+
+
+main h2{background:#009bdd;color:#FFF;font-size:20px}
+main h3 {color:rgba(0,155,251,1);font-size:18px;font-weight:bold}
+main h4 {color:rgba(0,155,251,1);font-size:16px;font-weight:bold}
+
+#special_search a{background:#f95800;color:#FFF;font-size:.8em}
+#special_search a img{width:100%}
+#category_search a{background:#51774f;color:#FFF;font-size:.8em}
+#category_search a img{width:100%}
+#category_search_s a{font-size:.8em;color:#51774f}
+#category_search_s a:hover{text-decoration:underline}
+#category_search_s a img{width:50px}
+#top_rental a{background:#009bdd;color:#FFF;font-size:.8em}
+#top_rental a img{width:100%}
+.row-eq-height {display:flex;flex-wrap:wrap}
+
+/**misc**/
+.btn-koyo{background:#009bdd;color:#FFF;border-radius:0}.btn-koyo:hover{background:#069;color:#FFF}
+.border{border:1px solid #CCC!important}
+
+.table.emp{font-size:.8em}
+.table.emp th{background:rgba(0,155,251,.7);color:#FFF}
+.table.emp th, .table.emp td{border-left:1px solid #dee2e6;vertical-align:middle}
+
+
+.table.company{font-size:.8em}
+.table.company th{width:35%;background:rgba(0,155,251,.7);color:#FFF}
+.table.company tr:last-child th,.table.company tr:last-child td{border-bottom: 1px solid #dee2e6;}
+
+.table.terms{font-size:.8em;border:1px solid #CCC}
+.table.terms th{background:rgba(0,155,251,.7);color:#FFF;vertical-align:middle}
+.table.terms tr th,.table.terms tr td{border-left:1px solid #CCC}
+.terms .misc{font-size:.8rem}
+
+.table.rental{font-size:.8em}
+.table.rental th{background:rgba(0,155,251,.7);color:#FFF;vertical-align:middle}
+.table.rental th, .table.rental td {display:block}
+
+.table.raw .focus{background:rgba(0,155,251,.2)}
+
+.table.vv-control{font-size:.8em}
+.table.vv-control th{background:rgba(0,155,251,.7);color:#FFF;text-align:center}
+.table.vv-control tr th,.table.vv-control tr td{border-left:1px solid #CCC}
+.table.vv-control td.v4{background:rgba(0,155,251,.4)}
+.table.vv-control td.v3{background:rgba(0,155,251,.3)}
+.table.vv-control td.v2{background:rgba(0,155,251,.2)}
+.table.vv-control td.v1{background:rgba(0,155,251,.1)}
+
+.table.certificate{font-size:.8em}
+.table.certificate th, .table.certificate td {display:block;border-width:0}
+.table.certificate th{background:rgba(0,155,251,.7);color:#FFF}
+
+.table.unit{font-size:.8em}
+.table.unit th{background:rgba(0,155,251,.7);color:#FFF;text-align:center}
+.table.unit tr:nth-child(even) td{background:rgba(0,155,251,.1)}
+
+
+.badge-cert{
+    padding-left: .5rem!important;
+    padding-right: .5rem!important;
+    margin-right: .25rem!important;
+    vertical-align: middle!important;
+}
+.badge-tokukyou {
+    color: #212529;
+    background-color: #ffc107;
+}
+.badge-men {
+    color: #fff;
+    background-color: #007bff;
+}
+.badge-teiji {
+    color: #fff;
+    background-color: #6c757d;
+}
+.badge-dennbou {
+    color: #fff;
+    background-color: #28a745;
+}
+.badge-syaken {
+    color: #fff;
+    background-color: #dc3545;
+}
+.badge-gi {
+    color: #fff;
+    background-color: #17a2b8;
+}
+.badge-tokujiken {
+    color: #fff;
+    background-color: #343a40;
+}
+.badge-youken {
+    color: #fff;
+    background-color:#999;
+}
+span.supText {
+font-size: 75.5%;
+vertical-align: top;
+position: relative;
+top: -0.1em;
+}
+span.subText {
+font-size: 75.5%;
+vertical-align: bottom;
+position: relative;
+top: 0.1em;
+}
+
+table.group{font-size:.8em}
+.group th, .group  td{display:block;vertical-align:middle;padding:.25rem}
+.group tr{position:relative}
+.group th{width:auto;background:rgba(0,155,251,.7);color:#FFF}
+.group th a{color:#FFF}
+.group tr td:nth-child(2){display:none}
+.group tr td:nth-child(3){padding-bottom:0}
+.group tr td:nth-child(4){border-top:0;padding-top:0}
+.group td{background:#FFF}
+.group th a{display:block}
+
+#branches h2{font-size:14px}
+#branches p{font-size:12px}
+#branches .btn-sm{border-radius:0}
+#branches .btn-primary{background:#0851c9;border-color:#0851c9}
+
+/**product**/
+h2#product_name{background:transparent;color:#000;font-size:24px;border-bottom-color:#009bdd}
+#product p{font-size:14px}
+#appeal_icons{font-size:12px;color:#fff}
+.netis{white-space:pre;contents:'A'}
+#license_icons{font-size:22px;color:#fff}
+#license_icons_desc{font-size:12px;color:#999}
+#license_icons_desc a{color:#333;text-decoration:underline}
+#license_icons_desc a i{font-size:1.1rem;vertical-align:middle;color:#009bdd}
+.carousel-indicators li {background-color:#009bdd}
+#spec table{font-size:12px}
+#spec table th{background:rgba(0,155,251,.7);color:#FFF;font-weight:normall;border-right:1px solid #dee2e6}
+#spec table td{text-align:center;border-right:1px solid #dee2e6}
+#spec table td.go-red{background:rgba(255,0,0,0.3)}
+
+
+#price table{font-size:12px}
+#price table th{background:rgba(0,155,251,.7);color:#FFF;font-weight:normal;text-align:center;vertical-align:middle;padding:0.25rem;border:0}
+#price table td{text-align:center}
+.videoWrapper{position:relative;padding-bottom:56.25%;padding-top:25px;height:0}
+.videoWrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+
+#links a:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 30px;
+  content: "\E802";
+}
+
+.faq{font-size:14px}
+.faq_q::before{content:'Q';display:inline-block;width:30px;line-height:30px;text-align:center;background:#009bdd;color:#FFF;border-radius:50px; margin-right:10px}
+.faq_a::before{content:'A';display:inline-block;width:30px;line-height:30px;text-align:center;background:#999;color:#FFF;border-radius:50px; margin-right:10px}
+#product p.contact_tel{font-size:24px;font-weight:bold}
+
+/**category**/
+h2#product_parent{background:#495e93}
+h3.product_child{position:relative;background:transparent;color:#51774f;font-size:20px;border-bottom:2px solid #51774f}
+h3.product_child:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 30px;
+  content: "\E802";
+  transform: rotate(-90deg);
+}
+h3.product_child.collapsed:after{
+  transform: rotate(90deg);
+}
+.product_child_border{border:1px solid #51774f}
+.btn-child{border-color:#fa6c1c;color:#fa6c1c}
+.btn-child:hover{border-color:#fa6c1c;background-color:#fa6c1c;color:#FFF}
+.btn-child:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 30px;
+  content: "\E802";
+}
+/**product_list**/
+.head_sorter,
+.head_sorter .btn{font-size:0.7rem}
+.btn-group.head_sorter>.btn-group, .btn-group.head_sorter>.btn{border-radius:0}
+.btn-group .btn:hover{cursor:pointer}
+.btn-group.head_sorter .btn-light{background:#e9ecef;color:#6c757d}
+.btn-group.head_sorter .btn-light:hover{background:#fa6c1c;color:#FFF}
+.btn-group.head_sorter .btn-light.active{background:#fa6c1c;color:#FFF}
+
+h2#product_child{background:#51774f}
+
+#product_child_list{background:rgba(80,120,80,0);border:1px solid #51774f}
+
+.btn-child-list{border-color:#fa6c1c;background-color:rgba(250,100,30,.1);color:#fa6c1c;position:relative}
+.btn-child-list:hover{border-color:#fa6c1c;background-color:rgba(250,100,30,1);color:#FFF}
+
+.btn-child-list:after {
+  font-family: 'fontello';
+  position: absolute;
+  right: 15px;
+  top:40%;
+  content: "\E802";
+}
+
+.btn-child-list img{background:#FFF}
+.btn-child-list span.netis{background:#fa6c1c;color:#FFF;font-size:.8rem}
+.btn-child-list:hover span.netis{background:#FFF;color:#fa6c1c}
+.product_child_list_name{color:#000}
+.product_child_list_detail{color:#666;font-size:.9rem}
+.btn-child-list .comp{color:#CCC;font-size:.7rem;right:20px;bottom:10px}
+.btn-child-list:hover .product_child_list_name,
+.btn-child-list:hover .product_child_list_detail{color:#FFF}
+
+.btn-child-list.charter{border-color:rgb(80,120,80);color:rgb(80,120,80);background-color:rgba(80,120,80,.2)}
+.btn-child-list.charter:hover{border-color:rgb(80,120,80);background-color:rgba(80,120,80,1);color:#FFF}
+.btn-child-list.charter span.netis{background-color:rgb(80,120,80);color:#FFF}
+.btn-child-list.charter:hover span.netis{background:#FFF;color:rgb(80,120,80)}
+
+.btn-child-list.pending{border-color:#666;color:#666;background-color:rgba(100,100,100,.1)}
+.btn-child-list.pending:hover{border-color:#666;background-color:rgba(100,100,100,1);color:#FFF}
+.btn-child-list.pending span.netis{background:#666;color:#FFF}
+.btn-child-list.pending:hover span.netis{background:#FFF;color:#666}
+
+.btn-child-list.discontinued{border-color:#000;color:#000;background-color:rgba(0,0,0,.2)}
+.btn-child-list.discontinued:hover{border-color:#000;background-color:rgba(0,0,0,1);color:#FFF}
+.btn-child-list.discontinued span.netis{background:#000;color:#FFF}
+.btn-child-list.discontinued .comp{color:#999}
+.btn-child-list.discontinued:hover span.netis{background:#FFF;color:#000}
+
+.change-front,.change-side{font-size:.8rem;line-height:1.1em; outline:none;color:#009bdd}
+.change-front:hover,.change-side:hover{background:rgba(0,155,251,.1);cursor:pointer}
+.change-front.active,.change-side.active{background:rgba(0,155,251,.3);color:#000}
+.go-swipe{font-size:.8rem;color:#666}.go-swipe i{font-size:1.2rem}
+/**Contact**/
+#contact label span{color:#C00; font-size:.8rem; padding-left:10px}
+
+#top_selection a{background:#FFF;color:#999;font-size:.8em}
+#top_selection a:hover{background:#f1f1f1}
+#top_selection a img{width:80%}
+
+#about_kouyou a,#about_product a{color:#FFF}
+#about_kouyou a:hover,#about_product a:hover{text-decoration:none}
+#about_kouyou h2,#about_product h2{background:transparent;text-decoration:underline}
+#about_kouyou p,#about_product p{font-size:14px}
+#about_kouyou  div:nth-child(1),#about_product  div:nth-child(2){background:rgba(255,100,30,.9)}
+#about_kouyou  div:nth-child(2),#about_product  div:nth-child(3){background:rgba(80,120,80,.9)}
+#about_kouyou  div:nth-child(3),#about_product  div:nth-child(1){background:rgba(70,90,150,.9)}
+#about_kouyou  div:nth-child(1) a:hover,#about_product  div:nth-child(2) a:hover{background:rgba(255,100,30,1);cursor:pointer}
+#about_kouyou  div:nth-child(2) a:hover,#about_product  div:nth-child(3) a:hover{background:rgba(80,120,80,1);cursor:pointer}
+#about_kouyou  div:nth-child(3) a:hover,#about_product  div:nth-child(1) a:hover{background:rgba(70,90,150,1);cursor:pointer}
+#about_kouyou  div a:after,#about_product  div a:after{position:absolute;content:' ';background-color:rgba(255,100,30,.8);background-image:url(../images/more.png);background-position:center;background-repeat:no-repeat;top: 0;bottom:0;left:0;right:0;margin:auto;width:0;-webkit-transition: width.25s;transition: width.25s}
+#about_kouyou  div:nth-child(1) a:after,#about_product  div:nth-child(2) a:after{background-color:rgba(255,100,30,.8)}
+#about_kouyou  div:nth-child(2) a:after,#about_product  div:nth-child(3) a:after{background-color:rgba(80,120,80,.8)}
+#about_kouyou  div:nth-child(3) a:after,#about_product  div:nth-child(1) a:after{background-color:rgba(70,90,150,.8)}
+#about_kouyou  div a:hover:after,#about_product  div a:hover:after{width:100%}
+
+
+#kouyou_info a:hover{text-decoration:none}
+#kouyou_info h3{background:transparent;font-size:1.3rem}
+#kouyou_info p{font-size:13px}
+.info_banner{background:url(../images/top_info_banner2.jpg);background-size:cover;text-shadow:1px 1px 2px black;background-position:center}
+.info_banner:first-child{background-image:url(../images/top_info_banner1.jpg)}
+.info_banner:last-child{background-image:url(../images/top_info_banner3.jpg)}
+.info_banner a{background:rgba(0,0,0,0.5)}
+.info_banner a:hover{background:rgba(0,0,0,0.8)}
+
+.unithouse-table > tbody > tr > td {vertical-align:middle;line-height:1em}
+.unithouse-table > tbody > tr > th{background: rgba(0,155,251,.7);color:#FFF;text-align: center;vertical-align:middle}
+.unithouse-table img{max-height:150px}
+.unithouse-table .cell-thumb{width:200px;text-align:center}
+#unithouse-ol {
+  list-style: none;
+  counter-reset: item;
+  padding-left:1.5em;
+}
+#unithouse-ol>li {
+  counter-increment: item;
+  margin-bottom: 5px;
+  font-weight:bold
+}
+#unithouse-ol>li:before {
+  margin: 10px 5px 0 0;
+  content: counter(item);
+  background: rgba(0,155,251,1);
+  border-radius: 100%;
+  color: white;
+  width: 2em;
+  line-height:2em;
+  text-align: center;
+  display: inline-block;
+}
+#unithouse-ol>li>ul{
+  font-weight:normal
+}
+footer{background:#009bdd;color:#FFF;font-size:12px}
+.footer_menu ul{margin-left:20px}
+.footer_menu a{color:#FFF}
+#copyright{font-size:10px}
+#footer_company a{color:#FFF;text-decoration:underline}
+.font-xs{font-size:0.8rem}
+.font-sm{font-size:0.9rem}
+.font-md{font-size:1.1rem}
+.font-lg{font-size:1.2rem}
+@media only screen and (min-width:992px){
+	#top_head h1{font-size:2rem}
+	.nav-fill .nav-item{text-align:center}
+	.nav-item{border-left:1px dashed #CCC}
+ .nav-item:last-child{border-right:1px dashed #CCC}
+ #sub-menu-content{padding-left:360px}
+ #branches h2{font-size:16px}
+ #branches p{font-size:14px}
+}
+@media only screen and (min-width:768px){
+	#logo{width:300px;height:80px}
+	#index_head h1{font-size:2rem}
+	#index_head h1 span{font-size:4rem}
+
+
+	.table.emp{font-size:1em}
+
+	.table.company{font-size:1em}
+	.table.company th{width:20%}
+
+
+.table.rental{font-size:.9em}
+.table.rental th, .table.rental td {display:table-cell;border-width:1px;border-left:1px solid #CCC}
+.table.rental tr th:first-child {width:15%}
+.table.rental tr td:nth-child(4) {width:15%}
+.table.rental tr td:nth-child(3) {width:30%}
+.table.rental.raw tr th:first-child {width:25%}
+.table.rental.raw tr td:nth-child(4) {width:25%}
+.table.rental.raw tr td:nth-child(3) {width:25%}
+
+
+.table.rental.raw.traffic_after tr td{width:18.75%}
+
+.head_sorter,
+.head_sorter .btn{font-size:0.9rem}
+
+table.group{font-size:.9em}
+.table.terms,.table.vv-control{font-size:.9em}
+
+.group  th, .group  td {display:table-cell;padding:.75rem}
+.group th{width:250px}
+.group th span{display:block; font-size:10px}
+.group tr td:nth-child(2){display:table-cell}
+.group tr td:nth-child(3){padding-bottom:.75rem}
+.group tr td:nth-child(4){border-top:1px solid #dee2e6;padding-top:.75rem}
+.group td:nth-child(2) {width:100px;background:#FFF}
+.group td img{display:block; max-height:100px; max-width:100%}
+.group td:nth-child(3) {width:150px}
+.table.group tr:last-child th,.table.group tr:last-child td{border-bottom: 1px solid #dee2e6}
+
+.table.certificate{font-size:.9em}
+.table.certificate th, .table.certificate td {display:table-cell;border-width:1px;vertical-align:middle;border-left:1px solid #dee2e6}
+.table.certificate tr th:first-child {width:15%}
+.table.certificate tr td:nth-child(3) {width:20%}
+.table.certificate tr td:nth-child(2),
+.table.certificate tr td:nth-child(4),
+.table.certificate tr td:nth-child(5) {width:15%}
+
+.table.unit{font-size:.9em}
+.table.unit th, .table.unit td {display:table-cell;border-width:1px;vertical-align:middle;border-left:1px solid #dee2e6}
+.table.unit.half tr th, .table.unit.halt tr td{width:50%}
+.table.unit.qt tr th, .table.unit.qt tr td{width:25%}
+.table.unit.tpl tr th, .table.unit.tpl tr td{width:33.3333%}
+
+
+}
+
