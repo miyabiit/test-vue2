@@ -1,33 +1,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Head from '../views/Head.vue'
-import Side from '../views/Side.vue'
-import Main from '../views/Main.vue'
+import SideMenu from '@/views/SideMenu.vue'
+import CategoryMenu from '@/views/CategoryMenu.vue'
+import TiledList from '@/views/TiledList.vue'
+import SinglePage from '@/views/SinglePage.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    components: {
+      side: SideMenu,
+      main: CategoryMenu
+    }
   },
   {
-    path: '/head',
-    name: 'Head',
-    component: Head
+    path: '/list',
+    name: 'list',
+    component: TiledList
   },
   {
-    path: '/side',
-    name: 'Side',
-    component: Side
-  },
-  {
-    path: '/main',
-    name: 'Main',
-    component: Main
-  },
+    path: '/single',
+    name: 'single',
+    component: SinglePage
+  }
 ]
 
 const router = new VueRouter({

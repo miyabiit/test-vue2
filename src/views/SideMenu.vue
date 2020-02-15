@@ -1,6 +1,4 @@
 <template>
-
-
   <div class="side">
     <h1>component side</h1>
   </div>
