@@ -12,7 +12,7 @@ const routes = [
     path: '/',
     components: {
       side: SideMenu,
-      main: CategoryMenu
+      mainview: CategoryMenu
     }
   },
   {
