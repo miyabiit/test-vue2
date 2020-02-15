@@ -1,4 +1,5 @@
 <template>
+<div>
 <footer class="mt-5 p-3">
   <div class="container">
     <div class="row">
@@ -49,4 +50,5 @@
     </div>
   </div>
 </footer>
+</div>
 </template>
