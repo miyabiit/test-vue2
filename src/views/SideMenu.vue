@@ -1,9 +1,9 @@
 <template>
 <div>
-      <a class="side_menu mt-2" data-toggle="collapse" href="#side_navi" role="button" aria-expanded="false" aria-controls="side_navi"><i class="icon-search"></i> 特集から探す</a>
-      <div id="side_navi" class="collapse">
-        <a href="">新入荷商品</a>
-        <a href="">おすすめ商品</a>
+      <a class="side_menu mt-2" data-toggle="collapse" href="#side_navi" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 特集から探す</a>
+      <div id="side_navi" class="ccollapse">
+        <router-link :to="{ name: 'list',  params: {Id: 123}}">新入荷商品</router-link>
+        <router-link :to="{ name: 'single', params: {Id: 234}}">おすすめ商品</router-link>
         <a href="">災害支援商品</a>
       </div>
       

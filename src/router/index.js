@@ -16,14 +16,20 @@ const routes = [
     }
   },
   {
-    path: '/list',
+    path: '/list/:Id',
     name: 'list',
-    component: TiledList
+    components: {
+      side: SideMenu,
+      mainview: TiledList
+    }
   },
   {
-    path: '/single',
+    path: '/single/:Id',
     name: 'single',
-    component: SinglePage
+    components: {
+      side: SideMenu,
+      mainview: SinglePage
+    }
   }
 ]
 
