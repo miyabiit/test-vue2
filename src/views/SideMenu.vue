@@ -3,9 +3,9 @@
 
       <a class="side_menu mt-2" data-toggle="collapse" href="#side_navi" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 特集から探す</a>
       <div id="side_navi" class="ccollapse">
-        <router-link :to="{ name: 'list', params: {Id: 1}}">新入荷商品</router-link>
-        <router-link :to="{ name: 'list', params: {Id: 2}}">おすすめ商品</router-link>
-        <router-link :to="{ name: 'list', params: {Id: 3}}">災害支援商品</router-link>
+        <router-link :to="{ name: 'list', params: {Id: 5}}">新入荷商品</router-link>
+        <router-link :to="{ name: 'list', params: {Id: 3}}">おすすめ商品</router-link>
+        <router-link :to="{ name: 'list', params: {Id: 2}}">災害支援商品</router-link>
       </div>
       
       <a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="false" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
