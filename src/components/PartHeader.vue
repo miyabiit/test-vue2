@@ -3,7 +3,7 @@
     <div id="sub-menu">
       <div id="sub-menu-content" class="container text-white">
         <ul class="list-group list-group-horizontal-sm py-2">
-          <li class="list-group-item p-0"><a href="catalog.html" class="py-1 px-4 active">商品カタログ</a></li>
+          <li class="list-group-item p-0"><router-link to="/" href="/" class="py-1 px-4 active">商品カタログ</router-link></li>
           <li class="list-group-item p-0"><a href="products/color-simulation/index.html" class="py-1 px-4">外装カラーシミュレーション</a></li>
           <li class="list-group-item p-0"><a href="products/used/index.html" class="py-1 px-4">中古機械・ハウス販売</a></li>
         </ul>
