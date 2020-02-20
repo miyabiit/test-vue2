@@ -2,9 +2,9 @@
 
 <template>
 <div>
-      <a class="side_menu mt-2" v-on:click="toggleList" v-bind:aria-expanded="show"><i class="icon-search"></i> 特集から探す</a>
+      <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="specialNavi.show"><i class="icon-search"></i>特集から探す</a>
       <transition>
-      <div id="side_navi" v-show="show">
+      <div id="side_navi" v-show="specialNavi.show">
         <router-link :to="{ name: 'list', params: {Id: 5}}">新入荷商品</router-link>
         <router-link :to="{ name: 'list', params: {Id: 3}}">おすすめ商品</router-link>
         <router-link :to="{ name: 'list', params: {Id: 2}}">災害支援商品</router-link>
@@ -171,9 +171,9 @@
           </div>
         </div>
       </div>
-			<a class="side_menu mt-2" v-on:click="toggleList" v-bind:aria-expanded="show"><i class="icon-books"></i> 参考資料</a>
+			<a class="side_menu mt-2" v-on:click="toggleList(docsNavi)" v-bind:aria-expanded="docsNavi.show"><i class="icon-books"></i>参考資料</a>
 			<transition>
-      <div id="side_docs" v-show="show">
+      <div id="side_docs" v-show="docsNavi.show">
         <a href="document/general-conditions/index.html">レンタル約款</a>
         <a href="document/rental-support/index.html">レンタル物件サポート特約制度</a>
         <a href="document/special-contract/index.html">レンタル保障制度</a>
@@ -190,12 +190,17 @@
   export default {
     data: function () {
       return {
-        show: false
+				specialNavi : {
+					show: false
+				},
+				docsNavi : {
+					show: false
+				}
       }
     },
     methods: {
-      toggleList: function (){
-        this.show = !this.show;
+      toggleList: function (menu){
+        menu.show = !menu.show;
       }
     }
   }
