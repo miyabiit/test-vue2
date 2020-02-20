@@ -2,7 +2,7 @@
 
 <template>
 <div>
-      <a class="side_menu mt-2" v-on:click="toggleList"><i class="icon-search"></i> 特集から探す</a>
+      <a class="side_menu mt-2" v-on:click="toggleList" v-bind:aria-expanded="show"><i class="icon-search"></i> 特集から探す</a>
       <transition>
       <div id="side_navi" v-show="show">
         <router-link :to="{ name: 'list', params: {Id: 5}}">新入荷商品</router-link>
@@ -171,8 +171,9 @@
           </div>
         </div>
       </div>
-      <a class="side_menu mt-2" data-toggle="collapse" href="#side_docs" role="button" aria-expanded="false" aria-controls="side_navi"><i class="icon-books"></i> 参考資料</a>
-      <div id="side_docs" class="collapse">
+			<a class="side_menu mt-2" v-on:click="toggleList" v-bind:aria-expanded="show"><i class="icon-books"></i> 参考資料</a>
+			<transition>
+      <div id="side_docs" v-show="show">
         <a href="document/general-conditions/index.html">レンタル約款</a>
         <a href="document/rental-support/index.html">レンタル物件サポート特約制度</a>
         <a href="document/special-contract/index.html">レンタル保障制度</a>
@@ -181,6 +182,7 @@
         <a href="document/unit/index.html">単位</a>
         <a href="document/guide/index.html">ご利用ガイド</a>
       </div>
+			</transition>
 </div>
 </template>
 
