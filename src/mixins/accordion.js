@@ -1,6 +1,6 @@
 // mixinで読み込む accordion 
 // JS file
-var accordion = {
+export default {
   data: function () {
     return {
       openedAccordions: []
@@ -49,7 +49,7 @@ var accordion = {
       for (var i = 0; i < this.openedAccordions.length; i++) {
         if (this.openedAccordions[i] === key) continue;
         newOpened.push(this.openedAccordions[i]);
-      };
+      }
       this.openedAccordions = newOpened;
     },
     toggleAccordion: function (key, open) {
@@ -57,4 +57,4 @@ var accordion = {
       return open ? this.openAccordion(key) : this.closeAccordion(key);
     },
   },
-};
+}
