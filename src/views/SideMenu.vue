@@ -2,7 +2,7 @@
 
 <template>
 <div>
-      <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="!specialNavi.show"><i class="icon-search"></i>特集から探す</a>
+      <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="specialNavi.show"><i class="icon-search"></i>特集から探す</a>
       <transition>
       <div id="side_navi" v-show="specialNavi.show">
         <router-link :to="{ name: 'list', params: {Id: 5}}">新入荷商品</router-link>
@@ -10,18 +10,18 @@
         <router-link :to="{ name: 'list', params: {Id: 2}}">災害支援商品</router-link>
       </div>
       </transition>
-			<a class="side_menu mt-2" v-on:click="tobbleList(mainNavi)" v-bind:area-expanded="!mainNavi.show"><i class="icon-search"></i></a>
+			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:area-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
 			<transition>
 			<div id="accordion" v-show="mainNavi.show">
 				<div class="card">
-					<div class="card-body" id="heading-1" v-for="category in categories">
+					<div class="card-body" id="heading-1" v-for="category in categories" v-bind:key="category.id">
 						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}}</router-link>
 					</div>
 				</div>
 			</div>
 			</transition>
-			<a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="false" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
-      <div id="accordion" class="collapse">
+			<a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
+      <div id="accordion" class="ccollapse">
         <div class="card">
           <div class="card-body" id="heading-1">
               <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
@@ -197,12 +197,13 @@
 </template>
 
 <script>
-	import categories from "@/assets/json/categories.json"
+	import categories from "@/assets/jsons/categories.json"
 	
   export default {
     data: function () {
+      /*
 			var sortedCategories = function(){
-				for(category in categories){
+				for(var category in categories){
 					category.show = false;
 				}
 				function compare(a,b){
@@ -215,8 +216,10 @@
 				}
 				return categories.sort(compare);
 			}
+      */
       return {
-				categories: sortedCategories,
+				// categories: sortedCategories,
+				categories: categories,
 				specialNavi: {
 					show: false
 				},
