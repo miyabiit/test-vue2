@@ -2,7 +2,7 @@
 
 <template>
 <div>
-      <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="specialNavi.show"><i class="icon-search"></i>特集から探す</a>
+      <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="!specialNavi.show"><i class="icon-search"></i>特集から探す</a>
       <transition>
       <div id="side_navi" v-show="specialNavi.show">
         <router-link :to="{ name: 'list', params: {Id: 5}}">新入荷商品</router-link>
@@ -10,7 +10,17 @@
         <router-link :to="{ name: 'list', params: {Id: 2}}">災害支援商品</router-link>
       </div>
       </transition>
-      <a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="false" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
+			<a class="side_menu mt-2" v-on:click="tobbleList(mainNavi)" v-bind:area-expanded="!mainNavi.show"><i class="icon-search"></i></a>
+			<transition>
+			<div id="accordion" v-show="mainNavi.show">
+				<div class="card">
+					<div class="card-body" id="heading-1" v-for="category in categories">
+						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}}</router-link>
+					</div>
+				</div>
+			</div>
+			</transition>
+			<a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="false" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
       <div id="accordion" class="collapse">
         <div class="card">
           <div class="card-body" id="heading-1">
@@ -187,13 +197,33 @@
 </template>
 
 <script>
+	import categories from "@/assets/json/categories.json"
+	
   export default {
     data: function () {
+			var sortedCategories = function(){
+				for(category in categories){
+					category.show = false;
+				}
+				function compare(a,b){
+					var com01 = a.position;
+					var com02 = b.position;
+					var ret = 0;
+					if(com01 > com02) ret = 1;
+					if(com01 < com02) ret = -1;
+					return ret;
+				}
+				return categories.sort(compare);
+			}
       return {
-				specialNavi : {
+				categories: sortedCategories,
+				specialNavi: {
 					show: false
 				},
-				docsNavi : {
+				mainNavi: {
+					show: false
+				},
+				docsNavi: {
 					show: false
 				}
       }
