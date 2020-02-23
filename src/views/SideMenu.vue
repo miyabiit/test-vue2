@@ -1,5 +1,8 @@
-
-
+<!-- 
+catalog-db
+created: yamada
+updated:
+-->
 <template>
 <div>
       <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="specialNavi.show"><i class="icon-search"></i>特集から探す</a>
@@ -15,16 +18,16 @@
 			<div id="accordion" v-show="mainNavi.show">
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
-            <div class="card-body" id="heading-1" v-show="category.position == 1">
-              <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+            <div class="card-body" id="heading-1" v-if="category.position == 1">
+              {{category.name}}
             </div>
             <div class="card-body">
               <div class="card child">
                 <div class="card-body" id="heading-1-1" v-if="category.position == 2">
-                  <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+                  {{category.name}}
                 </div>
                 <div class="card" v-if="category.position == 3">
-                  <router-link class="product" :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+                  <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{category.name}}</router-link>
                 </div>
               </div>
             </div>
@@ -32,7 +35,7 @@
         </div>
 			</div>
 			</transition>
-			<a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
+			<!-- a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
       <div id="accordion" class="ccollapse">
         <div class="card">
           <div class="card-body" id="heading-1">
@@ -56,73 +59,9 @@
                     <div class="card">
                         <a href="product_list.html" class="product">クレーン機能付バックホー後方小旋回</a>
                     </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">バックホー小旋回</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">クレーン機能付バックホー小旋回</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">バックホー</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">クレーン機能付バックホー</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">バックホー配管仕様</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">クレーン機能付バックホー配管仕様</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">電動バックホー</a>
-                    </div>
-                  </div>
-                  <div class="card-body" id="heading-1-2">
-                      <a class="collapsed child" role="button" data-toggle="collapse" href="#collapse-1-2" aria-expanded="false" aria-controls="collapse-1-2">
-                        運搬機械
-                      </a>
-                  </div>
-                  <div id="collapse-1-2" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-1-2">
-                    <div class="card">
-                        <a href="product_list.html" class="product">ベルトコンベア</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">アルミコンベア</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">ホイールローダ</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">キャリアダンプ</a>
-                    </div>
-                  </div>
-                  <div class="card-body" id="heading-1-3">
-                      <a class="collapsed child" role="button" data-toggle="collapse" href="#collapse-1-3" aria-expanded="false" aria-controls="collapse-1-3">
-                        解体機械
-                      </a>
-                  </div>
-                  <div id="collapse-1-3" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-1-3">
-                    <div class="card">
-                        <a href="product_list.html" class="product">解体ロングバックホー</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">解体ショートリーチバックホー</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">解体用アタッチメント類</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">解体用搭乗式床材剥がし機</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">ミニローダー</a>
-                    </div>
                   </div>
                 </div>
-                
               </div>
-
             </div>
           </div>
           <div class="card-body" id="heading-2">
@@ -192,7 +131,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div -->
 			<a class="side_menu mt-2" v-on:click="toggleList(docsNavi)" v-bind:aria-expanded="docsNavi.show"><i class="icon-books"></i>参考資料</a>
 			<transition>
       <div id="side_docs" v-show="docsNavi.show">
