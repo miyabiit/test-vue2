@@ -14,20 +14,20 @@
 			<transition>
 			<div id="accordion" v-show="mainNavi.show">
         <div v-for="category in sortCategories" v-bind:key="category.id">
-          <div class="card" v-show="category.position == 1">
-            <div class="card-body" id="heading-1">
+          <div class="card">
+            <div class="card-body" id="heading-1" v-show="category.position == 1">
               <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
             </div>
-          </div>
-          <div class="card-body" v-if="category.position == 2">
-            <div class="card child">
-              <div class="card-body" id="heading-1-1">
-                <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+            <div class="card-body">
+              <div class="card child">
+                <div class="card-body" id="heading-1-1" v-if="category.position == 2">
+                  <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+                </div>
+                <div class="card" v-if="category.position == 3">
+                  <router-link class="product" :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="card" v-if="category.position == 3">
-            <router-link class="product" :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
           </div>
         </div>
 			</div>
