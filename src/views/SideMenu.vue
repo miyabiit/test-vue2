@@ -13,40 +13,43 @@
 			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:aria-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
 			<transition>
 			<div id="accordion" v-show="mainNavi.show">
-				<div class="card">
-					<div v-for="category in sortCategories" v-bind:key="category.id">
-            <div v-show="category.position == 1">
-					<div class="card-body" id="heading-1">
-						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
-        </div>
+        <div v-for="category in sortCategories" v-bind:key="category.id">
+          <div class="card" v-show="category.position == 1">
+            <div class="card-body" id="heading-1">
+              <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
             </div>
-            <div v-show="category.position == 2">
-                  <div class="card-body" id="heading-1-1">
-						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
-            </div>
-					</div>
           </div>
-				</div>
+          <div class="card" v-show="category.position == 2">
+            <div class="card-body" id="heading-1-1">
+              <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+            </div>
+          </div>
+          <div class="card" v-show="category.position == 3">
+            <div class="card-body" id="heading-1-1">
+              <router-link class="product" :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+            </div>
+          </div>
+        </div>
 			</div>
 			</transition>
 			<a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
       <div id="accordion" class="ccollapse">
         <div class="card">
           <div class="card-body" id="heading-1">
-              <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+              <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
                 掘削・運搬・解体・林業
               </a>
           </div>
-          <div id="collapse-1" class="collapse" data-parent="#accordion" aria-labelledby="heading-1">
+          <div id="collapse-1" class="ccollapse" data-parent="#accordion" aria-labelledby="heading-1">
             <div class="card-body">
               <div id="accordion-1">
                 <div class="card child">
                   <div class="card-body" id="heading-1-1">
-                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1" aria-expanded="false" aria-controls="collapse-1-1">
+                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1" aria-expanded="true" aria-controls="collapse-1-1">
                         掘削機械
                       </a>
                   </div>
-                  <div id="collapse-1-1" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-1-1">
+                  <div id="collapse-1-1" class="ccollapse" data-parent="#accordion-1" aria-labelledby="heading-1-1">
                     <div class="card">
                         <a href="product_list.html" class="product">バックホー後方小旋回</a>
                     </div>
