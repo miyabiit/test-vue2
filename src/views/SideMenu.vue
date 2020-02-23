@@ -10,12 +10,12 @@
         <router-link :to="{ name: 'list', params: {Id: 2}}">災害支援商品</router-link>
       </div>
       </transition>
-			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:area-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
+			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:aria-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
 			<transition>
 			<div id="accordion" v-show="mainNavi.show">
 				<div class="card">
-					<div class="card-body" id="heading-1" v-for="category in categories" v-bind:key="category.id">
-						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}}</router-link>
+					<div class="card-body" id="heading-1" v-for="category in sortCategories" v-bind:key="category.id">
+						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
 					</div>
 				</div>
 			</div>
@@ -201,25 +201,7 @@
 	
   export default {
     data: function () {
-      /*
-			var sortedCategories = function(){
-				for(var category in categories){
-					category.show = false;
-				}
-				function compare(a,b){
-					var com01 = a.position;
-					var com02 = b.position;
-					var ret = 0;
-					if(com01 > com02) ret = 1;
-					if(com01 < com02) ret = -1;
-					return ret;
-				}
-				return categories.sort(compare);
-			}
-      */
       return {
-				// categories: sortedCategories,
-				categories: categories,
 				specialNavi: {
 					show: false
 				},
@@ -228,13 +210,45 @@
 				},
 				docsNavi: {
 					show: false
-				}
+				},
+        categories: categories
       }
     },
     methods: {
       toggleList: function (menu){
         menu.show = !menu.show;
       }
+    },
+    computed: {
+      sortCategories: function() {
+          var cat = this.categories;
+
+          for(var i=0;i<cat.length;i++){
+            console.log("name:" + cat[i].name);
+            cat[i].show = false;
+          }
+
+          function compare(a,b){
+            var cat01 = a.category_id;
+            var cat02 = b.category_id;
+            var pos01 = a.position;
+            var pos02 = b.position;
+            var ret = 0;
+            if(cat01 > cat02){
+              ret = 1;
+            } else if(cat01 < cat02){
+              ret = -1;
+            } else {
+              if(pos01 > pos02){
+                ret = 1;
+              } else if (pos01 < pos02){
+                ret = -1;
+              }
+            }
+            return ret;
+          }
+          return cat.sort(compare);
+        }
+      }
     }
-  }
 </script>
