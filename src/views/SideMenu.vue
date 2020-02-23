@@ -23,11 +23,11 @@
             <div class="card child">
               <div class="card-body" id="heading-1-1">
                 <router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
-              </div>              
-              <div class="card" v-if="category.position == 3">
-                  <router-link class="product" :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
               </div>
             </div>
+          </div>
+          <div class="card" v-if="category.position == 3">
+            <router-link class="product" :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
           </div>
         </div>
 			</div>
