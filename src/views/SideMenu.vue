@@ -14,9 +14,18 @@
 			<transition>
 			<div id="accordion" v-show="mainNavi.show">
 				<div class="card">
-					<div class="card-body" id="heading-1" v-for="category in sortCategories" v-bind:key="category.id">
+					<div v-for="category in sortCategories" v-bind:key="category.id">
+            <div v-show="category.position == 1">
+					<div class="card-body" id="heading-1">
 						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+        </div>
+            </div>
+            <div v-show="category.position == 2">
+                  <div class="card-body" id="heading-1-1">
+						<router-link :to="{ name: 'list', params: {Id: 4}}">{{category.name}} - {{category.category_id}} - {{category.position}}</router-link>
+            </div>
 					</div>
+          </div>
 				</div>
 			</div>
 			</transition>
