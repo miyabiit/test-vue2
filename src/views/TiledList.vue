@@ -55,19 +55,19 @@
     <div id="product_child_list" class="row p-3 mx-0">
       <div class="col-12">
         <div v-for="product in products" v-bind:key="product.id">
-        <router-link :to="{ name: 'list', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
+        <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
           <div class="row align-items-center">
             <div class="col-5 col-sm-2">
-              <img src="@/assets/images/product/img3.png" class="d-block w-100 border" :alt="product.name">
-              <span class="d-block netis text-center">NETIS</span>
+              <img src="@/assets/images/product/img3.png" class="d-block w-100 border" :alt="product.title">
+              <span class="d-block netis text-center" v-show="product.netis">NETIS</span>
             </div>
             <div class="col-7 col-sm-10">
               <div class="row product_child_list_detail">
-                <div class="col-12 font-weight-bold pb-1">{{product.name}}</div>
+                <div class="col-12 font-weight-bold pb-1">{{product.title}}</div>
                 <div class="col-12">メーカー：{{product.maker}}</div>
                 <div class="col-12">呼称：{{product.callname}}</div>
                 <div class="col-12">型式：{{product.type}}</div>
-                <div class="col-12">商品コード：{{product.code}}</div>
+                <div class="col-12">商品コード：{{product.product_code}}</div>
               </div>
             </div>
           </div>
@@ -132,9 +132,11 @@
 <script>
   import products from "@/assets/jsons/products.json"
   
-  data: function () {
-    return {
-      products: products
+  export default {
+    data: function () {
+      return {
+        products: products
+      }
     }
   }
 </script>
