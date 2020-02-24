@@ -24,6 +24,14 @@ const routes = [
     }
   },
   {
+    path: '/search/:Keyword',
+    name: 'search',
+    components: {
+      side: SideMenu,
+      mainview: TiledList
+    }
+  },
+  {
     path: '/single/:Id',
     name: 'single',
     components: {

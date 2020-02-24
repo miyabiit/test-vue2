@@ -54,11 +54,11 @@
 
     <div id="product_child_list" class="row p-3 mx-0">
       <div class="col-12">
-        <div v-for="product in products" v-bind:key="product.id">
+        <div v-for="product in filterProducts" v-bind:key="product.id">
         <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
           <div class="row align-items-center">
             <div class="col-5 col-sm-2">
-              <img src="@/assets/images/product/img3.png" class="d-block w-100 border" :alt="product.product.title">
+              <img :src="product.tile_image" class="d-block w-100 border" :alt="product.product.title">
               <span class="d-block netis text-center" v-show="product.product.netis">NETIS</span>
             </div>
             <div class="col-7 col-sm-10">
@@ -131,13 +131,36 @@
 
 <script>
   //import products from "@/assets/jsons/products.json"
-  import products from "@/assets/jsons/stock_products.json"
+  import testProducts from "@/assets/jsons/stock_products.json"
   
   export default {
     data: function () {
       return {
-        products: products
+        products: products,
+        keyword: this.$route.params.Keyword,
+        category_id: this.$route.params.Id
       }
+    },
+    computed: fuction () {
+      filterProducts: function () {
+        var allProducts = this.products;
+        var myKey = this.keyword;
+        var myId = this.category_id;
+        var filtered = [];
+        if(mykey){
+          filtered = allProducts.filter(function(item){
+            if(item.title).indexOf(myKey) >= return true;
+          })
+        }else if(myId){
+          filtered = allProducts.filter(function(item){
+            if(item.parent_id == myId) return true;
+          })
+        }else{
+          filtered = allProducts;
+        }
+        return filtered
+      }  
     }
   }
 </script>
+
