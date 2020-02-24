@@ -190,7 +190,7 @@
     data: function () {
       return {
         //keyword: "",
-        //product_id: "",
+        product_id: this.$route.params.Id,
         products: products
       }
     },
@@ -217,7 +217,11 @@
     computed: {
       product: function () {
         var allProducts = this.products;
-        return allProducts[0]
+        var filteredProducts = allProducts.filter(function(item){
+          if(item.id == this.product_id) return true;
+        })
+        return filteredProducts[0]
+        //return allProducts[0]
       }
     }
     /*
