@@ -187,9 +187,6 @@
   import products from "@/assets/jsons/stock_products.json"
   
   export default {
-    data: function () {
-      // products: products
-    },
     methods: {
       isNew: function (p) {
         var news = p.sub_categories.filter(function(item){
@@ -211,7 +208,7 @@
       }
     },
     computed: {
-      product: function(){
+      product(){
         var pro = products;
         var p = pro.filter(function (item){
           if(item.id == this.$route.params.id) return true;
