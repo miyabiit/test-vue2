@@ -175,7 +175,6 @@ updated:
           var cat = this.categories;
 
           for(var i=0;i<cat.length;i++){
-            console.log("name:" + cat[i].name);
             cat[i].show = false;
           }
 

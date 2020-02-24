@@ -3,7 +3,7 @@
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
-          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="product.product.netis">NETIS商品 {{"登録番号：" product.product.netis_no"}}</span><br>
+          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="product.product.netis">NETIS商品 {{"登録番号："+product.product.netis_no}}</span><br>
           <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-show="isNew(product)">新入荷商品</span>
           <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-show="isRec(product)">おすすめ商品</span>
           <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-show="isDes(product)">災害支援商品</span>
@@ -23,9 +23,9 @@
         </div>
       </div>
       <div class="row p-3 mx-0">
-        <div v-for="productImage in product.image_props" v-bind:key="prouduct.image_props.id">  
+        <div v-for="(productImagei,index) in product.image_props" v-bind:key="index">  
           <div class="col-4 col-md-3 col-lg-2 mb-2">
-              <a href="#" data-src="productImage.url" class="product_thumbnails d-block border border-primary">
+              <a href="#" :data-src="productImage.url" class="product_thumbnails d-block border border-primary">
               <img src="productImage.url" class="d-block w-100"></a>
           </div>
         </div>
@@ -112,13 +112,13 @@
        </div>
        
        <h2 class="p-2 mt-5"><i class="icon-video"></i> 動画</h2>
-       <div class="videoWrapper"><iframe width="560" height="315" src="{{product.video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
        </div>
        <p class="p-2">{{product.video_comment}}</p>
        
        <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
        <div class="row mx-0">
-         <div v-for="file in product.file_props" v-bind:key="product.file_props.id">
+         <div v-for="(file,index) in product.file_props" v-bind:key="index">
            <div class="col-6 mb-2">
              <a href="file.url" class="btn btn-outline-info btn-block" download><i class="icon-pdf"></i>{{file.name}}</a>
            </div>
@@ -128,7 +128,7 @@
        
        <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連サイト</h2>
        <div id="links" class="row px-3 mx-0">
-         <div v-for="myLink in product.link_props" v-bind:key="product.link_props.id">
+         <div v-for="(myLink,index) in product.link_props" v-bind:key="index">
            <a href="myLink.url" class="btn btn-outline-info btn-block text-left" target="_blank">{{myLink.name}}</a>    
          </div>
        </div>
@@ -188,23 +188,23 @@
   
   export default {
     data: function () {
-      products: products
+      // products: products
     },
     methods: {
       isNew: function (p) {
-        var news = p.sub_categories.filter(function(item, index){
+        var news = p.sub_categories.filter(function(item){
           if((item.name).indexOf("新入荷商品") >= 0) return true;
         })
         return news.length;
       },
       isRec: function (p) {
-        var recs = p.sub_categories.filter(function(item, index){
+        var recs = p.sub_categories.filter(function(item){
           if((item.name).indexOf("おすすめ") >= 0) return true;
         })
         return recs.length;
       },
       isDes: function (p) {
-        var dess = p.sub_categories.filter(function(item, index){
+        var dess = p.sub_categories.filter(function(item){
           if((item.name).indexOf("災害") >= 0) return true;
         })
         return dess.length;
@@ -212,7 +212,8 @@
     },
     computed: {
       product: function(){
-        var p = this.products.filter(function (item, index){
+        var pro = products;
+        var p = pro.filter(function (item){
           if(item.id == this.$route.params.id) return true;
         })
         return p;
