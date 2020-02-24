@@ -187,6 +187,13 @@
   import products from "@/assets/jsons/stock_products.json"
   
   export default {
+    data: function () {
+      return {
+        //keyword: "",
+        //product_id: "",
+        products: products
+      }
+    },
     methods: {
       isNew: function (p) {
         var news = p.sub_categories.filter(function(item){
@@ -206,7 +213,14 @@
         })
         return dess.length;
       }
-    },
+    }
+    computed: {
+      product: function () {
+        var allProducts = this.products;
+        return allProducts[0]
+      }
+    }
+    /*
     computed: {
       product(){
         var pro = products;
@@ -216,5 +230,6 @@
         return p;
       }
     }
+    */
   }
 </script>
