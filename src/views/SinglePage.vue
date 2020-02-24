@@ -1,3 +1,7 @@
+<!--
+
+
+-->
 <template>
     <main id="product" class="order-1 order-md-2 col-12 col-md-9 py-0 px-0 pl-md-5 mt-3 mt-md-0 mx-0 bd-content" role="main">
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.title}}</h2>
@@ -19,7 +23,7 @@
           <p>{{product.description}}</p>
         </div>
         <div class="col-12">
-          <img id="product_image" src="product.image_props[0].url" class="d-block w-100" alt="大きな商品画像">
+          <img id="product_image" src="product.image_props[0].url" class="d-block w-100" :alt="this.$route.params.Id">
         </div>
       </div>
       <div class="row p-3 mx-0">
@@ -189,7 +193,6 @@
   export default {
     data: function () {
       return {
-        //keyword: "",
         product_id: this.$route.params.Id,
         products: products
       }
@@ -217,23 +220,12 @@
     computed: {
       product: function () {
         var allProducts = this.products;
+        var filter_id = this.product_id;
         var filteredProducts = allProducts.filter(function(item){
-          if(item.id == this.product_id) return true;
+          if(item.id == filter_id) return true;
         })
         return filteredProducts[0]
-        //return allProducts[0]
       }
     }
-    /*
-    computed: {
-      product(){
-        var pro = products;
-        var p = pro.filter(function (item){
-          if(item.id == this.$route.params.id) return true;
-        })
-        return p;
-      }
-    }
-    */
   }
 </script>
