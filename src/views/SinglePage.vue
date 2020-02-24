@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="row p-3 mx-0">
-        <div v-for="(productImagei,index) in product.image_props" v-bind:key="index">  
+        <div v-for="(productImage,index) in product.image_props" v-bind:key="index">  
           <div class="col-4 col-md-3 col-lg-2 mb-2">
               <a href="#" :data-src="productImage.url" class="product_thumbnails d-block border border-primary">
               <img src="productImage.url" class="d-block w-100"></a>
@@ -213,7 +213,7 @@
         })
         return dess.length;
       }
-    }
+    },
     computed: {
       product: function () {
         var allProducts = this.products;
