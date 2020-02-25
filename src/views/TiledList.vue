@@ -131,7 +131,7 @@
 
 <script>
   //import products from "@/assets/jsons/products.json"
-  import testProducts from "@/assets/jsons/stock_products.json"
+  import products from "@/assets/jsons/stock_products.json"
   
   export default {
     data: function () {
@@ -141,23 +141,33 @@
         category_id: this.$route.params.Id
       }
     },
-    computed: fuction () {
+    computed: {
       filterProducts: function () {
         var allProducts = this.products;
         var myKey = this.keyword;
         var myId = this.category_id;
         var filtered = [];
-        if(mykey){
+        console.log(myKey);
+        if(myKey){
           filtered = allProducts.filter(function(item){
-            if(item.title).indexOf(myKey) >= return true;
+            if(item.product.title.indexOf(myKey) >= 0) return true;
           })
-        }else if(myId){
+          console.log('keyword search');
+        }
+        else if(myId){
           filtered = allProducts.filter(function(item){
             if(item.parent_id == myId) return true;
           })
-        }else{
-          filtered = allProducts;
+          if(filtered.length == 0){
+            filtered = allProducts; // for test
+          }
+          console.log('category search');
         }
+        else{
+          filtered = allProducts;
+          console.log('none');
+        }
+        console.log(filtered);
         return filtered
       }  
     }
