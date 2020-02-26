@@ -203,24 +203,26 @@ updated:
         }
         //layered
         var newone = []
-        newone = cat.sort(compare);
+        cat.sort(compare);
+        var data = cat;
         var last_gm = -1; //grand mother
         var last_m = -1;
-        for(var i=0;i < data.length;i++){
+        for(i=0;i < data.length;i++){
           data[i].child = [];
-          if(data[i].level == 1){
+          if(data[i].position == 1){
             last_gm++;
             last_m = -1;
             newone.push(data[i]);
           }
-          else if(data[i].level == 2){
+          else if(data[i].position == 2){
             last_m++;
             newone[last_gm].child.push(data[i]);
-          }else if(data[i].level == 3){
+          }else if(data[i].position == 3){
             newone[last_gm].child[last_m].child.push(data[i]);
           }
         }
         return newone;
       }
     }
+  }
 </script>
