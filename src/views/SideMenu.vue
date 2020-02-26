@@ -18,16 +18,20 @@ updated:
 			<div id="accordion" v-show="mainNavi.show">
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
-            <div class="card-body" id="heading-1" v-if="category.position == 1">
+            <div class="card-body" id="heading-1">
               {{category.name}}
             </div>
-            <div class="card-body">
-              <div class="card child">
-                <div class="card-body" id="heading-1-1" v-if="category.position == 2">
-                  {{category.name}}
-                </div>
-                <div class="card" v-if="category.position == 3">
-                  <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{category.name}}</router-link>
+            <div v-for="child in category.child" v-bind:key="child.id">
+              <div class="card-body">
+                <div class="card child">
+                  <div class="card-body" id="heading-1-1">
+                    {{child.name}}
+                  </div>
+                  <div v-for="childone in child.child" v-bind:key="childone.id">
+                    <div class="card">
+                      <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -172,33 +176,51 @@ updated:
     },
     computed: {
       sortCategories: function() {
-          var cat = this.categories;
+        var cat = this.categories;
 
-          for(var i=0;i<cat.length;i++){
-            cat[i].show = false;
-          }
-
-          function compare(a,b){
-            var cat01 = a.category_id;
-            var cat02 = b.category_id;
-            var pos01 = a.position;
-            var pos02 = b.position;
-            var ret = 0;
-            if(cat01 > cat02){
-              ret = 1;
-            } else if(cat01 < cat02){
-              ret = -1;
-            } else {
-              if(pos01 > pos02){
-                ret = 1;
-              } else if (pos01 < pos02){
-                ret = -1;
-              }
-            }
-            return ret;
-          }
-          return cat.sort(compare);
+        for(var i=0;i<cat.length;i++){
+          cat[i].show = false;
         }
+
+        function compare(a,b){
+          var cat01 = a.category_id;
+          var cat02 = b.category_id;
+          var pos01 = a.position;
+          var pos02 = b.position;
+          var ret = 0;
+          if(cat01 > cat02){
+            ret = 1;
+          } else if(cat01 < cat02){
+            ret = -1;
+          } else {
+            if(pos01 > pos02){
+              ret = 1;
+            } else if (pos01 < pos02){
+              ret = -1;
+            }
+          }
+          return ret;
+        }
+        //layered
+        var newone = []
+        newone = cat.sort(compare);
+        var last_gm = -1; //grand mother
+        var last_m = -1;
+        for(var i=0;i < data.length;i++){
+          data[i].child = [];
+          if(data[i].level == 1){
+            last_gm++;
+            last_m = -1;
+            newone.push(data[i]);
+          }
+          else if(data[i].level == 2){
+            last_m++;
+            newone[last_gm].child.push(data[i]);
+          }else if(data[i].level == 3){
+            newone[last_gm].child[last_m].child.push(data[i]);
+          }
+        }
+        return newone;
       }
     }
 </script>
