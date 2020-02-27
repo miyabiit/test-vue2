@@ -19,17 +19,20 @@ updated:
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
             <div class="card-body" id="heading-1">
+              <a v-on:click="toggleList(category)" v-bind:aria-expanded="category.show">
               {{category.name}}
+              </a>
             </div>
+            <div v-show="category.show">
             <div v-for="child in category.child" v-bind:key="child.id">
               <div class="card-body">
                 <div class="card child">
                   <div class="card-body" id="heading-1-1">
-                    <a class="collapsed" v-on:click="toggleList(child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
+                    <a v-on:click="toggleList(child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
                       {{child.name}}
                     </a>
                   </div>
-                  <div id="collapse-1-1" v-show="child.show" aria-labelledby="heading-1-1">
+                  <div v-show="child.show" aria-labelledby="heading-1-1">
                     <div v-for="childone in child.child" v-bind:key="childone.id">
                       <div class="card">
                         <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
@@ -38,6 +41,7 @@ updated:
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>

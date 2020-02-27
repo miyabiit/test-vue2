@@ -147,12 +147,10 @@
         var myKey = this.keyword;
         var myId = this.category_id;
         var filtered = [];
-        console.log(myKey);
         if(myKey){
           filtered = allProducts.filter(function(item){
             if(item.product.title.indexOf(myKey) >= 0) return true;
           })
-          console.log('keyword search');
         }
         else if(myId){
           filtered = allProducts.filter(function(item){
@@ -161,13 +159,10 @@
           if(filtered.length == 0){
             filtered = allProducts; // for test
           }
-          console.log('category search');
         }
         else{
           filtered = allProducts;
-          console.log('none');
         }
-        console.log(filtered);
         return filtered
       }  
     }
