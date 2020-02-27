@@ -25,11 +25,15 @@ updated:
               <div class="card-body">
                 <div class="card child">
                   <div class="card-body" id="heading-1-1">
-                    {{child.name}}
+                    <a class="collapsed" v-on:click="toggleList(child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
+                      {{child.name}}
+                    </a>
                   </div>
-                  <div v-for="childone in child.child" v-bind:key="childone.id">
-                    <div class="card">
-                      <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
+                  <div id="collapse-1-1" v-show="child.show" aria-labelledby="heading-1-1">
+                    <div v-for="childone in child.child" v-bind:key="childone.id">
+                      <div class="card">
+                        <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
+                      </div>
                     </div>
                   </div>
                 </div>
