@@ -138,5 +138,1265 @@
       "id": 1,
       "name": "テスト建機1"
     }
+  },
+  {
+    "id": 13,
+    "category_id": 12,
+    "company_id": 1,
+    "name": "0.12m3（2.5ｔクラス）未満",
+    "position": 1,
+    "last": false,
+    "created_at": "2020-02-13T16:20:51.046+09:00",
+    "updated_at": "2020-02-13T16:20:51.046+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 14,
+    "category_id": 13,
+    "company_id": 1,
+    "name": "0.007m3（0.3ｔクラス）バックホー",
+    "position": 1,
+    "last": true,
+    "created_at": "2020-02-13T16:23:20.442+09:00",
+    "updated_at": "2020-02-13T16:23:20.442+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 15,
+    "category_id": 13,
+    "company_id": 1,
+    "name": "0.03m3（0.9tクラス）バックホー",
+    "position": 2,
+    "last": true,
+    "created_at": "2020-02-13T16:24:35.136+09:00",
+    "updated_at": "2020-02-13T16:24:35.136+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 16,
+    "category_id": 13,
+    "company_id": 1,
+    "name": "0.03m3（0.9tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-13T16:25:26.422+09:00",
+    "updated_at": "2020-02-13T16:25:26.422+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 17,
+    "category_id": 13,
+    "company_id": 1,
+    "name": "0.1m3（2tクラス）バックホー",
+    "position": 4,
+    "last": true,
+    "created_at": "2020-02-13T16:26:11.449+09:00",
+    "updated_at": "2020-02-13T16:26:11.449+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 18,
+    "category_id": 12,
+    "company_id": 1,
+    "name": "0.12m3（2.5ｔクラス）～0.25m3（7ｔクラス）未満",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-13T16:26:56.185+09:00",
+    "updated_at": "2020-02-13T16:26:56.185+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 19,
+    "category_id": 18,
+    "company_id": 1,
+    "name": "0.12m3（2.5tクラス）バックホー",
+    "position": 1,
+    "last": true,
+    "created_at": "2020-02-13T16:27:52.929+09:00",
+    "updated_at": "2020-02-13T16:27:52.929+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 20,
+    "category_id": 18,
+    "company_id": 1,
+    "name": "0.14m3（3tクラス）バックホー",
+    "position": 2,
+    "last": true,
+    "created_at": "2020-02-13T16:28:29.767+09:00",
+    "updated_at": "2020-02-13T16:28:29.767+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 21,
+    "category_id": 18,
+    "company_id": 1,
+    "name": "0.18m3（4tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-13T16:29:10.659+09:00",
+    "updated_at": "2020-02-13T16:29:10.659+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 22,
+    "category_id": 18,
+    "company_id": 1,
+    "name": "0.2m3（5tクラス）バックホー",
+    "position": 4,
+    "last": true,
+    "created_at": "2020-02-13T16:29:43.504+09:00",
+    "updated_at": "2020-02-13T16:29:43.504+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 23,
+    "category_id": 12,
+    "company_id": 1,
+    "name": "0.25m3（7ｔクラス）以上",
+    "position": 3,
+    "last": false,
+    "created_at": "2020-02-13T16:30:30.200+09:00",
+    "updated_at": "2020-02-13T16:30:30.200+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 24,
+    "category_id": 23,
+    "company_id": 1,
+    "name": "0.25m3（7ｔクラス）バックホー",
+    "position": 1,
+    "last": true,
+    "created_at": "2020-02-13T16:30:52.921+09:00",
+    "updated_at": "2020-02-13T16:30:52.921+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 25,
+    "category_id": 23,
+    "company_id": 1,
+    "name": "0.4m3（12ｔクラス）バックホー",
+    "position": 2,
+    "last": true,
+    "created_at": "2020-02-13T16:31:16.185+09:00",
+    "updated_at": "2020-02-13T16:31:16.185+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 26,
+    "category_id": 23,
+    "company_id": 1,
+    "name": "0.45m3（13ｔクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-13T16:31:43.422+09:00",
+    "updated_at": "2020-02-13T16:31:43.422+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 27,
+    "category_id": 23,
+    "company_id": 1,
+    "name": "0.7m3（20tクラス）バックホー",
+    "position": 4,
+    "last": true,
+    "created_at": "2020-02-13T16:32:07.712+09:00",
+    "updated_at": "2020-02-13T16:32:07.712+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 28,
+    "category_id": null,
+    "company_id": 1,
+    "name": "解体・林業・アタッチメント",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-13T16:32:39.889+09:00",
+    "updated_at": "2020-02-13T16:32:39.889+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 29,
+    "category_id": 28,
+    "company_id": 1,
+    "name": "林業機械",
+    "position": 1,
+    "last": false,
+    "created_at": "2020-02-13T16:33:02.665+09:00",
+    "updated_at": "2020-02-13T16:33:02.665+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 30,
+    "category_id": 29,
+    "company_id": 1,
+    "name": "グラップル",
+    "position": 1,
+    "last": true,
+    "created_at": "2020-02-13T16:33:23.418+09:00",
+    "updated_at": "2020-02-13T16:33:23.418+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 31,
+    "category_id": 29,
+    "company_id": 1,
+    "name": "フォワーダ",
+    "position": 2,
+    "last": true,
+    "created_at": "2020-02-13T16:33:42.163+09:00",
+    "updated_at": "2020-02-13T16:35:19.705+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 32,
+    "category_id": 29,
+    "company_id": 1,
+    "name": "ザウルス",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-13T16:34:48.634+09:00",
+    "updated_at": "2020-02-13T16:34:48.634+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 33,
+    "category_id": 29,
+    "company_id": 1,
+    "name": "ハーベスタ",
+    "position": 4,
+    "last": true,
+    "created_at": "2020-02-13T16:35:06.868+09:00",
+    "updated_at": "2020-02-13T16:35:06.868+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 34,
+    "category_id": 29,
+    "company_id": 1,
+    "name": "スイングヤーダ",
+    "position": 5,
+    "last": true,
+    "created_at": "2020-02-13T16:35:31.303+09:00",
+    "updated_at": "2020-02-13T16:35:31.303+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 35,
+    "category_id": 29,
+    "company_id": 1,
+    "name": "プロセッサ",
+    "position": 6,
+    "last": true,
+    "created_at": "2020-02-13T16:35:42.945+09:00",
+    "updated_at": "2020-02-13T16:35:42.945+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 36,
+    "category_id": 28,
+    "company_id": 1,
+    "name": "解体",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-13T16:36:07.538+09:00",
+    "updated_at": "2020-02-13T16:36:07.538+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 37,
+    "category_id": 36,
+    "company_id": 1,
+    "name": "油圧圧砕機小割",
+    "position": 1,
+    "last": true,
+    "created_at": "2020-02-13T16:36:20.904+09:00",
+    "updated_at": "2020-02-13T16:36:20.904+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 38,
+    "category_id": 0,
+    "company_id": 1,
+    "name": "APIテスト1",
+    "position": 1,
+    "last": false,
+    "created_at": "2020-02-25T18:49:33.109+09:00",
+    "updated_at": "2020-02-25T18:49:33.109+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 40,
+    "category_id": null,
+    "company_id": 1,
+    "name": "掘削機（バックホー・油圧ショベル）",
+    "position": 1,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.233+09:00",
+    "updated_at": "2020-02-27T21:35:54.233+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 41,
+    "category_id": 40,
+    "company_id": 1,
+    "name": "0.12m3（2.5ｔクラス）未満",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.309+09:00",
+    "updated_at": "2020-02-27T21:35:54.309+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 42,
+    "category_id": 41,
+    "company_id": 1,
+    "name": "0.007m3（0.3ｔクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.321+09:00",
+    "updated_at": "2020-02-27T21:35:54.321+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 43,
+    "category_id": 41,
+    "company_id": 1,
+    "name": "0.03m3（0.9tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.329+09:00",
+    "updated_at": "2020-02-27T21:35:54.329+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 44,
+    "category_id": 41,
+    "company_id": 1,
+    "name": "0.07m3（1.5ｔクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.337+09:00",
+    "updated_at": "2020-02-27T21:35:54.337+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 45,
+    "category_id": 41,
+    "company_id": 1,
+    "name": "0.1m3（2tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.346+09:00",
+    "updated_at": "2020-02-27T21:35:54.346+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 46,
+    "category_id": 40,
+    "company_id": 1,
+    "name": "0.12m3（2.5ｔクラス）〜0.25m3（7ｔクラス）未満",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.353+09:00",
+    "updated_at": "2020-02-27T21:35:54.353+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 47,
+    "category_id": 46,
+    "company_id": 1,
+    "name": "0.12m3（2.5tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.361+09:00",
+    "updated_at": "2020-02-27T21:35:54.361+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 48,
+    "category_id": 46,
+    "company_id": 1,
+    "name": "0.14m3（3tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.369+09:00",
+    "updated_at": "2020-02-27T21:35:54.369+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 49,
+    "category_id": 46,
+    "company_id": 1,
+    "name": "0.18m3（4tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.377+09:00",
+    "updated_at": "2020-02-27T21:35:54.377+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 50,
+    "category_id": 46,
+    "company_id": 1,
+    "name": "0.2m3（5tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.385+09:00",
+    "updated_at": "2020-02-27T21:35:54.385+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 51,
+    "category_id": 40,
+    "company_id": 1,
+    "name": "0.25m3（7ｔクラス）以上",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.393+09:00",
+    "updated_at": "2020-02-27T21:35:54.393+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 52,
+    "category_id": 51,
+    "company_id": 1,
+    "name": "0.25m3（7ｔクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.400+09:00",
+    "updated_at": "2020-02-27T21:35:54.400+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 53,
+    "category_id": 51,
+    "company_id": 1,
+    "name": "0.4m3（12ｔクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.408+09:00",
+    "updated_at": "2020-02-27T21:35:54.408+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 54,
+    "category_id": 51,
+    "company_id": 1,
+    "name": "0.45m3（13ｔクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.416+09:00",
+    "updated_at": "2020-02-27T21:35:54.416+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 55,
+    "category_id": 51,
+    "company_id": 1,
+    "name": "0.7m3（20tクラス）バックホー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.424+09:00",
+    "updated_at": "2020-02-27T21:35:54.424+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 56,
+    "category_id": null,
+    "company_id": 1,
+    "name": "解体・林業・アタッチメント",
+    "position": 1,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.430+09:00",
+    "updated_at": "2020-02-27T21:35:54.430+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 57,
+    "category_id": 56,
+    "company_id": 1,
+    "name": "林業機械",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.439+09:00",
+    "updated_at": "2020-02-27T21:35:54.439+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 58,
+    "category_id": 57,
+    "company_id": 1,
+    "name": "グラップル",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.450+09:00",
+    "updated_at": "2020-02-27T21:35:54.450+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 59,
+    "category_id": 57,
+    "company_id": 1,
+    "name": "フォワーダ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.457+09:00",
+    "updated_at": "2020-02-27T21:35:54.457+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 60,
+    "category_id": 57,
+    "company_id": 1,
+    "name": "ザウルス",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.465+09:00",
+    "updated_at": "2020-02-27T21:35:54.465+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 61,
+    "category_id": 57,
+    "company_id": 1,
+    "name": "ハーベスタ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.473+09:00",
+    "updated_at": "2020-02-27T21:35:54.473+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 62,
+    "category_id": 57,
+    "company_id": 1,
+    "name": "スイングヤーダ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.483+09:00",
+    "updated_at": "2020-02-27T21:35:54.483+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 63,
+    "category_id": 57,
+    "company_id": 1,
+    "name": "プロセッサ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.491+09:00",
+    "updated_at": "2020-02-27T21:35:54.491+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 64,
+    "category_id": 56,
+    "company_id": 1,
+    "name": "解体",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.500+09:00",
+    "updated_at": "2020-02-27T21:35:54.500+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 65,
+    "category_id": 64,
+    "company_id": 1,
+    "name": "油圧圧砕機小割",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.507+09:00",
+    "updated_at": "2020-02-27T21:35:54.507+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 66,
+    "category_id": 64,
+    "company_id": 1,
+    "name": "油圧圧砕機大割",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.515+09:00",
+    "updated_at": "2020-02-27T21:35:54.515+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 67,
+    "category_id": 64,
+    "company_id": 1,
+    "name": "鉄骨カッター",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.524+09:00",
+    "updated_at": "2020-02-27T21:35:54.524+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 68,
+    "category_id": 64,
+    "company_id": 1,
+    "name": "Zフォーク",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.532+09:00",
+    "updated_at": "2020-02-27T21:35:54.532+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 69,
+    "category_id": 64,
+    "company_id": 1,
+    "name": "フォーク/全旋回タイプ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.539+09:00",
+    "updated_at": "2020-02-27T21:35:54.539+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 70,
+    "category_id": 56,
+    "company_id": 1,
+    "name": "アタッチメント",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.554+09:00",
+    "updated_at": "2020-02-27T21:35:54.554+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 71,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "油圧ブレーカー：小（0.14m3以下）",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.561+09:00",
+    "updated_at": "2020-02-27T21:35:54.561+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 72,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "油圧ブレーカー：中（0.2m3〜0.25m3）",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.568+09:00",
+    "updated_at": "2020-02-27T21:35:54.568+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 73,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "油圧ブレーカー：大（0.4m3以上）",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.576+09:00",
+    "updated_at": "2020-02-27T21:35:54.576+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 74,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "油圧オーガ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.583+09:00",
+    "updated_at": "2020-02-27T21:35:54.583+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 75,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "ロードタイロン",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.591+09:00",
+    "updated_at": "2020-02-27T21:35:54.591+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 76,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "油圧草刈機",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.598+09:00",
+    "updated_at": "2020-02-27T21:35:54.598+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 77,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "Aパイラー",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.606+09:00",
+    "updated_at": "2020-02-27T21:35:54.606+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 78,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "切株切削機",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.614+09:00",
+    "updated_at": "2020-02-27T21:35:54.614+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 79,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "幅狭バケット",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.621+09:00",
+    "updated_at": "2020-02-27T21:35:54.621+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 80,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "スケルトンバケット",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.628+09:00",
+    "updated_at": "2020-02-27T21:35:54.628+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 81,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "法面バケット",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.636+09:00",
+    "updated_at": "2020-02-27T21:35:54.636+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 82,
+    "category_id": 70,
+    "company_id": 1,
+    "name": "幅広バケット",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.644+09:00",
+    "updated_at": "2020-02-27T21:35:54.644+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 83,
+    "category_id": null,
+    "company_id": 1,
+    "name": "レンタカー",
+    "position": 1,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.650+09:00",
+    "updated_at": "2020-02-27T21:35:54.650+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 84,
+    "category_id": 83,
+    "company_id": 1,
+    "name": "ダンプ",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.658+09:00",
+    "updated_at": "2020-02-27T21:35:54.658+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 85,
+    "category_id": 84,
+    "company_id": 1,
+    "name": "2ｔダンプ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.665+09:00",
+    "updated_at": "2020-02-27T21:35:54.665+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 86,
+    "category_id": 84,
+    "company_id": 1,
+    "name": "3ｔダンプ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.673+09:00",
+    "updated_at": "2020-02-27T21:35:54.673+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 87,
+    "category_id": 84,
+    "company_id": 1,
+    "name": "4ｔダンプ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.692+09:00",
+    "updated_at": "2020-02-27T21:35:54.692+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 88,
+    "category_id": 83,
+    "company_id": 1,
+    "name": "トラック",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.701+09:00",
+    "updated_at": "2020-02-27T21:35:54.701+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 89,
+    "category_id": 88,
+    "company_id": 1,
+    "name": "1ｔトラック",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.709+09:00",
+    "updated_at": "2020-02-27T21:35:54.709+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 90,
+    "category_id": 88,
+    "company_id": 1,
+    "name": "2ｔトラック",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.717+09:00",
+    "updated_at": "2020-02-27T21:35:54.717+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 91,
+    "category_id": 88,
+    "company_id": 1,
+    "name": "3ｔトラック",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.725+09:00",
+    "updated_at": "2020-02-27T21:35:54.725+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 92,
+    "category_id": 88,
+    "company_id": 1,
+    "name": "4ｔトラック",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.733+09:00",
+    "updated_at": "2020-02-27T21:35:54.733+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 93,
+    "category_id": 83,
+    "company_id": 1,
+    "name": "トラック／クレーン",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.741+09:00",
+    "updated_at": "2020-02-27T21:35:54.741+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 94,
+    "category_id": 93,
+    "company_id": 1,
+    "name": "2ｔトラック/クレーン",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.749+09:00",
+    "updated_at": "2020-02-27T21:35:54.749+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 95,
+    "category_id": 93,
+    "company_id": 1,
+    "name": "3ｔトラック/クレーン/ラジコン",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.756+09:00",
+    "updated_at": "2020-02-27T21:35:54.756+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 96,
+    "category_id": 93,
+    "company_id": 1,
+    "name": "4ｔトラック/クレーン/ラジコン",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.764+09:00",
+    "updated_at": "2020-02-27T21:35:54.764+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 97,
+    "category_id": 83,
+    "company_id": 1,
+    "name": "軽車両",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.773+09:00",
+    "updated_at": "2020-02-27T21:35:54.773+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 98,
+    "category_id": 97,
+    "company_id": 1,
+    "name": "軽ダンプ",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.781+09:00",
+    "updated_at": "2020-02-27T21:35:54.781+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 99,
+    "category_id": 97,
+    "company_id": 1,
+    "name": "軽トラック",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.789+09:00",
+    "updated_at": "2020-02-27T21:35:54.789+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 100,
+    "category_id": 97,
+    "company_id": 1,
+    "name": "軽バン",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.797+09:00",
+    "updated_at": "2020-02-27T21:35:54.797+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 101,
+    "category_id": 83,
+    "company_id": 1,
+    "name": "その他・特殊車両",
+    "position": 2,
+    "last": false,
+    "created_at": "2020-02-27T21:35:54.805+09:00",
+    "updated_at": "2020-02-27T21:35:54.805+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 102,
+    "category_id": 101,
+    "company_id": 1,
+    "name": "散水車",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.813+09:00",
+    "updated_at": "2020-02-27T21:35:54.813+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
+  },
+  {
+    "id": 103,
+    "category_id": 101,
+    "company_id": 1,
+    "name": "パッカー車",
+    "position": 3,
+    "last": true,
+    "created_at": "2020-02-27T21:35:54.822+09:00",
+    "updated_at": "2020-02-27T21:35:54.822+09:00",
+    "company": {
+      "id": 1,
+      "name": "テスト建機1"
+    }
   }
 ]
