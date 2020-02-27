@@ -15,15 +15,16 @@ updated:
       </transition>
 			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:aria-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
 			<transition>
-			<div id="accordion" v-show="mainNavi.show">
+			<div id="accordion" v-if="mainNavi.show">
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
-            <div class="card-body" id="heading-1">
+            <div class="card-body" id="heading-1" >
               <a v-on:click="toggleList(category)" v-bind:aria-expanded="category.show">
               {{category.name}}
               </a>
             </div>
-            <div v-show="category.show">
+            <transition>
+            <div v-if="category.show">
             <div v-for="child in category.child" v-bind:key="child.id">
               <div class="card-body">
                 <div class="card child">
@@ -32,17 +33,20 @@ updated:
                       {{child.name}}
                     </a>
                   </div>
-                  <div v-show="child.show" aria-labelledby="heading-1-1">
+                  <transition>
+                  <div v-if="child.show" aria-labelledby="heading-1-1">
                     <div v-for="childone in child.child" v-bind:key="childone.id">
                       <div class="card">
                         <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
                       </div>
                     </div>
                   </div>
+                  </transition>
                 </div>
               </div>
             </div>
             </div>
+            </transition>
           </div>
         </div>
 			</div>
@@ -179,7 +183,8 @@ updated:
     },
     methods: {
       toggleList: function (menu){
-        menu.show = !menu.show;
+        //menu.show = !menu.show;
+        this.$nextTick(() => (menu.show = !menu.show));
       }
     },
     computed: {
