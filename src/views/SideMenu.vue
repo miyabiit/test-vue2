@@ -15,7 +15,7 @@ updated:
       </transition>
 			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:aria-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
 			<transition>
-			<div id="accordion" v-if="mainNavi.show">
+			<div id="accordion" v-if="true">
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
             <div class="card-body" id="heading-1" >
@@ -24,7 +24,7 @@ updated:
               </a>
             </div>
             <transition>
-            <div v-if="category.show">
+            <div v-if="true">
             <div v-for="child in category.child" v-bind:key="child.id">
               <div class="card-body">
                 <div class="card child">
@@ -34,7 +34,7 @@ updated:
                     </a>
                   </div>
                   <transition>
-                  <div v-if="child.show" aria-labelledby="heading-1-1">
+                  <div v-if="true" aria-labelledby="heading-1-1">
                     <div v-for="childone in child.child" v-bind:key="childone.id">
                       <div class="card">
                         <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
@@ -194,7 +194,6 @@ updated:
         for(var i=0;i<cat.length;i++){
           cat[i].show = false;
         }
-
         function compare(a,b){
           var cat01 = a.category_id;
           var cat02 = b.category_id;
