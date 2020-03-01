@@ -15,7 +15,7 @@ updated:
       </transition>
 			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:aria-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
 			<transition>
-			<div id="accordion" v-if="true">
+			<div id="accordion" v-if="mainNavi.show">
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
             <div class="card-body" id="heading-1" >
@@ -51,103 +51,6 @@ updated:
         </div>
 			</div>
 			</transition>
-			<!-- a class="side_menu mt-2" data-toggle="collapse" href="#accordion" role="button" aria-expanded="true" aria-controls="side_navi"><i class="icon-search"></i> 機種一覧から探す</a>
-      <div id="accordion" class="ccollapse">
-        <div class="card">
-          <div class="card-body" id="heading-1">
-              <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                掘削・運搬・解体・林業
-              </a>
-          </div>
-          <div id="collapse-1" class="ccollapse" data-parent="#accordion" aria-labelledby="heading-1">
-            <div class="card-body">
-              <div id="accordion-1">
-                <div class="card child">
-                  <div class="card-body" id="heading-1-1">
-                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1" aria-expanded="true" aria-controls="collapse-1-1">
-                        掘削機械
-                      </a>
-                  </div>
-                  <div id="collapse-1-1" class="ccollapse" data-parent="#accordion-1" aria-labelledby="heading-1-1">
-                    <div class="card">
-                        <a href="product_list.html" class="product">バックホー後方小旋回</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">クレーン機能付バックホー後方小旋回</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-body" id="heading-2">
-              <a role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                レンタカー・車両機械
-              </a>
-          </div>
-          <div id="collapse-2" class="collapse" data-parent="#accordion" aria-labelledby="heading-2">
-            <div class="card-body">
-              <div id="accordion-2">
-                <div class="card child">
-                  <div class="card-body" id="heading-2-1">
-                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1">
-                        レンタカー
-                      </a>
-                  </div>
-                  <div id="collapse-2-1" class="collapse" data-parent="#accordion-2" aria-labelledby="heading-2-1">
-                    <div class="card">
-                        <a href="product_list.html" class="product">2～4tダンプ</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">三転ダンプ</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">スライドダンプ</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">2t・4tトラッククレーン付</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">2t・4tトラック</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">2tトラックリフトゲート付</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">軽ダンプ4WD・軽トラック</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">ライトバン・軽バン</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">Wキャブトラック</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">1BOX</a>
-                    </div>
-                  </div>
-                  <div class="card-body" id="heading-2-2">
-                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2">
-                        車両関連機器
-                      </a>
-                  </div>
-                  <div id="collapse-2-2" class="collapse" data-parent="#accordion-2" aria-labelledby="heading-2-2">
-                    <div class="card">
-                        <a href="product_list.html" class="product">カーナビ</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">ドラレコ</a>
-                    </div>
-                    <div class="card">
-                        <a href="product_list.html" class="product">トラックスケール ポータブル車両重量計</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div -->
 			<a class="side_menu mt-2" v-on:click="toggleList(docsNavi)" v-bind:aria-expanded="docsNavi.show"><i class="icon-books"></i>参考資料</a>
 			<transition>
       <div id="side_docs" v-show="docsNavi.show">
@@ -183,8 +86,7 @@ updated:
     },
     methods: {
       toggleList: function (menu){
-        //menu.show = !menu.show;
-        this.$nextTick(() => (menu.show = !menu.show));
+        menu.show = !menu.show;
       }
     },
     computed: {
@@ -200,30 +102,6 @@ updated:
         for(i=0;i<cat.length;i++){
           mother_key = cat[i].category_id;
           if(mother_key){
-            //console.log(mother_key + " : " + cat2h[mother_key].child.length);
-            cat2h[mother_key].child.push(cat[i]);
-          }
-        }
-        var catout = [];
-        for(var key in cat2h){
-          if(cat2h[key].position == 1){
-            catout.push(cat2h[key]);
-          }
-        }
-
-        var cat = categories;
-        var cat2h = {};
-        var i = 0;
-        var mother_key = 0;
-        for(i=0;i<cat.length;i++){
-          cat[i].show = false;
-          cat[i].child = [];
-          cat2h[cat[i].id] = cat[i];
-        }
-        for(i=0;i<cat.length;i++){
-          mother_key = cat[i].category_id;
-          if(mother_key){
-            //console.log(mother_key + " : " + cat2h[mother_key].child.length);
             cat2h[mother_key].child.push(cat[i]);
           }
         }
@@ -234,48 +112,6 @@ updated:
           }
         }
         return catout;
-        /*
-        function compare(a,b){
-          var cat01 = a.category_id;
-          var cat02 = b.category_id;
-          var pos01 = a.position;
-          var pos02 = b.position;
-          var ret = 0;
-          if(cat01 > cat02){
-            ret = 1;
-          } else if(cat01 < cat02){
-            ret = -1;
-          } else {
-            if(pos01 > pos02){
-              ret = 1;
-            } else if (pos01 < pos02){
-              ret = -1;
-            }
-          }
-          return ret;
-        }
-        //layered
-        var newone = []
-        cat.sort(compare);
-        var data = cat;
-        var last_gm = -1; //grand mother
-        var last_m = -1;
-        for(i=0;i < data.length;i++){
-          data[i].child = [];
-          if(data[i].position == 1){
-            last_gm++;
-            last_m = -1;
-            newone.push(data[i]);
-          }
-          else if(data[i].position == 2){
-            last_m++;
-            newone[last_gm].child.push(data[i]);
-          }else if(data[i].position == 3){
-            newone[last_gm].child[last_m].child.push(data[i]);
-          }
-        }
-        return newone;
-        */
       }
     }
   }
