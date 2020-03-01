@@ -190,29 +190,50 @@ updated:
     computed: {
       sortCategories: function() {
         var cat = this.categories;
-        var i = 0;
+        var cat2h = {};
+        var mother_key = 0;
         for(var i=0;i<cat.length;i++){
           cat[i].show = false;
           cat[i].child = [];
+          cat2h[cat[i].id] = cat[i];
         }
-        var level = {1:{},2:{},3:{}};
         for(i=0;i<cat.length;i++){
-          //cat[i].show = false;
-          //cat[i].child = [];
-          if(cat[i].position && cat[i].id){
-          level[cat[i].position][cat[i].id] = cat[i];
+          mother_key = cat[i].category_id;
+          if(mother_key){
+            //console.log(mother_key + " : " + cat2h[mother_key].child.length);
+            cat2h[mother_key].child.push(cat[i]);
           }
         }
-        var mother_key = "";
-        for(i=3;i>1;i--){
-          for(var key in level[i]){
-            mother_key = level[i][key].category_id;
-            if(mother_key){
-              level[i-1][mother_key].child.push(level[i][key]);
-            }
+        var catout = [];
+        for(var key in cat2h){
+          if(cat2h[key].position == 1){
+            catout.push(cat2h[key]);
           }
         }
-        return level[1];
+
+        var cat = categories;
+        var cat2h = {};
+        var i = 0;
+        var mother_key = 0;
+        for(i=0;i<cat.length;i++){
+          cat[i].show = false;
+          cat[i].child = [];
+          cat2h[cat[i].id] = cat[i];
+        }
+        for(i=0;i<cat.length;i++){
+          mother_key = cat[i].category_id;
+          if(mother_key){
+            //console.log(mother_key + " : " + cat2h[mother_key].child.length);
+            cat2h[mother_key].child.push(cat[i]);
+          }
+        }
+        var catout = [];
+        for(var key in cat2h){
+          if(cat2h[key].position == 1){
+            catout.push(cat2h[key]);
+          }
+        }
+        return catout;
         /*
         function compare(a,b){
           var cat01 = a.category_id;
