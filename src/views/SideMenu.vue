@@ -190,23 +190,23 @@ updated:
     computed: {
       sortCategories: function() {
         var cat = this.categories;
-
-        /*
+        var i = 0;
         for(var i=0;i<cat.length;i++){
           cat[i].show = false;
           cat[i].child = [];
         }
-        */
         var level = {1:{},2:{},3:{}};
         for(i=0;i<cat.length;i++){
-          cat[i].show = false;
-          cat[i].child = [];
-          level[data[i].level][cat[i].a] = cat[i];
+          //cat[i].show = false;
+          //cat[i].child = [];
+          if(cat[i].position && cat[i].id){
+          level[cat[i].position][cat[i].id] = cat[i];
+          }
         }
         var mother_key = "";
         for(i=3;i>1;i--){
-          for(key in level[i]){
-            mother_key = level[i][key].mother;
+          for(var key in level[i]){
+            mother_key = level[i][key].category_id;
             if(mother_key){
               level[i-1][mother_key].child.push(level[i][key]);
             }
