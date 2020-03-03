@@ -144,8 +144,11 @@
     computed: {
       filterProducts: function () {
         var allProducts = this.products;
+        console.log("products : " + allProducts.length);
         var myKey = this.keyword;
         var myId = this.category_id;
+        console.log("myId : " + this.category_id);
+        console.log("myKey : " + this.keyword);
         var filtered = [];
         if(myKey){
           filtered = allProducts.filter(function(item){
@@ -154,13 +157,14 @@
         }
         else if(myId){
           filtered = allProducts.filter(function(item){
-            if(item.parent_id == myId) return true;
+            if(item.category_id == myId) return true;
           })
           // if(filtered.length == 0) filtered = allProducts; // for test.
         }
         else{
           filtered = allProducts;
         }
+        console.log("filtered : " + filtered.length);
         return filtered
       }  
     }
