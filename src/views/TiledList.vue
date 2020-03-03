@@ -156,9 +156,7 @@
           filtered = allProducts.filter(function(item){
             if(item.parent_id == myId) return true;
           })
-          if(filtered.length == 0){
-            filtered = allProducts; // for test
-          }
+          // if(filtered.length == 0) filtered = allProducts; // for test.
         }
         else{
           filtered = allProducts;
