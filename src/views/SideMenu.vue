@@ -19,22 +19,22 @@ updated:
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
             <div class="card-body" id="heading-1" >
-              <a v-on:click="toggleList(category)" v-bind:aria-expanded="category.show">
+              <a v-on:click="toggleListInMainNavi(category)" v-bind:aria-expanded="category.show">
               {{category.name}}
               </a>
             </div>
             <transition>
-            <div v-if="true">
+            <div v-if="category.show">
             <div v-for="child in category.child" v-bind:key="child.id">
               <div class="card-body">
                 <div class="card child">
                   <div class="card-body" id="heading-1-1">
-                    <a v-on:click="toggleList(child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
+                    <a v-on:click="toggleListInMainNavi(child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
                       {{child.name}}
                     </a>
                   </div>
                   <transition>
-                  <div v-if="true" aria-labelledby="heading-1-1">
+                  <div v-if="child.show" aria-labelledby="heading-1-1">
                     <div v-for="childone in child.child" v-bind:key="childone.id">
                       <div class="card">
                         <router-link class="product" :to="{ name: 'list', params: {Id: category.id}}">{{childone.name}}</router-link>
@@ -87,6 +87,13 @@ updated:
     methods: {
       toggleList: function (menu){
         menu.show = !menu.show;
+      },
+      toggleListInMainNavi: function (menu){
+        this.mainNavi.show = false;
+        menu.show = !menu.show;
+        this.$nextTick(()=>{
+          this.mainNavi.show = true;
+        })
       }
     },
     computed: {
