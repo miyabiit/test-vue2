@@ -37,7 +37,7 @@ updated:
                   <div v-if="child.show" aria-labelledby="heading-1-1">
                     <div v-for="childone in child.child" v-bind:key="childone.id">
                       <div class="card">
-                        <router-link class="product" :to="{ name: 'list', params: {Id: childone.category_id}}">{{childone.name}}</router-link>
+                        <router-link class="product" :to="{ name: 'list', params: {Id: childone.id}}">{{childone.name}}</router-link>
                       </div>
                     </div>
                   </div>
