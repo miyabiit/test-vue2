@@ -21,12 +21,8 @@
       }
     },
     methods: {
-      reload: function () {
-        this.$router.go({path: this.$router.currentRoute.path, force: true});
-      },
       search: function () {
         this.$router.push({name: "search", params: {Keyword: this.keyword}});      
-        this.reload();
       }
     }
   }  

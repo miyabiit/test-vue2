@@ -54,7 +54,7 @@
 
     <div id="product_child_list" class="row p-3 mx-0">
       <div class="col-12">
-        <div v-for="product in filterProducts" v-bind:key="product.id">
+        <div v-for="product in filtered" v-bind:key="product.id">
         <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
           <div class="row align-items-center">
             <div class="col-5 col-sm-2">
@@ -137,18 +137,16 @@
     data: function () {
       return {
         products: products,
-        keyword: this.$route.params.Keyword,
-        category_id: this.$route.params.Id
+        filtered: []
       }
     },
-    computed: {
+    methods: {
       filterProducts: function () {
         var allProducts = this.products;
-        console.log("products : " + allProducts.length);
-        var myKey = this.keyword;
-        var myId = this.category_id;
-        console.log("myId : " + this.category_id);
-        console.log("myKey : " + this.keyword);
+        var myKey = this.$route.params.Keyword;
+        var myId = this.$route.params.Id;
+        console.log("myId : " + myId);
+        console.log("myKey : " + myKey);
         var filtered = [];
         if(myKey){
           filtered = allProducts.filter(function(item){
@@ -165,8 +163,14 @@
           filtered = allProducts;
         }
         console.log("filtered : " + filtered.length);
-        return filtered
+        this.filtered = filtered;
       }  
+    },
+    mounted () {
+      this.filterProducts();
+    },
+    watch: {
+      '$route': 'filterProducts'
     }
   }
 </script>
