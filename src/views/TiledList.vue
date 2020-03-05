@@ -130,7 +130,6 @@
 </template>
 
 <script>
-  //import products from "@/assets/jsons/products.json"
   import products from "@/assets/jsons/stock_products.json"
   
   export default {

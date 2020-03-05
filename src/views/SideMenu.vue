@@ -67,7 +67,7 @@ updated:
 </template>
 
 <script>
-	import categories from "@/assets/jsons/categories.json"
+	//import categories from "@/assets/jsons/categories.json"
 	
   export default {
     data: function () {
@@ -81,8 +81,22 @@ updated:
 				docsNavi: {
 					show: false
 				},
-        categories: categories
+        categories: null //categories
       }
+    },
+    mounted () {
+      /*
+      myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg='
+      myUrl = 'http://13.59.42.214/api/categories'
+      head = {'Authorization': 'Token {}'.format(myToken)}
+      response = requests.get(myUrl, headers=head)
+      */
+      var url = "https://13.59.42.214/api/categories";
+      var myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg=';
+      
+      axios.
+      .get(url, {headers: {'Authorization': 'Token ' + myToken}})
+      .then(response => (this.categories = response));
     },
     methods: {
       toggleList: function (menu){
