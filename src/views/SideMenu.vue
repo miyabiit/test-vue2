@@ -81,22 +81,40 @@ updated:
 				docsNavi: {
 					show: false
 				},
-        categories: null //categories
+        categories: [] //categories
       }
     },
     mounted () {
+      var url = process.env.VUE_APP_URL + 'categorie';
+      var myToken = process.env.VUE_APP_TOKEN;
+      console.log(url + ' : ' + myToken);
       /*
-      myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg='
-      myUrl = 'http://13.59.42.214/api/categories'
-      head = {'Authorization': 'Token {}'.format(myToken)}
-      response = requests.get(myUrl, headers=head)
+      async function main(){
+        try {
+        const res = await this.axios.get(url,{
+          headers: {'Authorization': `Token ${myToken}`},
+          params: {'limit': 1000}
+        });
+        console.log(res);
+        }catch(error){
+          console.log("res :" + error);
+        }
+      }
+      main();
       */
-      var url = "https://13.59.42.214/api/categories";
-      var myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg=';
+
+      this.axios
+      .get(url, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${myToken}`,
+          },
+        params: {'limit': 1000}
+      })
+      .then(response => (this.categories = response))
+      .catch(error => (console.log(error)));
       
-      axios.
-      .get(url, {headers: {'Authorization': 'Token ' + myToken}})
-      .then(response => (this.categories = response));
     },
     methods: {
       toggleList: function (menu){

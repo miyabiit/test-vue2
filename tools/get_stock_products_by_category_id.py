@@ -4,10 +4,14 @@
 import requests
 myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg='
 myUrl = 'http://13.59.42.214/api/stock_products'
-head = {'Authorization': 'Token {}'.format(myToken)}
+head = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Token {}'.format(myToken)
+  }
 param = {
   "limit": 1000,
-  "stock_product": { "category_id": 40 }
+  "stock_product": { "category_id": 42 }
 }
 response = requests.get(myUrl, headers=head, params=param)
 # print(response.json())
