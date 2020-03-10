@@ -85,23 +85,9 @@ updated:
       }
     },
     mounted () {
-      var url = process.env.VUE_APP_URL + 'categorie';
+      var url = '/wapi/categories';
       var myToken = process.env.VUE_APP_TOKEN;
       console.log(url + ' : ' + myToken);
-      /*
-      async function main(){
-        try {
-        const res = await this.axios.get(url,{
-          headers: {'Authorization': `Token ${myToken}`},
-          params: {'limit': 1000}
-        });
-        console.log(res);
-        }catch(error){
-          console.log("res :" + error);
-        }
-      }
-      main();
-      */
 
       this.axios
       .get(url, {
@@ -112,7 +98,7 @@ updated:
           },
         params: {'limit': 1000}
       })
-      .then(response => (this.categories = response))
+      .then(response => (this.categories = response.data))
       .catch(error => (console.log(error)));
       
     },
