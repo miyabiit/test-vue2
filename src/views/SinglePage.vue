@@ -7,7 +7,7 @@
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
-          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="product.product.netis">NETIS商品 {{"登録番号："+product.product.netis_no}}</span><br>
+          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="isNetis(product)">NETIS商品 {{"登録番号："}}</span><br>
           <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-show="isNew(product)">新入荷商品</span>
           <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-show="isRec(product)">おすすめ商品</span>
           <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-show="isDes(product)">災害支援商品</span>
@@ -188,40 +188,48 @@
 </template>
 
 <script>
-  import products from "@/assets/jsons/stock_products.json"
+  //import products from "@/assets/jsons/stock_products.json"
   
   export default {
     data: function () {
       return {
         product_id: this.$route.params.Id,
-        products: products
+        product: {}
       }
     },
     methods: {
+      isNetis: function(p) {
+        if(p.product) return false;
+        return false;
+        //return (!p['product'].netis) ? false : true;
+      },
+
       isNew: function (p) {
+        if(!p.sub_categories) return false;
         var news = p.sub_categories.filter(function(item){
           if((item.name).indexOf("新入荷商品") >= 0) return true;
         })
-        return news.length;
+        return (news.length > 0) ? true :  false;
       },
       isRec: function (p) {
+        if(!p.sub_categories) return 0;
         var recs = p.sub_categories.filter(function(item){
           if((item.name).indexOf("おすすめ") >= 0) return true;
         })
         return recs.length;
       },
       isDes: function (p) {
+        if(!p.sub_categories) return 0;
         var dess = p.sub_categories.filter(function(item){
           if((item.name).indexOf("災害") >= 0) return true;
         })
         return dess.length;
-      }
-    },
-    computed: {
-      product: function () {
+      },
+      getProduct: function () {
         var filter_id = this.product_id;
         var url = '/wapi/stock_products/' + filter_id;
         var myToken = process.env.VUE_APP_TOKEN;
+        console.log(filter_id);
         this.axios
         .get(url, {
           headers: {
@@ -229,17 +237,19 @@
             'Authorization': `Token ${myToken}`
           }
         })
-        .then(response => (return response.data))
+        .then(response => {
+          console.log(response);
+          this.product = response.data;
+          })
         .catch(error => (console.log(error)));
-        /*
-        var allProducts = this.products;
-        var filter_id = this.product_id;
-        var filteredProducts = allProducts.filter(function(item){
-          if(item.id == filter_id) return true;
-        })
-        return filteredProducts[0]
-        */
       }
+    },
+    created () {
+        console.log("created");
+        this.getProduct();
+    },
+    watch: {
+      '$route': 'getProduct'
     }
   }
 </script>

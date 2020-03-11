@@ -143,53 +143,25 @@
       filterProducts: function () {
         var url = '/wapi/stock_products/search';
         var myToken = process.env.VUE_APP_TOKEN;
-        var myKey = this.$route.params.Keyword;
+        //var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
         this.axios
         .post(url, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Token ${myToken}`
-          },
-          params: {
             'limit': 100,
             'stock_product': {
-              '$or': {
-                'product': {
-                  'title': myKey
-                },
                 'category_id': myId
-              }
+            }
+          },
+          {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${myToken}`
             }
           }
-        })
-        .then(response => {this.filtered = response.data)
+        )
+        .then(response => {this.filtered = response.data})
         .catch(error => (console.log(error)));
-        
-        /*
-        var allProducts = this.products;
-        var myKey = this.$route.params.Keyword;
-        var myId = this.$route.params.Id;
-        console.log("myId : " + myId);
-        console.log("myKey : " + myKey);
-        var filtered = [];
-        if(myKey){
-          filtered = allProducts.filter(function(item){
-            if(item.product.title.indexOf(myKey) >= 0) return true;
-          })
-        }
-        else if(myId){
-          filtered = allProducts.filter(function(item){
-            if(item.category_id == myId) return true;
-          })
-          // if(filtered.length == 0) filtered = allProducts; // for test.
-        }
-        else{
-          filtered = allProducts;
-        }
-        console.log("filtered : " + filtered.length);
-        this.filtered = filtered;
-      */
       }
     },
     mounted () {

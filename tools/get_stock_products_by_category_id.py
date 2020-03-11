@@ -2,8 +2,11 @@
 #
 #
 import requests
+import pprint
+import json
+
 myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg='
-myUrl = 'http://13.59.42.214/api/stock_products'
+myUrl = 'http://13.59.42.214/api/stock_products/search'
 head = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
@@ -13,7 +16,7 @@ param = {
   "limit": 1000,
   "stock_product": { "category_id": 42 }
 }
-response = requests.get(myUrl, headers=head, params=param)
-# print(response.json())
-with open('stock_products.json','w') as f:
-  f.write(response.text)
+response = requests.post(myUrl, headers=head, data=json.dumps(param))
+pprint.pprint(response.json())
+#with open('stock_products.json','w') as f:
+#  f.write(response.text)
