@@ -141,6 +141,32 @@
     },
     methods: {
       filterProducts: function () {
+        var url = '/wapi/stock_products/search';
+        var myToken = process.env.VUE_APP_TOKEN;
+        var myKey = this.$route.params.Keyword;
+        var myId = this.$route.params.Id;
+        this.axios
+        .post(url, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${myToken}`
+          },
+          params: {
+            'limit': 100,
+            'stock_product': {
+              '$or': {
+                'product': {
+                  'title': myKey
+                },
+                'category_id': myId
+              }
+            }
+          }
+        })
+        .then(response => {this.filtered = response.data)
+        .catch(error => (console.log(error)));
+        
+        /*
         var allProducts = this.products;
         var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
@@ -163,7 +189,8 @@
         }
         console.log("filtered : " + filtered.length);
         this.filtered = filtered;
-      }  
+      */
+      }
     },
     mounted () {
       this.filterProducts();

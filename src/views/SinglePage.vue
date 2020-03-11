@@ -219,12 +219,26 @@
     },
     computed: {
       product: function () {
+        var filter_id = this.product_id;
+        var url = '/wapi/stock_products/' + filter_id;
+        var myToken = process.env.VUE_APP_TOKEN;
+        this.axios
+        .get(url, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${myToken}`
+          }
+        })
+        .then(response => (return response.data))
+        .catch(error => (console.log(error)));
+        /*
         var allProducts = this.products;
         var filter_id = this.product_id;
         var filteredProducts = allProducts.filter(function(item){
           if(item.id == filter_id) return true;
         })
         return filteredProducts[0]
+        */
       }
     }
   }
