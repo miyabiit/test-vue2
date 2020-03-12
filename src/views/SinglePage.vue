@@ -4,7 +4,7 @@
 -->
 <template>
     <main id="product" class="order-1 order-md-2 col-12 col-md-9 py-0 px-0 pl-md-5 mt-3 mt-md-0 mx-0 bd-content" role="main">
-      <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.title}}</h2>
+      <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
           <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="isNetis(product)">NETIS商品 {{"登録番号："}}</span><br>
@@ -15,7 +15,7 @@
         <div id="license_icons" class="col-12 col-md-4 text-left text-md-right mt-2 mt-md-0">
           <span class="badge badge-warning px-2 mr-1 align-top" v-show="product.qualification_sp_teach">特教</span>
           <span class="badge badge-info px-2 mr-1 align-top" v-show="product.checking_tokujiken">特自検</span>
-          <span id="license_icons_desc" class="d-block"><a href="#"><i class="icon-faq"></i>アイコンについて</a><br>呼称0.2m 3以上は「技」「特自検」</span>
+          <span id="license_icons_desc" class="d-block"><a href="#"><i class="icon-faq"></i>アイコンについて</a><br><!-- 呼称0.2m 3以上は「技」「特自検」--></span>
         </div>
       </div>
       <div class="row p-3 mx-0">
@@ -23,7 +23,8 @@
           <p>{{product.description}}</p>
         </div>
         <div class="col-12">
-          <img id="product_image" src="product.image_props[0].url" class="d-block w-100" :alt="this.$route.params.Id">
+          <!-- img id="product_image" :src="product.image_props[0].url" class="d-block w-100" :alt="this.$route.params.Id" -->
+          <img id="product_image" :src="product.url" class="d-block w-100" :alt="product.product.title">
         </div>
       </div>
       <div class="row p-3 mx-0">
@@ -108,7 +109,7 @@
            </thead>
            <tbody>
              <tr>
-               <td>{{}}</td>
+               <td></td>
                <td>{{product.price_info}}</td>
              </tr>
            </tbody>
@@ -116,8 +117,8 @@
        </div>
        
        <h2 class="p-2 mt-5"><i class="icon-video"></i> 動画</h2>
-       <div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       </div>
+       <!-- div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div -->
        <p class="p-2">{{product.video_comment}}</p>
        
        <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
@@ -194,7 +195,10 @@
     data: function () {
       return {
         product_id: this.$route.params.Id,
-        product: {}
+        product: {
+            'product': {},
+            'image_props': []
+          }
       }
     },
     methods: {
@@ -229,7 +233,6 @@
         var filter_id = this.product_id;
         var url = '/wapi/stock_products/' + filter_id;
         var myToken = process.env.VUE_APP_TOKEN;
-        console.log(filter_id);
         this.axios
         .get(url, {
           headers: {
@@ -238,8 +241,8 @@
           }
         })
         .then(response => {
-          console.log(response);
           this.product = response.data;
+          this.product.url = this.product.image_props[0].url;
           })
         .catch(error => (console.log(error)));
       }
@@ -247,6 +250,9 @@
     created () {
         console.log("created");
         this.getProduct();
+        console.log("product_code : " + this.product.product.product_code);
+        console.log("product_name : " + this.product.product_name);
+        console.log("video_url : " + this.product.video_url);
     },
     watch: {
       '$route': 'getProduct'

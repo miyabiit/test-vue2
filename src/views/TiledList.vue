@@ -146,7 +146,7 @@
         var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
         var param = {};
-        if($myKey){
+        if(myId){
           param = {
             'limit': 100,
             'stock_product': {
@@ -164,6 +164,7 @@
             }
           }
         }
+        console.log(param);
         this.axios
         .post(url, param,
           {
