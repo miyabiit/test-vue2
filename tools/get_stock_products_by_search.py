@@ -4,8 +4,9 @@
 #
 import requests
 import pprint
+import json
 myToken = 'f/NRVPlG5rFGcIkfN/ZaSB0ftUshCRU9Bi3+NR+juWg='
-myUrl = 'http://13.59.42.214/api/stock_products'
+myUrl = 'http://13.59.42.214/api/stock_products/search'
 head = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
@@ -14,16 +15,12 @@ head = {
 param = {
   "limit": 1000,
   "stock_product": {
-    '$or': {
-      "stock_product":{
-        "tite": 'テスト'
-      },
-      "description": '掘削',
-      "spec_comment": '危険'
+      "product":{
+          "title": 'テスト'
+        }
+      }
     }
-  }
-}
-response = requests.get(myUrl, headers=head, params=param)
+response = requests.post(myUrl, headers=head, data=json.dumps(param))
 pprint.pprint(response.json())
 #with open('stock_products.json','w') as f:
 #  f.write(response.text)
