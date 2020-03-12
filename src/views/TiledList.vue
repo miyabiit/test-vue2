@@ -143,15 +143,29 @@
       filterProducts: function () {
         var url = '/wapi/stock_products/search';
         var myToken = process.env.VUE_APP_TOKEN;
-        //var myKey = this.$route.params.Keyword;
+        var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
-        this.axios
-        .post(url, {
+        var param = {};
+        if($myKey){
+          param = {
             'limit': 100,
             'stock_product': {
                 'category_id': myId
             }
-          },
+          }
+        }
+        else{
+          param = {
+            'limit': 100, 
+            'stock_product': {
+              'product': {
+                'title': myKey
+              }
+            }
+          }
+        }
+        this.axios
+        .post(url, param,
           {
             headers: {
               'Accept': 'application/json',
