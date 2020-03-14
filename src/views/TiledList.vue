@@ -58,7 +58,7 @@
         <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
           <div class="row align-items-center">
             <div class="col-5 col-sm-2">
-              <img :src="'@/assets/' + product.product.product_code + '-01.jpeg'" class="d-block w-100 border" :alt="product.product.title">
+              <img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100 border" :alt="product.product.title">
               <span class="d-block netis text-center" v-show="product.product.netis">NETIS</span>
             </div>
             <div class="col-7 col-sm-10">
@@ -67,7 +67,7 @@
                 <div class="col-12">メーカー：{{product.product.maker}}</div>
                 <div class="col-12">{{product.product.description_a}}</div>
                 <div class="col-12">型式：{{product.product.type}}</div>
-                <div class="col-12">商品コード：{{product.product_code}}</div>
+                <div class="col-12">商品コード：{{product.product.product_name}}</div>
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@
   export default {
     data: function () {
       return {
-        products: products,
+        // products: [],
         filtered: []
       }
     },
