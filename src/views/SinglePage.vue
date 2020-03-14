@@ -7,7 +7,7 @@
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
-          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="isNetis(product)">NETIS商品 {{"登録番号："}}</span><br>
+          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="product.product.netis">NETIS商品 {{"登録番号：" + product.netis_limit_date}}</span><br>
           <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-show="isNew(product)">新入荷商品</span>
           <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-show="isRec(product)">おすすめ商品</span>
           <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-show="isDes(product)">災害支援商品</span>
@@ -24,14 +24,26 @@
         </div>
         <div class="col-12">
           <!-- img id="product_image" :src="product.image_props[0].url" class="d-block w-100" :alt="this.$route.params.Id" -->
-          <img id="product_image" :src="product.url" class="d-block w-100" :alt="product.product.title">
+          <img id="product_image" :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100" :alt="product.product.title">
         </div>
       </div>
       <div class="row p-3 mx-0">
-        <div v-for="(productImage,index) in product.image_props" v-bind:key="index">  
+        <!-- div v-for="(productImage,index) in product.image_props" v-bind:key="index">
           <div class="col-4 col-md-3 col-lg-2 mb-2">
               <a href="#" :data-src="productImage.url" class="product_thumbnails d-block border border-primary">
               <img src="productImage.url" class="d-block w-100"></a>
+          </div>
+        </div -->
+        <!-- div v-for="(productImage,index) in product.image_props" v-bind:key="index">
+          <div class="col-4 col-md-3 col-lg-2 mb-2">
+              <a href="#" :data-src="productImage.url" class="product_thumbnails d-block border border-primary">
+              <img src="productImage.url" class="d-block w-100"></a>
+          </div>
+        </div -->
+        <div v-for="n of 5" v-bind:key="n">
+          <div class="col-4 col-md-3 col-lg-2 mb-2">
+              <a href="#" :data-src="'/kenki_images/1/' + product.product.product_code + '-0' + n + '.jpg'" class="product_thumbnails d-block border border-primary">
+              <img :src="'/kenki_images/1/' + product.product.product_code + '-0' + n + '.jpg'" class="d-block w-100"></a>
           </div>
         </div>
       </div>
@@ -202,12 +214,6 @@
       }
     },
     methods: {
-      isNetis: function(p) {
-        if(p.product) return false;
-        return false;
-        //return (!p['product'].netis) ? false : true;
-      },
-
       isNew: function (p) {
         if(!p.sub_categories) return false;
         var news = p.sub_categories.filter(function(item){
