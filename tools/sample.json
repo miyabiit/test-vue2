@@ -1,80 +1,87 @@
-http://13.59.42.214/api/stock_products/search
-{'address_info': '甲陽建機リース株式会社\r\n'
-                 '甲府営業所\r\n'
-                 '担当：山田\r\n'
-                 '055-237-7821\r\n'
-                 '\r\n'
-                 'お気軽にお問い合わせください',
+200
+http://13.59.42.214/api/stock_products/69
+{'address_info': '',
  'address_info_charterable': True,
  'address_info_published': True,
- 'category_id': None,
+ 'category': {'id': 416, 'name': '0.03m3（0.9tクラス）バックホー'},
+ 'category_id': 416,
  'charterable': True,
- 'company': {'id': 2, 'name': 'テスト会社1'},
- 'company_id': 2,
- 'company_memo': '社内用のメモです',
- 'created_at': '2019-12-24T19:48:01.796+09:00',
- 'description': '傾斜での走行吊り・旋回は危険ですのでおやめください。',
+ 'company': {'id': 1, 'name': 'テスト建機1'},
+ 'company_id': 1,
+ 'company_memo': '',
+ 'created_at': '2020-03-13T16:24:43.427+09:00',
+ 'description': '',
  'description_charterable': True,
  'description_published': True,
- 'faq': 'FAQ',
+ 'faq': '',
  'faq_charterable': True,
  'faq_published': True,
- 'file_props': [{'id': 11,
-                 'name': 'テキスト2019121201',
-                 'url': '/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c2d37e7b8c5c1f6fec7276a7ddbe00a4fed9da1c/test_2019121201.txt'},
-                {'id': 12,
-                 'name': '会社マスタ',
-                 'url': '/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--da8a397cb57aa6d252c7145e9f69b4e938cdc5a3/%E4%BC%9A%E7%A4%BE%E3%83%9E%E3%82%B9%E3%82%BF.pdf'}],
- 'id': 2,
- 'image_props': [{'id': 8,
-                  'name': '分類',
-                  'url': '/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--be1bc75e18a7f5771e12f46fa8e150eda3516a1d/%E5%88%86%E9%A1%9E%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3.JPG'},
-                 {'id': 9,
-                  'name': 'スクリーンショット2019121201',
-                  'url': '/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--48018f018dd9b61471858db13c587f752db20417/screenshot2019121202.JPG'}],
- 'meta_description': '',
- 'meta_keywords': '',
- 'price_info': '基本料金：1,000,000円',
+ 'file_props': [],
+ 'id': 69,
+ 'image_props': [],
+ 'meta_description': 'バックホーのレンタルなら甲陽建機リースにお任せください。このページでは当社で取り扱いのある商品の詳細情報を掲載しています。各種性能表や参考資料をご覧いただくことが出来ます。',
+ 'meta_keywords': '掘削機械,バックホウ,ユンボ',
+ 'price_info': '',
  'price_info_charterable': True,
  'price_info_published': True,
- 'private_memo': 'これもメモです',
+ 'private_memo': '',
  'product': {'checking_denhou': False,
              'checking_shaken': False,
              'checking_souken': False,
              'checking_teiji': False,
              'checking_tokujiken': True,
-             'created_at': '2019-12-12T14:00:38.011+09:00',
-             'description_a': '呼称0.2m\u30003以上は「技」「特自検」',
-             'description_b': '',
+             'created_at': '2020-03-13T16:24:43.424+09:00',
+             'description_a': None,
+             'description_b': None,
              'driver_license': False,
-             'id': 2,
-             'netis': True,
-             'netis_limit_date': '2020-12-31',
-             'product_code': '',
-             'product_name': 'VBA070E3',
-             'qualification_comment': '',
+             'id': 65,
+             'netis': False,
+             'netis_limit_date': None,
+             'product_code': 'kkl19120152',
+             'product_name': 'VAA030AB',
+             'qualification_comment': None,
              'qualification_skill': False,
              'qualification_sp_teach': True,
-             'title': '0.007m3（0.3ｔクラス）バックホー 後方小旋回 PC01',
-             'updated_at': '2019-12-12T14:04:35.892+09:00'},
- 'product_id': 2,
- 'spec': '',
- 'spec_comment': '※バケット幅はサイドカッターを含みます。\r\n◎バックホー後方小施回は、NETIS登録商品もございます。',
- 'staff_comment': '※バックホー（アタッチメントを含む）お借りいただいた場合のご返却期限は、原則として当日の18時までとさせていただきます。但し、やむを得ない事情がある場合は予めご連絡を頂ければ翌朝のご返却に対応させていただきます\r\n'
-                  '※レンタル料金等は予告なく変更される場合がございます。予めご了承ください。',
+             'title': '0.03m3（0.9tクラス）バックホー 超小旋回 J09-A',
+             'updated_at': '2020-03-13T16:24:43.424+09:00'},
+ 'product_id': 65,
+ 'spec': '項目,商品1,商品2,商品3,商品4\r\n'
+         '商品コード,VAA030AB,VBA030AB,VBA030AB,VAA030EB\r\n'
+         '種別,準備中,後方小旋回,後方小旋回,準備中\r\n'
+         '呼称（m3）,準備中,0.02,,準備中\r\n'
+         '新JIS表示（m3）,準備中,0.022,0.018,準備中\r\n'
+         'メーカー,準備中,コベルコ,クボタ,準備中\r\n'
+         '型式,準備中,SK09SR,U-008DH,準備中\r\n'
+         'クローラシュー,準備中,ｺﾞﾑ,180,準備中\r\n'
+         '走行速度（km/h）,準備中,2.0/4.0,2.0/4.0,準備中\r\n'
+         '接地圧（kPa{kgf/cm2}）,準備中,25(0.25),22.5(0.23)/23.5(0.24),準備中\r\n'
+         '最大掘削力（kN{kgf}）,準備中,"10.8 ｛1,100 kgf｝",ｱｰﾑ 5.0(505)          ﾊﾞｹｯﾄ '
+         '9.8(1000),準備中\r\n'
+         '性能寸法\u3000バケット幅（mm）,準備中,350,300,準備中\r\n'
+         '性能寸法\u3000A：最大掘削高（mm）,準備中,"3,025","2,275",準備中\r\n'
+         '性能寸法\u3000B：最大ダンプ高（mm）,準備中,"2,190","1,945",準備中\r\n'
+         '性能寸法\u3000C：最大掘削深さ（mm）,準備中,"1,575","1,600",準備中\r\n'
+         '性能寸法\u3000D：最大掘削半径（mm）,準備中,"3,130","3,120",準備中\r\n'
+         '定格出力\u3000（kW/min-1）,準備中,"5.7/2,000",,準備中\r\n'
+         '定格出力\u3000（PS/rpm）,準備中,"5.7/2,000",10.2,準備中\r\n'
+         '燃料タンク容量（L）,準備中,9,12,準備中\r\n'
+         '寸法\u3000全長L（mm）,準備中,"2,780(3,005)",,準備中\r\n'
+         '寸法\u3000全幅W（mm）,準備中,750/980,,準備中\r\n'
+         '寸法\u3000全高H（mm）,準備中,"1,440",,準備中\r\n'
+         '質量（kg）,準備中,940,,準備中\r\n'
+         '電圧（V）,準備中,12,,準備中',
+ 'spec_comment': '※バケット幅はサイドカッターを含みます。\r\n◎バックホー小施回は、NETIS登録商品もございます。',
+ 'staff_comment': '',
  'staff_comment_charterable': True,
  'staff_comment_published': True,
  'stock_product_id': None,
- 'sub_categories': [{'id': 4, 'name': '新入荷商品'},
-                    {'id': 5, 'name': 'おすすめ商品'},
-                    {'id': 6, 'name': '災害支援商品'}],
- 'text_props': [{'id': 6, 'name': 'Yahoo', 'text_content': 'www.yahoo.co.jp'},
-                {'id': 7, 'name': 'Apple', 'text_content': 'apple.com'}],
- 'updated_at': '2020-02-18T11:01:14.609+09:00',
- 'video_charterable': True,
- 'video_comment': '届きにくいところにアクセスできるコンパクトサイズの高所作業車です。障害物の乗り越し作業や、壁際、狭い現場での高所作業が容易に行えます。また、バッテリー駆動のため、室内での使用にも向いています。',
- 'video_license': '担当者は佐藤さん',
- 'video_license_valid': True,
- 'video_published': True,
- 'video_url': 'youtube.com'}
+ 'sub_categories': [],
+ 'text_props': [],
+ 'updated_at': '2020-03-13T17:48:49.593+09:00',
+ 'video_charterable': False,
+ 'video_comment': '',
+ 'video_license': '',
+ 'video_license_valid': False,
+ 'video_published': False,
+ 'video_url': 'kkl19120152-01'}
  

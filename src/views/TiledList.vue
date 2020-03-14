@@ -58,7 +58,7 @@
         <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
           <div class="row align-items-center">
             <div class="col-5 col-sm-2">
-              <img :src="product.tile_image" class="d-block w-100 border" :alt="product.product.title">
+              <img :src="'@/assets/' + product.product.product_code + '-01.jpeg'" class="d-block w-100 border" :alt="product.product.title">
               <span class="d-block netis text-center" v-show="product.product.netis">NETIS</span>
             </div>
             <div class="col-7 col-sm-10">
@@ -130,7 +130,7 @@
 </template>
 
 <script>
-  import products from "@/assets/jsons/stock_products.json"
+  //import products from "@/assets/jsons/stock_products.json"
   
   export default {
     data: function () {
