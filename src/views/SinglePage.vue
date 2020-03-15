@@ -7,10 +7,10 @@
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
-          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-show="product.product.netis">NETIS商品 {{"登録番号：" + product.netis_limit_date}}</span><br>
-          <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-show="isNew(product)">新入荷商品</span>
-          <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-show="isRec(product)">おすすめ商品</span>
-          <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-show="isDes(product)">災害支援商品</span>
+          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-if="product.product.netis">NETIS商品 {{"登録番号：" + product.netis_limit_date}}</span><br>
+          <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-if="isNew(product)">新入荷商品</span>
+          <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-if="isRec(product)">おすすめ商品</span>
+          <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-if="isDes(product)">災害支援商品</span>
         </div>
         <div id="license_icons" class="col-12 col-md-4 text-left text-md-right mt-2 mt-md-0">
           <span class="badge badge-warning px-2 mr-1 align-top" v-show="product.qualification_sp_teach">特教</span>
@@ -216,21 +216,24 @@
     methods: {
       isNew: function (p) {
         if(!p.sub_categories) return false;
-        var news = p.sub_categories.filter(function(item){
-          if((item.name).indexOf("新入荷商品") >= 0) return true;
+        var news = [];
+        news = p.sub_categories.filter(function(item){
+          if((item.name).indexOf("新入荷") >= 0) return true;
         })
-        return (news.length > 0) ? true :  false;
+        return news.length;
       },
       isRec: function (p) {
         if(!p.sub_categories) return 0;
-        var recs = p.sub_categories.filter(function(item){
+        var recs =[];
+        recs = p.sub_categories.filter(function(item){
           if((item.name).indexOf("おすすめ") >= 0) return true;
         })
         return recs.length;
       },
       isDes: function (p) {
         if(!p.sub_categories) return 0;
-        var dess = p.sub_categories.filter(function(item){
+        var dess = [];
+        dess = p.sub_categories.filter(function(item){
           if((item.name).indexOf("災害") >= 0) return true;
         })
         return dess.length;
@@ -248,7 +251,7 @@
         })
         .then(response => {
           this.product = response.data;
-          this.product.url = this.product.image_props[0].url;
+          //this.product.url = this.product.image_props[0].url;
           })
         .catch(error => (console.log(error)));
       }
@@ -256,9 +259,6 @@
     created () {
         console.log("created");
         this.getProduct();
-        console.log("product_code : " + this.product.product.product_code);
-        console.log("product_name : " + this.product.product_name);
-        console.log("video_url : " + this.product.video_url);
     },
     watch: {
       '$route': 'getProduct'

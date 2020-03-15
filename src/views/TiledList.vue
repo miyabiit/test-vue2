@@ -59,7 +59,7 @@
           <div class="row align-items-center">
             <div class="col-5 col-sm-2">
               <img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100 border" :alt="product.product.title">
-              <span class="d-block netis text-center" v-show="product.product.netis">NETIS</span>
+              <span class="d-block netis text-center" v-if="product.product.netis">NETIS</span>
             </div>
             <div class="col-7 col-sm-10">
               <div class="row product_child_list_detail">
