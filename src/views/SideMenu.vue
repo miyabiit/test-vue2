@@ -8,9 +8,9 @@ updated:
       <a class="side_menu mt-2" v-on:click="toggleList(specialNavi)" v-bind:aria-expanded="specialNavi.show"><i class="icon-search"></i>特集から探す</a>
       <transition>
       <div id="side_navi" v-show="specialNavi.show">
-        <router-link :to="{ name: 'list', params: {Id: 5}}">新入荷商品</router-link>
-        <router-link :to="{ name: 'list', params: {Id: 3}}">おすすめ商品</router-link>
-        <router-link :to="{ name: 'list', params: {Id: 2}}">災害支援商品</router-link>
+        <router-link :to="{ name: 'catlist', params: {Name: '新商品'}}">新入荷商品</router-link>
+        <router-link :to="{ name: 'catlist', params: {Name: 'おすすめ'}}">おすすめ商品</router-link>
+        <router-link :to="{ name: 'catlist', params: {Name: '災害'}}">災害支援商品</router-link>
       </div>
       </transition>
 			<a class="side_menu mt-2" v-on:click="toggleList(mainNavi)" v-bind:aria-expanded="mainNavi.show"><i class="icon-search"></i>機種一覧から探す</a>
