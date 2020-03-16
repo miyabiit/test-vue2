@@ -23,28 +23,24 @@
           <p>{{product.description}}</p>
         </div>
         <div class="col-12">
-          <!-- img id="product_image" :src="product.image_props[0].url" class="d-block w-100" :alt="this.$route.params.Id" -->
           <img id="product_image" :src="mainImage" class="d-block w-100" :alt="product.product.title">
         </div>
       </div>
       <div class="row p-3 mx-0">
-        <!-- div v-for="(productImage,index) in product.image_props" v-bind:key="index">
-          <div class="col-4 col-md-3 col-lg-2 mb-2">
-              <a href="#" :data-src="productImage.url" class="product_thumbnails d-block border border-primary">
-              <img src="productImage.url" class="d-block w-100"></a>
-          </div>
-        </div -->
-        <!-- div v-for="(productImage,index) in product.image_props" v-bind:key="index">
-          <div class="col-4 col-md-3 col-lg-2 mb-2">
-              <a href="#" :data-src="productImage.url" class="product_thumbnails d-block border border-primary">
-              <img src="productImage.url" class="d-block w-100"></a>
-          </div>
-        </div -->
         <div class="col-4 col-md-3 col-lg-2 mb-2">
-          <div v-for="n of 5" v-bind:key="n">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-0' + n + '.jpg')" class="product_thumbnails d-block border border-primary">
-            <img :src="'/kenki_images/1/' + product.product.product_code + '-0' + n + '.jpg'" class="d-block w-100"></a>
-          </div>
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-01.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100"></a>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2 mb-2">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-02.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-02.jpg'" class="d-block w-100"></a>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2 mb-2">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-03.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-03.jpg'" class="d-block w-100"></a>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2 mb-2">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-04.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-04.jpg'" class="d-block w-100"></a>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2 mb-2">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-05.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-05.jpg'" class="d-block w-100"></a>
         </div>
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
@@ -256,15 +252,13 @@
         })
         .then(response => {
           this.product = response.data;
-          //this.product.url = this.product.image_props[0].url;
+          this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg');
           })
         .catch(error => (console.log(error)));
       }
     },
     created () {
-        console.log("created");
         this.getProduct();
-        this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg');
     },
     watch: {
       '$route': 'getProduct'
