@@ -50,6 +50,7 @@
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
       <div id="spec" class="table-responsive">
         <table id="product-spec-table" class="table" data-strong-column="3">
+          <p>{{product.spec}}</p>
           <!-- xml to table html -->
         </table>
       </div>
