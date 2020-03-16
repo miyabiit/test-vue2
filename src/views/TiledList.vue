@@ -145,6 +145,7 @@
         var myToken = process.env.VUE_APP_TOKEN;
         var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
+        var myName = this.$route.params.Name;
         var param = {};
         if(myId){
           param = {
@@ -153,6 +154,16 @@
                 'category_id': myId
             }
           }
+        }
+        else if(myName){
+          param = {
+            'limit': 100, 
+            'stock_product': {
+              'sub_categories': {
+                'name': myName
+              }
+            }
+          }          
         }
         else{
           param = {

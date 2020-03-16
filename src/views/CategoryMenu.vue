@@ -3,13 +3,13 @@
       <h2 class="p-2"><i class="icon-search"></i> 特集から探す</h2>
       <div id="special_search" class="row row-eq-height mt-1 mb-4 mx-0">
         <div class="col-4 border p-2">
-          <a href="" class="d-block text-center clearfix p-3"><img src="@/assets/images/special01.jpg" class="d-block mx-auto mb-2"><span class="d-block">新入荷商品</span></a>
+          <router-link class="d-block text-center clearfix p-3" :to="{ name: 'catlist', params: { Name: '新商品'}}"><img src="@/assets/images/special01.jpg" class="d-block mx-auto mb-2"><span class="d-block">新入荷商品</span></router-link>
         </div>
         <div class="col-4 border p-2">
-          <a href="" class="d-block text-center clearfix p-3"><img src="@/assets/images/special02.jpg" class="d-block mx-auto mb-2"><span class="d-block">おすすめ商品</span></a>
+          <router-link class="d-block text-center clearfix p-3" :to="{ name: 'catlist', params: { Name: 'おすすめ'}}"><img src="@/assets/images/special02.jpg" class="d-block mx-auto mb-2"><span class="d-block">おすすめ商品</span></router-link>
         </div>
         <div class="col-4 border p-2">
-          <a href="" class="d-block text-center clearfix p-3"><img src="@/assets/images/special03.jpg" class="d-block mx-auto mb-2"><span class="d-block">災害支援商品</span></a>
+          <router-link class="d-block text-center clearfix p-3" :to="{ name: 'catlist', params: { Name: '災害'}}"><img src="@/assets/images/special03.jpg" class="d-block mx-auto mb-2"><span class="d-block">災害支援商品</span></router-link>
         </div>
       </div>
       <h2 class="p-2"><i class="icon-search"></i> 機種一覧から探す</h2>
@@ -81,3 +81,17 @@
       </div>
     </main>
 </template>
+
+<script>
+  export default {
+    data: function () {
+      return {
+      }
+    },
+    methods: {
+      }
+    },
+    watch: {
+    }
+  }
+</script>

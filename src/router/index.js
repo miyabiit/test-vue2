@@ -24,6 +24,14 @@ const routes = [
     }
   },
   {
+    path: '/catlist/:Name',
+    name: 'catlist',
+    components: {
+      side: SideMenu,
+      mainview: TiledList
+    }
+  },
+  {
     path: '/search/:Keyword',
     name: 'search',
     components: {
