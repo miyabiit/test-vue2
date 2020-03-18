@@ -238,12 +238,8 @@
       changeMainImage: function (path) {
         this.mainImage = path;
       },
-      makeSpec: function (csv) {          
-        const dataArray = [];
-        const dataString = csv.split('\n');
-        for (let i = 0; i < dataString.length; i++) {
-          dataArray[i] = dataString[i].split(',');
-        }
+      makeSpec: function (d) {          
+        const dataArray = this.parseCSV(d,',');
         let insertElement = '';
         dataArray.forEach((element) => {
           insertElement += '<tr>';
@@ -253,6 +249,25 @@
           insertElement += '</tr>';
         });
         this.specPage = insertElement;
+      },
+      parseCSV: function(text,delim) {
+        if (!delim) delim = ',';
+        var tokenizer = new RegExp(delim + '|\r?\n|[^' + delim + '"\r\n][^' + delim + '\r\n]*|"(?:[^"]|"")*"', 'g');
+        var record = 0, field = 0, data = [['']], qq = /""/g;
+        text.replace(/\r?\n$/, '').replace(tokenizer, function(token) {
+          switch (token) {
+            case delim: 
+              data[record][++field] = '';
+              break;
+            case '\n': case '\r\n':
+              data[++record] = [''];
+              field = 0;
+              break;
+            default:
+              data[record][field] = (token.charAt(0) != '"') ? token : token.slice(1, -1).replace(qq, '"');
+          }
+        });
+        return data;
       },
       getProduct: function () {
         var filter_id = this.product_id;
