@@ -206,7 +206,8 @@
             'product': {},
             'image_props': []
         },
-        mainImage: ''
+        mainImage: '',
+        specPage: ''
       }
     },
     methods: {
