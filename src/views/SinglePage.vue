@@ -54,7 +54,7 @@
         <table id="product-spec-table" class="table" data-strong-column="2" v-html="specPage">
         </table>
       </div>
-      <p class="p-2">{{product.spec_comment}}</p>
+      <p class="p-2" v-html="brbr(product.spec_comment)"></p>
       
       <!-- h2 class="p-2 mt-5"><i class="icon-compare"></i> 比較検討商品</h2>
        <div class="recommend-items">
@@ -81,8 +81,8 @@
        </div -->
       
       <h2 class="p-2 mt-5"><i class="icon-spec"></i> 商品説明</h2>
-      <p class="p-2">{{product.product.description_a}}</p>
-      <p class="p-2">{{product.product.description_b}}</p>
+      <p class="p-2" v-html="brbr(product.product.description_a)"></p>
+      <p class="p-2" v-html="brbr(product.product.description_b)"></p>
       
       <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連商品（オプション・販売品など）</h2>
       <!-- div class="related-items">
@@ -283,6 +283,7 @@
         this.specPage = insertElement;
       },
       parseCSV: function(text,delim) {
+        if(!text) text ='';
         if (!delim) delim = ',';
         var tokenizer = new RegExp(delim + '|\r?\n|[^' + delim + '"\r\n][^' + delim + '\r\n]*|"(?:[^"]|"")*"', 'g');
         var record = 0, field = 0, data = [['']], qq = /""/g;
@@ -302,6 +303,7 @@
         return data;
       },
       brbr: function(text){
+        if(!text) text ='';
         var brtext = text.replace(/\r?\n/g, '<br>');
         return brtext;
       },
