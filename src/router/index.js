@@ -32,6 +32,14 @@ const routes = [
     }
   },
   {
+    path: '/speclist/:Spec',
+    name: 'speclist',
+    components: {
+      side: SideMenu,
+      mainview: TiledList
+    }
+  },
+  {
     path: '/search/:Keyword',
     name: 'search',
     components: {
