@@ -7,15 +7,21 @@
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
-          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-if="product.product.netis">NETIS商品 {{"登録番号：" + product.netis_limit_date}}</span><br>
+          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-if="product.product.netis">NETIS商品 {{"使用期限：" + product.product.netis_limit_date}}</span><br>
           <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-if="isNew(product)">新入荷商品</span>
           <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-if="isRec(product)">おすすめ商品</span>
           <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-if="isDes(product)">災害支援商品</span>
         </div>
         <div id="license_icons" class="col-12 col-md-4 text-left text-md-right mt-2 mt-md-0">
-          <span class="badge badge-warning px-2 mr-1 align-top" v-show="product.qualification_sp_teach">特教</span>
-          <span class="badge badge-info px-2 mr-1 align-top" v-show="product.checking_tokujiken">特自検</span>
-          <span id="license_icons_desc" class="d-block"><a href="#"><i class="icon-faq"></i>アイコンについて</a><br><!-- 呼称0.2m 3以上は「技」「特自検」--></span>
+          <span class="badge badge-warning px-2 mr-1 align-top" v-if="product.product.qualification_sp_teach">特教</span>
+          <span class="badge badge-warning px-2 mr-1 align-top" v-if="product.product.qualification_skill">技</span>
+          <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.driver_license">公道運転免許</span>
+          <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_tokujiken">特自検</span>
+          <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_denhou">電訪</span>
+          <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_shaken">車検</span>
+          <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_souken">送検</span>
+          <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_teiji">定時</span>
+          <span id="license_icons_desc" class="d-block"><a href="#"><i class="icon-faq"></i>アイコンについて</a><br>{{product.product.qualification_comment}}</span>
         </div>
       </div>
       <div class="row p-3 mx-0">
@@ -48,7 +54,7 @@
         <table id="product-spec-table" class="table" data-strong-column="2" v-html="specPage">
         </table>
       </div>
-      <p class="p-2">{{product.spec_comment}}<br>{{product.staff_comment}}</p>
+      <p class="p-2">{{product.spec_comment}}</p>
       
       <!-- h2 class="p-2 mt-5"><i class="icon-compare"></i> 比較検討商品</h2>
        <div class="recommend-items">
@@ -75,8 +81,8 @@
        </div -->
       
       <h2 class="p-2 mt-5"><i class="icon-spec"></i> 商品説明</h2>
-      <p class="p-2">{{product.description_a}}</p>
-      <p class="p-2">{{product.description_b}}</p>
+      <p class="p-2">{{product.product.description_a}}</p>
+      <p class="p-2">{{product.product.description_b}}</p>
       
       <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連商品（オプション・販売品など）</h2>
       <!-- div class="related-items">
@@ -101,31 +107,33 @@
            <div class="d-block recommend-item-title text-center p-2">組合せ品<br>業務用無線機（特定小電力無線機） ヘルメット用ヘッドセット R9C 00007</div>
          </a>
       </div -->
-       
-      <h2 class="p-2 mt-5"><i class="icon-comment"></i> 担当者より</h2>
-      <p class="p-2">{{product.staff_comment}}</p>
-
-       <h2 class="p-2 mt-5"><i class="icon-price"></i> 参考価格</h2>
-       <div id="price" class="table-responsive">
-         <table class="table">
-           <thead>
-             <tr>
-               <th>レンタル料金（日割）</th>
-               <th>基本料金 / サポート料金（日割）</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td></td>
-               <td>{{product.price_info}}</td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
-       
+      
+      <div v-if="product.staff_comment_published"> 
+        <h2 class="p-2 mt-5"><i class="icon-comment"></i> 担当者より</h2>
+        <p class="p-2">{{product.staff_comment}}</p>
+      </div>
+      <div v-if="product.price_info_published">
+        <h2 class="p-2 mt-5"><i class="icon-price"></i> 参考価格</h2>
+        <div id="price" class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>レンタル料金（日割）</th>
+                <th>基本料金 / サポート料金（日割）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>{{product.price_info}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
        <h2 class="p-2 mt-5"><i class="icon-video"></i> 動画</h2>
-       <!-- div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       </div -->
+       <div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div>
        <p class="p-2">{{product.video_comment}}</p>
        
        <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
@@ -146,7 +154,7 @@
        </div>
        
        <h2 class="p-2 mt-5"><i class="icon-faq"></i> FAQ</h2>
-       <!-- div class="faq px-3 mb-4">
+       <div class="faq px-3 mb-4">
            <div class="faq_q mb-2">個人でも借りることはできますか？</div>
            <div class="faq_a mb-2">はい。個人の方もご利用いただけます。レンタル手続きの流れに従って連絡ください。</div>
        </div>
@@ -155,9 +163,11 @@
            <div class="faq_a mb-2">お借りいただいた営業所で精算いたしますので、別の営業所への返却はできません。</div>
        </div>
        
-       <h2 class="p-2 mt-5"><i class="icon-comment-ex"></i> 備考</h2>
-       <p class="p-2">傾斜での走行吊り・旋回は危険ですのでおやめください。</p>
-       
+       <div v-if="product.description_published">
+        <h2 class="p-2 mt-5"><i class="icon-comment-ex"></i> 備考</h2>
+        <p class="p-2">{{product.description}}</p>
+       </div>
+
        <h2 class="p-2 mt-5"><i class="icon-contact"></i> お問い合わせ</h2>
        <div class="row px-3 mb-5 mx-0">
          <div class="col-12 col-md-6">
@@ -167,7 +177,7 @@
            <p class="contact_tel mb-0">055-237-7821</p>
            <p>お気軽にお問い合わせください</p>
          </div>
-       </div -->
+       </div>
        
        <h2 class="p-2 mt-5"><i class="icon-excavator"></i> 商品バックナンバー</h2>
        <!-- div class="backnumber-items">
@@ -294,10 +304,10 @@
           }
         })
         .then(response => {
-          this.product = response.data;
-          this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg');
-          this.makeSpec(this.product.spec, this.product.product.product_name);
-          })
+          this.product = response.data
+          this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
+          this.makeSpec(this.product.spec, this.product.product.product_name)
+        })
         .catch(error => (console.log(error)));
       }
     },
