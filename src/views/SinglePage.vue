@@ -240,14 +240,24 @@
       },
       makeSpec: function (d) {          
         const dataArray = this.parseCSV(d,',');
-        let insertElement = '';
-        dataArray.forEach((element) => {
-          insertElement += '<tr>';
-          element.forEach((childElement) => {
-            insertElement += `<td>${childElement}</td>`
-          });
-          insertElement += '</tr>';
-        });
+        let insertElement = '<tbody>';
+        for(var i=0; i < dataArray.length; i++){
+         if(i==0) continue;
+         insertElement += '<tr>';
+         for(var j=0; j<dataArray[i].length; j++){
+           if(i==1){
+             insertElement += `<th>${dataArray[i][j]}</th>`;
+           }else{
+             if(j==0){
+               insertElement += `<th>${dataArray[i][j]}</th>`;
+             }else{
+               insertElement += `<td>${dataArray[i][j]}</td>`;
+             }
+           }     
+         }
+         insertElement += '</tr>';
+        }
+        insertElement += '</tbody>'
         this.specPage = insertElement;
       },
       parseCSV: function(text,delim) {
