@@ -45,9 +45,7 @@
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
       <div id="spec" class="table-responsive">
-        <table id="product-spec-table" class="table" data-strong-column="3">
-          <p>{{product.spec}}</p>
-          <!-- xml to table html -->
+        <table id="product-spec-table" class="table" data-strong-column="3" v-html="specPage">
         </table>
       </div>
       <p class="p-2">{{product.spec_comment}}<br>{{product.staff_comment}}</p>
@@ -239,6 +237,22 @@
       changeMainImage: function (path) {
         this.mainImage = path;
       },
+      makeSpec: function (csv) {          
+        const dataArray = [];
+        const dataString = csv.split('\n');
+        for (let i = 0; i < dataString.length; i++) {
+          dataArray[i] = dataString[i].split(',');
+        }
+        let insertElement = '';
+        dataArray.forEach((element) => {
+          insertElement += '<tr>';
+          element.forEach((childElement) => {
+            insertElement += `<td>${childElement}</td>`
+          });
+          insertElement += '</tr>';
+        });
+        this.specPage = insertElement;
+      },
       getProduct: function () {
         var filter_id = this.product_id;
         var url = '/wapi/stock_products/' + filter_id;
@@ -253,6 +267,7 @@
         .then(response => {
           this.product = response.data;
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg');
+          this.makeSpec(this.product.spec);
           })
         .catch(error => (console.log(error)));
       }
