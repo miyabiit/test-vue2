@@ -157,8 +157,7 @@
        
       <div v-if="product.faq_published">
         <h2 class="p-2 mt-5"><i class="icon-faq"></i> FAQ</h2>
-        <div class="faq px-3 mb-4">
-          {{product.faq}}
+        <div class="faq px-3 mb-4" v-html="brbr(product.faq)">
         </div>
         <!-- div class="faq px-3 mb-4">
            <div class="faq_q mb-2">個人でも借りることはできますか？</div>
@@ -301,6 +300,10 @@
           }
         });
         return data;
+      },
+      brbr: function(text){
+        var brtext = text.replace(/\r?\n/g, '<br>');
+        return brtext;
       },
       getProduct: function () {
         var filter_id = this.product_id;
