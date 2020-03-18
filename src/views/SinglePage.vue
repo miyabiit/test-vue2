@@ -45,7 +45,7 @@
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
       <div id="spec" class="table-responsive">
-        <table id="product-spec-table" class="table" data-strong-column="3" v-html="specPage">
+        <table id="product-spec-table" class="table" data-strong-column="2" v-html="specPage">
         </table>
       </div>
       <p class="p-2">{{product.spec_comment}}<br>{{product.staff_comment}}</p>
@@ -238,8 +238,9 @@
       changeMainImage: function (path) {
         this.mainImage = path;
       },
-      makeSpec: function (d) {          
+      makeSpec: function (d, code) {          
         const dataArray = this.parseCSV(d,',');
+        var strongPos = dataArray[1].indexOf(code);
         let insertElement = '<tbody>';
         for(var i=0; i < dataArray.length; i++){
          if(i==0) continue;
@@ -250,6 +251,8 @@
            }else{
              if(j==0){
                insertElement += `<th>${dataArray[i][j]}</th>`;
+             }else if(j==strongPos){
+               insertElement += `<td class="go-red">${dataArray[i][j]}</td>`;
              }else{
                insertElement += `<td>${dataArray[i][j]}</td>`;
              }
@@ -293,7 +296,7 @@
         .then(response => {
           this.product = response.data;
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg');
-          this.makeSpec(this.product.spec);
+          this.makeSpec(this.product.spec, this.product.product.product_name);
           })
         .catch(error => (console.log(error)));
       }

@@ -43,11 +43,11 @@
       <div id="category_search_s" class="row row-eq-height mb-4 mx-0">
         <div class="col-4 border p-2">
           <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '発電'}}">
-          <img src="@/assets/images/category05.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">発電・溶接・照明機器</span></a>
+          <img src="@/assets/images/category05.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">発電・溶接・照明機器</span></router-link>
         </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center  text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: 'コンプレッサ'}}">
-          <img src="@/assets/images/category06.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">コンプレッサ・エア機械</span></a>
+          <img src="@/assets/images/category06.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">コンプレッサ・エア機械</span></router-link>
         </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: 'ハウス'}}">
