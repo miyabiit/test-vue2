@@ -131,53 +131,63 @@
           </table>
         </div>
       </div>
-       <h2 class="p-2 mt-5"><i class="icon-video"></i> 動画</h2>
-       <div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       </div>
-       <p class="p-2">{{product.video_comment}}</p>
-       
-       <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
-       <div class="row mx-0">
-         <div v-for="(file,index) in product.file_props" v-bind:key="index">
-           <div class="col-6 mb-2">
-             <a href="file.url" class="btn btn-outline-info btn-block" download><i class="icon-pdf"></i>{{file.name}}</a>
-           </div>
+      
+      <div v-if="product.video_license_published && product.video_license_valid">
+        <h2 class="p-2 mt-5"><i class="icon-video"></i> 動画</h2>
+        <div class="videoWrapper"><iframe width="560" height="315" :src="product.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="p-2">{{product.video_comment}}</p>
+      </div>
+
+      <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
+      <div class="row mx-0">
+       <div v-for="(file,index) in product.file_props" v-bind:key="index">
+         <div class="col-6 mb-2">
+           <a href="file.url" class="btn btn-outline-info btn-block" download><i class="icon-pdf"></i>{{file.name}}</a>
          </div>
        </div>
-       
-       
-       <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連サイト</h2>
-       <div id="links" class="row px-3 mx-0">
-         <div v-for="(myLink,index) in product.link_props" v-bind:key="index">
-           <a href="myLink.url" class="btn btn-outline-info btn-block text-left" target="_blank">{{myLink.name}}</a>    
-         </div>
+      </div>
+      
+      <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連サイト</h2>
+      <div id="links" class="row px-3 mx-0">
+       <div v-for="(myLink,index) in product.link_props" v-bind:key="index">
+         <a href="myLink.url" class="btn btn-outline-info btn-block text-left" target="_blank">{{myLink.name}}</a>    
        </div>
+      </div>
        
-       <h2 class="p-2 mt-5"><i class="icon-faq"></i> FAQ</h2>
-       <div class="faq px-3 mb-4">
+      <div v-if="product.faq_published">
+        <h2 class="p-2 mt-5"><i class="icon-faq"></i> FAQ</h2>
+        <div class="faq px-3 mb-4">
+          {{product.faq}}
+        </div>
+        <!-- div class="faq px-3 mb-4">
            <div class="faq_q mb-2">個人でも借りることはできますか？</div>
            <div class="faq_a mb-2">はい。個人の方もご利用いただけます。レンタル手続きの流れに従って連絡ください。</div>
-       </div>
-       <div class="faq px-3 mb-4">
+        </div>
+        <div class="faq px-3 mb-4">
            <div class="faq_q mb-2">借りた営業所とは違う営業所に返却してもいいですか?</div>
            <div class="faq_a mb-2">お借りいただいた営業所で精算いたしますので、別の営業所への返却はできません。</div>
-       </div>
+        </div -->
+      </div>
        
        <div v-if="product.description_published">
         <h2 class="p-2 mt-5"><i class="icon-comment-ex"></i> 備考</h2>
         <p class="p-2">{{product.description}}</p>
        </div>
-
-       <h2 class="p-2 mt-5"><i class="icon-contact"></i> お問い合わせ</h2>
-       <div class="row px-3 mb-5 mx-0">
-         <div class="col-12 col-md-6">
-           <p><span class="font-weight-bold d-block">甲陽建機リース株式会社</span>甲府営業所<br>担当：山田</p>
+      
+      <div v-if="product.address_info_published">
+         <h2 class="p-2 mt-5"><i class="icon-contact"></i> お問い合わせ</h2>
+         <div class="row px-3 mb-5 mx-0">
+           <div class="col-12 col-md-6">
+             <!-- p><span class="font-weight-bold d-block">甲陽建機リース株式会社</span>甲府営業所<br>担当：山田</p -->
+             <p><span class="font-weight-bold d-block">{{product.address_info}}</span></p>
+           </div>
+           <div class="col012 col-md-6">
+             <!-- p class="contact_tel mb-0">055-237-7821</p -->
+             <p>お気軽にお問い合わせください</p>
+           </div>
          </div>
-         <div class="col012 col-md-6">
-           <p class="contact_tel mb-0">055-237-7821</p>
-           <p>お気軽にお問い合わせください</p>
-         </div>
-       </div>
+      </div>
        
        <h2 class="p-2 mt-5"><i class="icon-excavator"></i> 商品バックナンバー</h2>
        <!-- div class="backnumber-items">
