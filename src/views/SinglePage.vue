@@ -26,7 +26,7 @@
       </div>
       <div class="row p-3 mx-0">
         <div class="col-12">
-          <p>{{product.description}}</p>
+          <p>{{product.product.title}}</p>
         </div>
         <div class="col-12">
           <img id="product_image" :src="mainImage" class="d-block w-100" :alt="product.product.title">

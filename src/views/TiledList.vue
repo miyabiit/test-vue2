@@ -64,9 +64,9 @@
             <div class="col-7 col-sm-10">
               <div class="row product_child_list_detail">
                 <div class="col-12 font-weight-bold pb-1">{{product.product.title}}</div>
-                <div class="col-12">メーカー：{{product.product.maker}}</div>
-                <div class="col-12">{{product.product.description_a}}</div>
-                <div class="col-12">型式：{{product.product.type}}</div>
+                <div class="col-12">メーカー：{{product.product.manufacture_name}}</div>
+                <div class="col-12">呼称：{{product.product.product_short_name}}</div>
+                <div class="col-12">型式：{{product.product.model_name}}</div>
                 <div class="col-12">商品コード：{{product.product.product_name}}</div>
               </div>
             </div>
@@ -143,6 +143,7 @@
       filterProducts: function () {
         var url = '/wapi/stock_products/search';
         var myToken = process.env.VUE_APP_TOKEN;
+        var myComId = process.env.VUE_APP_COMPANY_ID;
         var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
         var myName = this.$route.params.Name;
@@ -153,7 +154,8 @@
           param = {
             'limit': 100,
             'stock_product': {
-                'category_id': myId
+                'category_id': myId,
+                'company_id': myComId
             }
           }
         }
@@ -163,7 +165,8 @@
             'stock_product': {
               'sub_categories': {
                 'name': myName
-              }
+              },
+              'company_id': myComId
             }
           }          
         }
@@ -210,7 +213,8 @@
             'limit': 100,
             'stock_product': {
                 'category_id': specArray
-            }
+            },
+            'company_id': myComId
           }
         /*
         掘削機（バックホー・油圧ショベル） 415,416,417,418,420,421,422,423,425,426,427,428
@@ -232,7 +236,8 @@
             'stock_product': {
               'product': {
                 'title': myKey
-              }
+              },
+              'company_id': myComId
             }
           }
         }

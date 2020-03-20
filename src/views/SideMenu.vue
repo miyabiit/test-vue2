@@ -85,19 +85,21 @@ updated:
       }
     },
     mounted () {
-      var url = '/wapi/categories';
+      var url = '/wapi/categories/search';
       var myToken = process.env.VUE_APP_TOKEN;
-      console.log(url + ' : ' + myToken);
+      var myComId = process.env.VUE_APP_COMPANY_ID;
 
       this.axios
-      .get(url, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': `Token ${myToken}`,
-          },
-        params: {'limit': 1000}
-      })
+      .post(url, 
+        {'limit': 1000, 'company_id': myComId},
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${myToken}`,
+          }
+        },
+      )
       .then(response => (this.categories = response.data))
       .catch(error => (console.log(error)));
       
