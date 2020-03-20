@@ -229,6 +229,19 @@
         specPage: ''
       }
     },
+    head: {
+      title: function() {
+        return {
+          inner: this.product.title
+        }
+      },
+      meta: function() {
+        return [
+          { name: 'description', content: this.product.meta_description },
+          { name: 'keywords', content: this.product.meta_keywords}
+        ]
+      }
+    },
     methods: {
       isNew: function (p) {
         if(!p.sub_categories) return false;
@@ -322,6 +335,7 @@
           this.product = response.data
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
           this.makeSpec(this.product.spec, this.product.product.product_name)
+          this.$emit("updateHead")
         })
         .catch(error => (console.log(error)));
       }
