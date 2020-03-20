@@ -28,6 +28,26 @@
       ItemSearch,
       GlobalHeader,
       GlobalFooter
+    },
+    data: function () {
+      return {
+        title: "商品カタログ",
+      }
+    },
+    head: {
+      title: function () {
+        return {
+          inner: this.title
+        }
+      },
+      meta: [
+        {name: 'description', content: 'content'},
+        {name: 'keywords', content: 'keyword'}
+      ]
+    },
+    mounted : function () {
+       this.$parent.$emit("updateHead");
+       console.log(this.title);
     }
   }
 </script>

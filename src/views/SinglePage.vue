@@ -226,21 +226,22 @@
             'image_props': []
         },
         mainImage: '',
-        specPage: ''
+        specPage: '',
+        title: 'test_single',
+        description: null,
+        keywords: null
       }
     },
     head: {
-      title: function() {
+      title: function () {
         return {
-          inner: this.product.title
+          inner: this.title
         }
       },
-      meta: function() {
-        return [
-          { name: 'description', content: this.product.meta_description },
-          { name: 'keywords', content: this.product.meta_keywords}
-        ]
-      }
+      meta: [
+        {name: 'description', content: 'content'},
+        {name: 'keywords', content: 'keyword'}
+      ]
     },
     methods: {
       isNew: function (p) {
@@ -335,7 +336,10 @@
           this.product = response.data
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
           this.makeSpec(this.product.spec, this.product.product.product_name)
-          this.$emit("updateHead")
+          this.title = this.product.product.title
+          this.description = this.product.meta_description
+          this.keywords = this.product.meta_keywords
+          this.$parent.$emit("udpateHead")
         })
         .catch(error => (console.log(error)));
       }
@@ -344,7 +348,11 @@
         this.getProduct();
     },
     watch: {
-      '$route': 'getProduct'
+      '$route': 'getProduct',
+      'title': function (){
+          this.$parent.$emit("udpateHead")
+          console.log(this.title)
+      }
     }
   }
 </script>
