@@ -32,6 +32,8 @@
     data: function () {
       return {
         title: "商品カタログ",
+        description: "建設機械レンタルの甲陽建機リース株式会社です。当社で取り扱いのある商品のカタログを掲載しています。各種性能表が掲載されており、カタログPDFファイルをダウンロードすることもできます。機種一覧からカテゴリごとに分類された商品を選択することもできますし、フリーワード検索にも対応しております。",
+        keywords: "建設機械,土木機械,掘削機,バックホー,油圧ショベル,レンタカー,道路機械,解体,林業,アタッチメント,高所作業車,整地,運搬機械"
       }
     },
     head: {
@@ -40,14 +42,24 @@
           inner: this.title
         }
       },
-      meta: [
-        {name: 'description', content: 'content'},
-        {name: 'keywords', content: 'keyword'}
-      ]
+      meta: function () {
+        return [
+          {hid: 'description', name: 'description', content: this.description},
+          {hid: 'keywords', name: 'keywords', content: this.keywords}
+        ]
+      }
     },
     mounted : function () {
-       this.$parent.$emit("updateHead");
-       console.log(this.title);
+       this.$emit("updateHead");
+       console.log("App mounted :" + this.title)
+       console.log("App mounted :" + this.keywords)
+    },
+    watch: {
+      'title': function (){
+        console.log("App watch :" + this.title)
+        console.log("App watch :" + this.keywords)
+        this.$emit("updateHead");
+      }
     }
   }
 </script>

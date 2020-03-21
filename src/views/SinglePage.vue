@@ -227,21 +227,10 @@
         },
         mainImage: '',
         specPage: '',
-        title: 'test_single',
-        description: null,
-        keywords: null
+        title: '商品カタログ',
+        description: '',
+        keywords: ''
       }
-    },
-    head: {
-      title: function () {
-        return {
-          inner: this.title
-        }
-      },
-      meta: [
-        {name: 'description', content: 'content'},
-        {name: 'keywords', content: 'keyword'}
-      ]
     },
     methods: {
       isNew: function (p) {
@@ -337,21 +326,24 @@
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
           this.makeSpec(this.product.spec, this.product.product.product_name)
           this.title = this.product.product.title
-          this.description = this.product.meta_description
-          this.keywords = this.product.meta_keywords
-          this.$parent.$emit("udpateHead")
         })
         .catch(error => (console.log(error)));
       }
     },
     created () {
-        this.getProduct();
+      this.getProduct();
+    },
+    mounted () {
+      this.$parent.title = this.title
+      this.$parent.$emit("udpateHead")
     },
     watch: {
       '$route': 'getProduct',
       'title': function (){
-          this.$parent.$emit("udpateHead")
-          console.log(this.title)
+         this.$parent.title = this.product.product.title
+         this.$parent.description = this.product.meta_description
+         this.$parent.keywords = this.product.meta_keywords
+         console.log("single watch and parent title:" + this.$parent.title)
       }
     }
   }
