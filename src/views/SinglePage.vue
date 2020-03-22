@@ -7,7 +7,7 @@
       <h2 id="product_name" class="p-2 px-lg-0 border-bottom">{{product.product.title}}</h2>
       <div class="row mx-0">
         <div id="appeal_icons" class="col-12 col-md-8">
-          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-if="product.product.netis">NETIS商品 {{"使用期限：" + product.product.netis_limit_date}}</span><br>
+          <span class="bg-primary d-inline-block px-2 mr-1 mb-1" v-if="product.product.netis">NETIS商品</span><br>
           <span class="bg-success d-inline-block px-2 mr-1 mb-1" v-if="isNew(product)">新入荷商品</span>
           <span class="bg-warning d-inline-block px-2 mr-1 mb-1" v-if="isRec(product)">おすすめ商品</span>
           <span class="bg-danger d-inline-block px-2 mr-1 mb-1" v-if="isDes(product)">災害支援商品</span>
@@ -45,7 +45,7 @@
         <div class="col-4 col-md-3 col-lg-2 mb-2">
             <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-04.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-04.jpg'" class="d-block w-100"></a>
         </div>
-        <div class="col-4 col-md-3 col-lg-2 mb-2">
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="'/kenki_images/1/' + product.product.product_code + '-05.jpg'">
             <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-05.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-05.jpg'" class="d-block w-100"></a>
         </div>
       </div>
@@ -227,6 +227,7 @@
         },
         mainImage: '',
         specPage: '',
+        onLoadedCSV: '',
         title: '商品カタログ',
         description: '',
         keywords: ''
@@ -260,7 +261,7 @@
       changeMainImage: function (path) {
         this.mainImage = path;
       },
-      makeSpec: function (d, code) {          
+      makeSpec: function (d, code) {      
         const dataArray = this.parseCSV(d,',');
         var strongPos = dataArray[1].indexOf(code);
         let insertElement = '<tbody>';
@@ -285,8 +286,8 @@
         insertElement += '</tbody>'
         this.specPage = insertElement;
       },
-      parseCSV: function(text,delim) {
-        if(!text) text ='';
+      parseCSV: function(text = '',delim) {
+        //if(!text) text ='';
         if (!delim) delim = ',';
         var tokenizer = new RegExp(delim + '|\r?\n|[^' + delim + '"\r\n][^' + delim + '\r\n]*|"(?:[^"]|"")*"', 'g');
         var record = 0, field = 0, data = [['']], qq = /""/g;
@@ -304,6 +305,13 @@
           }
         });
         return data;
+      },
+      loadCsvFile: function (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          this.onLoadedCSV = e.target.result;
+        }
+        reader.readAsBinaryString(file);
       },
       brbr: function(text){
         if(!text) text ='';
@@ -324,7 +332,13 @@
         .then(response => {
           this.product = response.data
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
-          this.makeSpec(this.product.spec, this.product.product.product_name)
+          if(this.product.spec){
+            this.makeSpec(this.product.spec, this.product.product.product_name)
+          }
+          else{
+            if(this.loadCsvFile('/spec-csv/' + this.product.category.name + '.csv')){
+             this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
+          }
           this.title = this.product.product.title
         })
         .catch(error => (console.log(error)));
