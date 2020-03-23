@@ -227,7 +227,7 @@
         },
         mainImage: '',
         specPage: '',
-        onLoadedCSV: '',
+        onLoadedCSV: null,
         title: '商品カタログ',
         description: '',
         keywords: ''
@@ -308,10 +308,12 @@
       },
       loadCsvFile: function (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
-          this.onLoadedCSV = e.target.result;
+        console.log("file2: " + file)
+        reader.onload = function() {
+          this.onLoadedCSV = reader.result
         }
-        reader.readAsBinaryString(file);
+        //reader.readAsDataURL(file)
+        reader.readAsText(file)
       },
       brbr: function(text){
         if(!text) text ='';
@@ -336,12 +338,12 @@
             this.makeSpec(this.product.spec, this.product.product.product_name)
           }
           else{
-            if(this.loadCsvFile('/spec-csv/' + this.product.category.name + '.csv')){
-             this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
+            console.log("category name1: " + this.product.category.name)
+            this.loadCsvFile('/spec-csv/' + this.product.category.name + '.csv')
           }
           this.title = this.product.product.title
         })
-        .catch(error => (console.log(error)));
+        //.catch(error => (console.log(error)));
       }
     },
     created () {
@@ -358,6 +360,10 @@
          this.$parent.description = this.product.meta_description
          this.$parent.keywords = this.product.meta_keywords
          console.log("single watch and parent title:" + this.$parent.title)
+      },
+      'onLoadedCSV': function(){
+         console.log("onLoadCSV1: " + this.onLoadedCSV)
+         if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
       }
     }
   }
