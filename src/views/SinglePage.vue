@@ -228,6 +228,7 @@
         mainImage: '',
         specPage: '',
         onLoadedCSV: null,
+        targetCsvFile: null,
         title: '商品カタログ',
         description: '',
         keywords: ''
@@ -339,7 +340,8 @@
           }
           else{
             console.log("category name1: " + this.product.category.name)
-            this.loadCsvFile('/spec-csv/' + this.product.category.name + '.csv')
+            //this.loadCsvFile('/spec-csv/' + this.product.category.name + '.csv')
+            this.targetCsvFile = '/spec-csv/' + this.product.category.name + '.csv'
           }
           this.title = this.product.product.title
         })
@@ -356,14 +358,25 @@
     watch: {
       '$route': 'getProduct',
       'title': function (){
-         this.$parent.title = this.product.product.title
-         this.$parent.description = this.product.meta_description
-         this.$parent.keywords = this.product.meta_keywords
-         console.log("single watch and parent title:" + this.$parent.title)
+          this.$parent.title = this.product.product.title
+          this.$parent.description = this.product.meta_description
+          this.$parent.keywords = this.product.meta_keywords
+          console.log("single watch and parent title:" + this.$parent.title)
       },
       'onLoadedCSV': function(){
-         console.log("onLoadCSV1: " + this.onLoadedCSV)
-         if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
+          console.log("onLoadCSV1: " + this.onLoadedCSV)
+          if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
+      },
+      'targetCsvFile': function (){
+          new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              resolve(event.target.result);
+            }
+            reader.readAsDataURL(this.targetCsvFile);
+          }).then((result) => {
+            this.makeSpec(result, this.product.product.product_name)
+        });
       }
     }
   }
