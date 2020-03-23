@@ -66,7 +66,7 @@
                 <div class="col-12 font-weight-bold pb-1">{{product.product.title}}</div>
                 <div class="col-12">メーカー：{{product.product.manufacture_name}}</div>
                 <div class="col-12">呼称：{{product.product.product_short_name}}</div>
-                <div class="col-12">型式：{{product.product.model_name}}</div>
+                <div class="col-12">型式：{{product.product.product_model_name}}</div>
                 <div class="col-12">商品コード：{{product.product.product_name}}</div>
               </div>
             </div>
