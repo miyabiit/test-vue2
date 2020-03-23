@@ -10,6 +10,13 @@ module.exports = {
         ws: true,
         changeOrigin: true,
         secure: false
+      },
+      "/myweb": {
+        target: 'https://yamada-masahiro-2.paiza-user-basic.cloud:8080/',
+        pathRewrite: { '^/myweb/': ''},
+        ws: true,
+        changeOrigin: true,
+        secure: false
       }
     }
 	}

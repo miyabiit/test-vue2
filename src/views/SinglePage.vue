@@ -309,12 +309,11 @@
       },
       loadCsvFile: function (file) {
         const reader = new FileReader();
-        console.log("file2: " + file)
+        console.log("loadCsvFile: " + file)
         reader.onload = function() {
           this.onLoadedCSV = reader.result
         }
-        //reader.readAsDataURL(file)
-        reader.readAsText(file)
+        reader.readAsDataURL(file)
       },
       brbr: function(text){
         if(!text) text ='';
@@ -339,9 +338,8 @@
             this.makeSpec(this.product.spec, this.product.product.product_name)
           }
           else{
-            console.log("category name1: " + this.product.category.name)
-            //this.loadCsvFile('/spec-csv/' + this.product.category.name + '.csv')
-            this.targetCsvFile = '/spec-csv/' + this.product.category.name + '.csv'
+            console.log("axios call and targetCsvFile changed")
+            this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
           }
           this.title = this.product.product.title
         })
@@ -364,17 +362,21 @@
           console.log("single watch and parent title:" + this.$parent.title)
       },
       'onLoadedCSV': function(){
-          console.log("onLoadCSV1: " + this.onLoadedCSV)
+          console.log("onLoadCSV: " + this.onLoadedCSV)
           if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
       },
       'targetCsvFile': function (){
+          console.log('watched targetCsvFile');
           new Promise((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = (event) => {
-              resolve(event.target.result);
+            reader.onload = (e) => {
+              resolve(e.target.result);
+              reject(e.target.error);
             }
-            reader.readAsDataURL(this.targetCsvFile);
+            console.log('watched :'+ this.targetCsvFile);
+            reader.readAsDataURL('/myweb/spec_csv/this.targetCsvFile');
           }).then((result) => {
+            console.log('resulted')
             this.makeSpec(result, this.product.product.product_name)
         });
       }
