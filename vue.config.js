@@ -5,16 +5,16 @@ module.exports = {
 		port: 8080,
 		disableHostCheck: true,
     proxy: {
-      "/wapi": {
+      "/api": {
         target: process.env.VUE_APP_URL,
-        pathRewrite: { '^/wapi/': ''},
+        //pathRewrite: { '^/api/': ''},
         ws: true,
         changeOrigin: true,
         secure: false
       },
-      "/myweb": {
-        target: 'https://yamada-masahiro-2.paiza-user-basic.cloud:8080/',
-        pathRewrite: { '^/myweb/': ''},
+      "/spec_csv": {
+        target: process.env.VUE_APP_SPEC_URL,
+        //pathRewrite: { '^/myweb/': ''},
         ws: true,
         changeOrigin: true,
         secure: false
