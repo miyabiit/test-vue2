@@ -1,0 +1,10 @@
+{
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"]
+    },
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
+}

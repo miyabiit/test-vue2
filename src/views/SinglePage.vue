@@ -343,7 +343,7 @@
           }
           this.title = this.product.product.title
         })
-        //.catch(error => (console.log(error)));
+        .catch(error => (console.log(error)));
       }
     },
     created () {

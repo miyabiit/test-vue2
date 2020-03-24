@@ -149,7 +149,6 @@
         var myName = this.$route.params.Name;
         var mySpec = this.$route.params.Spec;
         var param = {};
-        console.log("myId: " + myId);
         if(myId){
           param = {
             'limit': 100,
