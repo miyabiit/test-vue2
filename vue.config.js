@@ -5,16 +5,16 @@ module.exports = {
 		port: 8080,
 		disableHostCheck: true,
     proxy: {
-      "/api": {
+      "/wapi": {
         target: process.env.VUE_APP_URL,
-        //pathRewrite: { '^/api/': ''},
+        pathRewrite: { '^/wapi/': ''},
         ws: true,
         changeOrigin: true,
         secure: false
       },
       "/spec_csv": {
         target: process.env.VUE_APP_SPEC_URL,
-        //pathRewrite: { '^/myweb/': ''},
+        pathRewrite: { '^/myweb/': ''},
         ws: true,
         changeOrigin: true,
         secure: false

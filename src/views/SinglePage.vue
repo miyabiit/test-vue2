@@ -322,7 +322,7 @@
       },
       getProduct: function () {
         var filter_id = this.product_id;
-        var url = '/wapi/stock_products/' + filter_id;
+        var url = process.env.VUE_APP_API_URL + '/stock_products/' + filter_id;
         var myToken = process.env.VUE_APP_TOKEN;
         this.axios
         .get(url, {

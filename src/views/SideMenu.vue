@@ -85,7 +85,7 @@ updated:
       }
     },
     mounted () {
-      var url = '/wapi/categories/search';
+      var url = process.env.VUE_APP_API_URL + '/categories/search';
       var myToken = process.env.VUE_APP_TOKEN;
       var myComId = process.env.VUE_APP_COMPANY_ID;
 
