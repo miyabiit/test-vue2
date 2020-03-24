@@ -10,7 +10,7 @@ body{font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI
 #top-contact a{font-weight:bold;color:#fff;background:#}
 
 
-#top_head{background:url(../images/top_bg.jpg); background-size:cover;position:relative}
+#top_head{background:url(/_images/top_bg.jpg); background-size:cover;position:relative}
 #top_head.company{background:url(../images/index_bg.jpg);background-position:center}
 #top_head.callcenter{background:url(./../images/call_bg.jpg);background-position:center;background-size:cover;position:relative}
 
@@ -26,7 +26,7 @@ body{font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI
 #top_head.fresh{background:url(../images/fresh_bg.jpg)}
 #top_head.info{background:url(../images/info_bg.jpg)}
 #top_head.product_bg{background:url(../images/product_bg.jpg)}
-#top_head.catalog_bg{background:url(../images/catalog_bg.jpg)}
+#top_head.catalog_bg{background:url(/images/catalog_bg.jpg)}
 #top_head.img_simulation{background:url(../images/simulation/bg.jpg)}
 #top_head.used_bg{background:url(../images/used_bg.jpg)}
 #top_head.policy_bg{background:url(../images/policy_bg.jpg)}
