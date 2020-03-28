@@ -322,7 +322,7 @@
       },
       getProduct: function () {
         var filter_id = this.product_id;
-        var url = process.env.VUE_APP_API_URL + '/stock_products/' + filter_id;
+        var url = process.env.VUE_APP_URL + '/stock_products/' + filter_id;
         var myToken = process.env.VUE_APP_TOKEN;
         fetch(url, {
           method: "GET",
@@ -336,7 +336,7 @@
           return res.json()
         })
         .then(data =>{
-          this.product = response.data
+          this.product = data
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
           if(this.product.spec){
             this.makeSpec(this.product.spec, this.product.product.product_name)

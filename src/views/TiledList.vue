@@ -141,7 +141,7 @@
     },
     methods: {
       filterProducts: function () {
-        var url = process.env.VUE_APP_API_URL + '/stock_products/search';
+        var url = process.env.VUE_APP_URL + '/stock_products/search';
         var myToken = process.env.VUE_APP_TOKEN;
         var myComId = process.env.VUE_APP_COMPANY_ID;
         var myKey = this.$route.params.Keyword;

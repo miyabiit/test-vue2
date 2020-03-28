@@ -65,7 +65,7 @@
 </script>
 
 <style>
-  @import "/assets/css/bootstrap.min.css";
-  @import "/assets/css/fontello.css";
-  @import "/assets/css/site1.css";
+  @import "/css/bootstrap.min.css";
+  @import "/css/fontello.css";
+  @import "/css/site1.css";
 </style>
