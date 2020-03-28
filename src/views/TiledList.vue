@@ -240,19 +240,22 @@
             }
           }
         }
-        this.axios
-        .post(url, param,
-          {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Authorization': `Token ${myToken}`
-            },
-            withCredentials: true
-          }
-        )
-        .then(response => {this.filtered = response.data})
-        .catch(error => (console.log(error)));
+        fetch(url, {
+          method: "POST",
+          mode: "cors",
+          headers:  {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${myToken}`
+          },
+          body: JSON.stringify(param)
+        })
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          this.filtered = data
+        })
+        .catch(e => console.error(e))
       }
     },
     mounted () {
@@ -263,4 +266,3 @@
     }
   }
 </script>
-

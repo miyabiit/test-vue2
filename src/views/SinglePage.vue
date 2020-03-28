@@ -324,15 +324,18 @@
         var filter_id = this.product_id;
         var url = process.env.VUE_APP_API_URL + '/stock_products/' + filter_id;
         var myToken = process.env.VUE_APP_TOKEN;
-        this.axios
-        .get(url, {
+        fetch(url, {
+          method: "GET",
+          mode: "cors",
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${myToken}`
-          },
-          withCredentials: true
+          }
         })
-        .then(response => {
+        .then(res => {
+          return res.json()
+        })
+        .then(data =>{
           this.product = response.data
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
           if(this.product.spec){
@@ -344,7 +347,7 @@
           }
           this.title = this.product.product.title
         })
-        .catch(error => (console.log(error)));
+        .catch(e => console.error(e))
       }
     },
     created () {
