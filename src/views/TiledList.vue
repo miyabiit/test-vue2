@@ -247,7 +247,8 @@
               'Accept': 'application/json',
               'Content-Type': 'application/json',
               'Authorization': `Token ${myToken}`
-            }
+            },
+            withCredentials: true
           }
         )
         .then(response => {this.filtered = response.data})

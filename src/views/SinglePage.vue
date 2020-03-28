@@ -329,7 +329,8 @@
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${myToken}`
-          }
+          },
+          withCredentials: true
         })
         .then(response => {
           this.product = response.data

@@ -85,24 +85,24 @@ updated:
       }
     },
     mounted () {
-      var url = process.env.VUE_APP_API_URL + '/categories/search';
+      var url = process.env.VUE_APP_URL + '/categories/search';
       var myToken = process.env.VUE_APP_TOKEN;
       var myComId = process.env.VUE_APP_COMPANY_ID;
-
-      this.axios
-      .post(url, 
-        {'limit': 1000, 'company_id': myComId},
-        {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Token ${myToken}`,
-          }
-        },
-      )
-      .then(response => (this.categories = response.data))
-      .catch(error => (console.log(error)));
-      
+      var params = {'limit': 1000, 'company_id': myComId};
+      var myHeaders = {'Content-Type': 'application/json', 'Authorization': `Token ${myToken}` }
+      fetch(url, {
+        method: "POST",
+        mode: "cors",
+        headers : myHeaders,
+        body: JSON.stringify(params)
+      })
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        this.categories = data
+      })
+      .catch(e => console.error(e))
     },
     methods: {
       toggleList: function (menu){
