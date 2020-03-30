@@ -140,7 +140,7 @@
       }
     },
     methods: {
-      setParams: function (searchClass = 'stock_product' , comId = 1, key = '', id = '', name = '', spec = ''){
+      setParams: function (searchClass, comId = 1, key = '', id = '', name = '', spec = ''){
         // key -- search box
         // id --- category_id
         // name - sub_categories ex) tag 
@@ -149,7 +149,7 @@
         if(id){
           param = {
             'limit': 100,
-            searchClass: {
+            [searchClass]: {
                 'category_id': id,
                 'company_id': comId
             }
@@ -158,7 +158,7 @@
         else if(name){
           param = {
             'limit': 100, 
-            searchClass: {
+            [searchClass]: {
               'sub_categories': {
                 'name': name
               },
@@ -207,8 +207,8 @@
           }
           param = {
             'limit': 100,
-            searchClass: {
-                'category_id': specArray
+            [searchClass]: {
+                'category_id': specArray,
                 'company_id': comId
             },
           }
@@ -229,7 +229,7 @@
         else{
           param = {
             'limit': 100, 
-            searchClass: {
+            [searchClass]: {
               'product': {
                 'title': key
               },
@@ -248,7 +248,8 @@
         var myName = this.$route.params.Name;
         var mySpec = this.$route.params.Spec;
         var param = {};
-        param = setParams('stock_product', myComId, myKey, myId, myName, mySpec)
+        param = this.setParams('stock_product', myComId, myKey, myId, myName, mySpec)
+        console.log(param)
         fetch(url, {
           method: "POST",
           mode: "cors",
@@ -267,8 +268,8 @@
         .catch(e => console.error(e))
         
         //add chartered_stock_product
-        var url = process.env.VUE_APP_URL + '/chartered_stock_products/search';
-        param = setParams('chartered_stock_product', myComId, myKey, myId, myName, mySpec)
+        url = process.env.VUE_APP_URL + '/chartered_stock_products/search';
+        param = this.setParams('chartered_stock_product', myComId, myKey, myId, myName, mySpec)
         fetch(url, {
           method: "POST",
           mode: "cors",
@@ -282,10 +283,9 @@
           return res.json()
         })
         .then(data => {
-          this.filtered += data
+          this.filtered = this.filtered.concat(data)
         })
         .catch(e => console.error(e))
-        
       }
     },
     mounted () {
