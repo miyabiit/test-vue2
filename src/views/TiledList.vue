@@ -140,38 +140,35 @@
       }
     },
     methods: {
-      filterProducts: function () {
-        var url = process.env.VUE_APP_URL + '/stock_products/search';
-        var myToken = process.env.VUE_APP_TOKEN;
-        var myComId = process.env.VUE_APP_COMPANY_ID;
-        var myKey = this.$route.params.Keyword;
-        var myId = this.$route.params.Id;
-        var myName = this.$route.params.Name;
-        var mySpec = this.$route.params.Spec;
+      setParams: function (searchClass = 'stock_product' , comId = 1, key = '', id = '', name = '', spec = ''){
+        // key -- search box
+        // id --- category_id
+        // name - sub_categories ex) tag 
+        // spec - special (array[category_id,xxxx] , second category layer)
         var param = {};
-        if(myId){
+        if(id){
           param = {
             'limit': 100,
-            'stock_product': {
-                'category_id': myId,
-                'company_id': myComId
+            searchClass: {
+                'category_id': id,
+                'company_id': comId
             }
           }
         }
-        else if(myName){
+        else if(name){
           param = {
             'limit': 100, 
-            'stock_product': {
+            searchClass: {
               'sub_categories': {
-                'name': myName
+                'name': name
               },
-              'company_id': myComId
+              'company_id': comId
             }
           }          
         }
-        else if(mySpec){
+        else if(spec){
           var specArray = [];
-          switch(mySpec) {
+          switch(spec) {
             case '掘削機' :
               specArray = [415,416,417,418,420,421,422,423,425,426,427,428];
               break;
@@ -210,10 +207,10 @@
           }
           param = {
             'limit': 100,
-            'stock_product': {
+            searchClass: {
                 'category_id': specArray
+                'company_id': comId
             },
-            'company_id': myComId
           }
         /*
         掘削機（バックホー・油圧ショベル） 415,416,417,418,420,421,422,423,425,426,427,428
@@ -232,14 +229,26 @@
         else{
           param = {
             'limit': 100, 
-            'stock_product': {
+            searchClass: {
               'product': {
-                'title': myKey
+                'title': key
               },
-              'company_id': myComId
+              'company_id': comId
             }
           }
         }
+        return param 
+      },
+      filterProducts: function () {
+        var url = process.env.VUE_APP_URL + '/stock_products/search';
+        var myToken = process.env.VUE_APP_TOKEN;
+        var myComId = process.env.VUE_APP_COMPANY_ID;
+        var myKey = this.$route.params.Keyword;
+        var myId = this.$route.params.Id;
+        var myName = this.$route.params.Name;
+        var mySpec = this.$route.params.Spec;
+        var param = {};
+        param = setParams('stock_product', myComId, myKey, myId, myName, mySpec)
         fetch(url, {
           method: "POST",
           mode: "cors",
@@ -256,6 +265,27 @@
           this.filtered = data
         })
         .catch(e => console.error(e))
+        
+        //add chartered_stock_product
+        var url = process.env.VUE_APP_URL + '/chartered_stock_products/search';
+        param = setParams('chartered_stock_product', myComId, myKey, myId, myName, mySpec)
+        fetch(url, {
+          method: "POST",
+          mode: "cors",
+          headers:  {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${myToken}`
+          },
+          body: JSON.stringify(param)
+        })
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          this.filtered += data
+        })
+        .catch(e => console.error(e))
+        
       }
     },
     mounted () {
