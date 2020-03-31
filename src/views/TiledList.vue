@@ -55,7 +55,7 @@
     <div id="product_child_list" class="row p-3 mx-0">
       <div class="col-12">
         <div v-for="product in filtered" v-bind:key="product.id">
-          <div v-if="product.isCharter">            
+          <div v-if="!product.isCharter">            
             <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">    
               <div class="row align-items-center">
                 <div class="col-5 col-sm-2">
@@ -128,7 +128,6 @@
   export default {
     data: function () {
       return {
-        // products: [],
         filtered: []
       }
     },
@@ -242,7 +241,6 @@
         var mySpec = this.$route.params.Spec;
         var param = {};
         param = this.setParams('stock_product', myComId, myKey, myId, myName, mySpec)
-        console.log(param)
         fetch(url, {
           method: "POST",
           mode: "cors",
@@ -265,7 +263,7 @@
         
         //add chartered_stock_product
         url = process.env.VUE_APP_URL + '/chartered_stock_products/search';
-        param = this.setParams('chartered_stock_product', myComId, myKey, myId, myName, mySpec)
+        param = this.setParams('stock_product', myComId, myKey, myId, myName, mySpec)
         fetch(url, {
           method: "POST",
           mode: "cors",
