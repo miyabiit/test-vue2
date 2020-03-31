@@ -55,53 +55,46 @@
     <div id="product_child_list" class="row p-3 mx-0">
       <div class="col-12">
         <div v-for="product in filtered" v-bind:key="product.id">
-        <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">
-          <div class="row align-items-center">
-            <div class="col-5 col-sm-2">
-              <img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100 border" :alt="product.product.title">
-              <span class="d-block netis text-center" v-if="product.product.netis">NETIS</span>
-            </div>
-            <div class="col-7 col-sm-10">
-              <div class="row product_child_list_detail">
-                <div class="col-12 font-weight-bold pb-1">{{product.product.title}}</div>
-                <div class="col-12">メーカー：{{product.product.manufacture_name}}</div>
-                <div class="col-12">呼称：{{product.product.product_short_name}}</div>
-                <div class="col-12">型式：{{product.product.product_model_name}}</div>
-                <div class="col-12">商品コード：{{product.product.product_name}}</div>
+          <div v-if="product.isCharter">            
+            <router-link :to="{ name: 'single', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list">    
+              <div class="row align-items-center">
+                <div class="col-5 col-sm-2">
+                  <img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100 border" :alt="product.product.title">
+                  <span class="d-block netis text-center" v-if="product.product.netis">NETIS</span>
+                </div>
+                <div class="col-7 col-sm-10">
+                  <div class="row product_child_list_detail">
+                    <div class="col-12 font-weight-bold pb-1">{{product.product.title}}</div>
+                    <div class="col-12">メーカー：{{product.product.manufacture_name}}</div>
+                    <div class="col-12">呼称：{{product.product.product_short_name}}</div>
+                    <div class="col-12">型式：{{product.product.product_model_name}}</div>
+                    <div class="col-12">商品コード：{{product.product.product_name}}</div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </router-link>
           </div>
-        </router-link>
+          <div v-else>
+            <router-link :to="{ name: 'singleCharter', params: {Id: product.id}}" class="btn btn-block text-left btn-child-list charter position-relative">    
+              <div class="row align-items-center">
+                <div class="col-5 col-sm-2">
+                  <img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100 border" :alt="product.product.title">
+                  <span class="d-block netis text-center" v-if="product.product.netis">NETIS</span>
+                </div>
+                <div class="col-7 col-sm-10">
+                  <div class="row product_child_list_detail">
+                    <div class="col-12 font-weight-bold pb-1">{{product.product.title}}</div>
+                    <div class="col-12">メーカー：{{product.product.manufacture_name}}</div>
+                    <div class="col-12">呼称：{{product.product.product_short_name}}</div>
+                    <div class="col-12">型式：{{product.product.product_model_name}}</div>
+                    <div class="col-12">商品コード：{{product.product.product_name}}</div>
+                  </div>
+                </div>
+              </div>
+              <!-- div class="position-absolute text-right comp">KL/DD/SA/CL/OT</div -->
+            </router-link>            
+          </div>
         </div>
-        <!-- a href="product.html" class="btn btn-block text-left btn-child-list">
-          <div class="row align-items-center">
-            <div class="col-5 col-sm-2"><img src="@/assets/images/product/img3.png" class="d-block w-100 border" alt="バックホー後方小旋回"><span class="d-block netis text-center">NETIS</span></div>
-            <div class="col-7 col-sm-10">
-              <div class="row product_child_list_detail">
-                <div class="col-12 font-weight-bold pb-1">0.007m3バックホー後方小旋回 PC01</div>
-                <div class="col-12">メーカー：ヤンマー</div>
-                <div class="col-12">呼称：0.03</div>
-                <div class="col-12">型式：SV08-1</div>
-                <div class="col-12">商品コード：VBA 030AB</div>
-              </div>
-            </div>
-          </div>
-        </a -->
-        <!-- a href="product.html" class="btn btn-block text-left btn-child-list charter position-relative">
-          <div class="row align-items-center">
-            <div class="col-5 col-sm-2"><img src="/images/product/img3.png" class="d-block w-100 border" alt="バックホー後方小旋回"><span class="d-block netis text-center">NETIS</span></div>
-            <div class="col-7 col-sm-10">
-              <div class="row product_child_list_detail">
-                <div class="col-12 font-weight-bold pb-1">0.007m3バックホー後方小旋回 PC01</div>
-                <div class="col-12">メーカー：キャタピラージャパン	</div>
-                <div class="col-12">呼称：0.25</div>
-                <div class="col-12">型式：RX-505</div>
-                <div class="col-12">商品コード：VBA 250NC</div>
-              </div>
-            </div>
-          </div>
-          <div class="position-absolute text-right comp">KL/DD/SA/CL/OT</div>
-        </a -->
       </div>
     </div>
     <!-- pagination -->
@@ -263,6 +256,9 @@
           return res.json()
         })
         .then(data => {
+          for(var i=0;i<data.length;i++){
+            data[i]['isCharter'] = false
+          }
           this.filtered = data
         })
         .catch(e => console.error(e))
@@ -283,6 +279,9 @@
           return res.json()
         })
         .then(data => {
+          for(var i=0;i<data.length;i++){
+            data[i]['isCharter'] = true
+          }
           this.filtered = this.filtered.concat(data)
         })
         .catch(e => console.error(e))

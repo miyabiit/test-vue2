@@ -54,6 +54,14 @@ const routes = [
       side: SideMenu,
       mainview: SinglePage
     }
+  },
+  {
+    path: '/single/:CharterId',
+    name: 'singleCharter',
+    components: {
+      side: SideMenu,
+      mainview: SinglePage
+    }
   }
 ]
 

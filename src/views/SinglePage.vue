@@ -221,6 +221,7 @@
     data: function () {
       return {
         product_id: this.$route.params.Id,
+        chartered_product_id: this.$route.params.CharterId,
         product: {
             'product': {},
             'image_props': []
@@ -323,6 +324,10 @@
       getProduct: function () {
         var filter_id = this.product_id;
         var url = process.env.VUE_APP_URL + '/stock_products/' + filter_id;
+        if(this.chartered_product_id){
+          filter_id = this.chartered_product_id;
+          url = process.env.VUE_APP_URL + '/chartered_stock_products/' + filter_id;          
+        }
         var myToken = process.env.VUE_APP_TOKEN;
         fetch(url, {
           method: "GET",
