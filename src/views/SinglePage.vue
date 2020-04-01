@@ -263,12 +263,16 @@
       changeMainImage: function (path) {
         this.mainImage = path;
       },
-      makeSpec: function (d, code) {      
+      makeSpec: function (d, name, code) {      
         const dataArray = this.parseCSV(d,',');
-        var strongPos = dataArray[1].indexOf(code);
+        var strongPos = dataArray[1].indexOf(name);
+        if(dataArray[2][0] == ''){
+          strongPos = dataArray[2].indexOf(code);
+        }
         let insertElement = '<tbody>';
         for(var i=0; i < dataArray.length; i++){
          if(i==0) continue;
+         if(i==1 && (dataArray[i][0] == '') continue;
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){
@@ -344,7 +348,7 @@
           this.product = data
           this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
           if(this.product.spec){
-            this.makeSpec(this.product.spec, this.product.product.product_name)
+            this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
           }
           else{
             console.log("axios call and targetCsvFile changed")
@@ -372,7 +376,7 @@
       },
       'onLoadedCSV': function(){
           console.log("onLoadCSV: " + this.onLoadedCSV)
-          if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name)
+          if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name, this.product.product.product_code)
       },
       'targetCsvFile': function (){
           console.log('watched targetCsvFile');
@@ -386,7 +390,7 @@
             reader.readAsDataURL('/myweb/spec_csv/this.targetCsvFile');
           }).then((result) => {
             console.log('resulted')
-            this.makeSpec(result, this.product.product.product_name)
+            this.makeSpec(result, this.product.product.product_name, this.product.product.product_code)
         });
       }
     }
