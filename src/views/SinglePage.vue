@@ -33,20 +33,21 @@
         </div>
       </div>
       <div class="row p-3 mx-0">
-        <div class="col-4 col-md-3 col-lg-2 mb-2">
+        <!-- div class="col-4 col-md-3 col-lg-2 mb-2" v-if="getKenkiImage(product.product.product_code)" -->
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="true">
             <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-01.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100"></a>
         </div>
-        <div class="col-4 col-md-3 col-lg-2 mb-2">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-02.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-02.jpg'" class="d-block w-100"></a>
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[1]">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-02.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-02.jpg'" class="d-block w-100" v-on:onerror="imageLinkError(1)"></a>
         </div>
-        <div class="col-4 col-md-3 col-lg-2 mb-2">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-03.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-03.jpg'" class="d-block w-100"></a>
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[2]">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-03.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-03.jpg'" class="d-block w-100" v-on:onerror="imageLinkError(2)"></a>
         </div>
-        <div class="col-4 col-md-3 col-lg-2 mb-2">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-04.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-04.jpg'" class="d-block w-100"></a>
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[3]">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-04.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-04.jpg'" class="d-block w-100" v-on:onerror="imageLinkError(3)"></a>
         </div>
-        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="'/kenki_images/1/' + product.product.product_code + '-05.jpg'">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-05.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-05.jpg'" class="d-block w-100"></a>
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[4]">
+            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-05.jpg')" class="product_thumbnails d-block border border-primary"><img v-if="loadImage[4]" :src="'/kenki_images/1/' + product.product.product_code + '-05.jpg'" class="d-block w-100" @error="imageLinkError(4)"></a>
         </div>
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
@@ -230,12 +231,31 @@
         specPage: '',
         onLoadedCSV: null,
         targetCsvFile: null,
+        // meta
         title: '商品カタログ',
         description: '',
-        keywords: ''
+        keywords: '',
+        // image load
+        loadImage: [true, true, true, true, true]
       }
     },
     methods: {
+      getKenkiImage: function (code) {
+        this.axios.get('/kenki_images/1/' + code + '-01.jpg')
+        .then(res => {
+          console.log(res.status)
+          return true
+        })
+        .catch(e => {
+          console.log(e)
+          return false
+        })
+      },
+      imageLinkError: function(n){
+        console.log("link error: " + n)
+        console.log("status: " + this.loadImage[n])
+        this.loadImage[n] = false
+      },
       isNew: function (p) {
         if(!p.sub_categories) return false;
         var news = [];
@@ -370,6 +390,9 @@
     },
     watch: {
       '$route': 'getProduct',
+      'loadImage': function() {
+        console.log('loadImage changed')
+      },
       'title': function (){
           this.$parent.title = this.product.product.title
           this.$parent.description = this.product.meta_description
