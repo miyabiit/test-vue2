@@ -56,7 +56,7 @@ const routes = [
     }
   },
   {
-    path: '/single/:CharterId',
+    path: '/singlec/:CharterId',
     name: 'singleCharter',
     components: {
       side: SideMenu,

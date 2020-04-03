@@ -33,21 +33,20 @@
         </div>
       </div>
       <div class="row p-3 mx-0">
-        <!-- div class="col-4 col-md-3 col-lg-2 mb-2" v-if="getKenkiImage(product.product.product_code)" -->
-        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="true">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-01.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-01.jpg'" class="d-block w-100"></a>
+        <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[0]">
+            <a v-on:click="changeMainImage(kenkiImagePath(0))" class="product_thumbnails d-block border border-primary"><img :src="kenkiImagePath(0)" class="d-block w-100"></a>
         </div>
         <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[1]">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-02.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-02.jpg'" class="d-block w-100" v-on:onerror="imageLinkError(1)"></a>
+            <a v-on:click="changeMainImage(kenkiImagePath(1))" class="product_thumbnails d-block border border-primary"><img :src="kenkiImagePath(1)" class="d-block w-100"></a>
         </div>
         <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[2]">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-03.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-03.jpg'" class="d-block w-100" v-on:onerror="imageLinkError(2)"></a>
+            <a v-on:click="changeMainImage(kenkiImagePath(2))" class="product_thumbnails d-block border border-primary"><img :src="kenkiImagePath(2)" class="d-block w-100"></a>
         </div>
         <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[3]">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-04.jpg')" class="product_thumbnails d-block border border-primary"><img :src="'/kenki_images/1/' + product.product.product_code + '-04.jpg'" class="d-block w-100" v-on:onerror="imageLinkError(3)"></a>
+            <a v-on:click="changeMainImage(kenkiImagePath(3))" class="product_thumbnails d-block border border-primary"><img :src="kenkiImagePath(3)" class="d-block w-100"></a>
         </div>
         <div class="col-4 col-md-3 col-lg-2 mb-2" v-if="loadImage[4]">
-            <a v-on:click="changeMainImage('/kenki_images/1/' + product.product.product_code + '-05.jpg')" class="product_thumbnails d-block border border-primary"><img v-if="loadImage[4]" :src="'/kenki_images/1/' + product.product.product_code + '-05.jpg'" class="d-block w-100" @error="imageLinkError(4)"></a>
+            <a v-on:click="changeMainImage(kenkiImagePath(4))" class="product_thumbnails d-block border border-primary"><img :src="kenkiImagePath(4)" class="d-block w-100"></a>
         </div>
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
@@ -240,22 +239,29 @@
       }
     },
     methods: {
-      getKenkiImage: function (code) {
-        this.axios.get('/kenki_images/1/' + code + '-01.jpg')
-        .then(res => {
-          console.log(res.status)
-          return true
-        })
-        .catch(e => {
-          console.log(e)
-          return false
-        })
+      kenkiImagePath: function (n) {
+        return '/kenki_images/1/' + this.product.product.product_code + '-' + ('00' + (i+1)).slice(-2) + '.jpg'
+      }
+      loadKenkiImage: function () {
+        for(var i=0;i<5;i++){
+          this.axios.get(kenkiImagePath(i))
+          .then(res => {
+            console.log(res.status)
+            this.loadImage[i] = true
+          })
+          .catch(e => {
+            console.log(e)
+            this.loadImage[i] = false
+          })          
+        }
       },
+      /*
       imageLinkError: function(n){
         console.log("link error: " + n)
         console.log("status: " + this.loadImage[n])
         this.loadImage[n] = false
       },
+      */
       isNew: function (p) {
         if(!p.sub_categories) return false;
         var news = [];
@@ -368,7 +374,7 @@
         })
         .then(data =>{
           this.product = data
-          this.changeMainImage('/kenki_images/1/' + this.product.product.product_code + '-01.jpg')
+          this.changeMainImage(kenkiImagePath(0))
           if(this.product.spec){
             this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
           }
@@ -382,7 +388,8 @@
       }
     },
     created () {
-      this.getProduct();
+      this.getProduct()
+      this.loadKenkiImage()
     },
     mounted () {
       this.$parent.title = this.title
@@ -390,9 +397,6 @@
     },
     watch: {
       '$route': 'getProduct',
-      'loadImage': function() {
-        console.log('loadImage changed')
-      },
       'title': function (){
           this.$parent.title = this.product.product.title
           this.$parent.description = this.product.meta_description
