@@ -223,7 +223,9 @@
         product_id: this.$route.params.Id,
         chartered_product_id: this.$route.params.CharterId,
         product: {
-            'product': {},
+            'product': {
+              'product_code': ''
+            },
             'image_props': []
         },
         mainImage: '',
@@ -235,33 +237,24 @@
         description: '',
         keywords: '',
         // image load
-        loadImage: [true, true, true, true, true]
+        loadImage: [true, true, true, true, true],
       }
     },
     methods: {
       kenkiImagePath: function (n) {
-        return '/kenki_images/1/' + this.product.product.product_code + '-' + ('00' + (i+1)).slice(-2) + '.jpg'
-      }
-      loadKenkiImage: function () {
-        for(var i=0;i<5;i++){
-          this.axios.get(kenkiImagePath(i))
-          .then(res => {
-            console.log(res.status)
-            this.loadImage[i] = true
-          })
-          .catch(e => {
-            console.log(e)
-            this.loadImage[i] = false
-          })          
-        }
+        return '/kenki_images/1/' + this.product.product.product_code + '-' + ('00' + (n+1)).slice(-2) + '.jpg'
       },
-      /*
-      imageLinkError: function(n){
-        console.log("link error: " + n)
-        console.log("status: " + this.loadImage[n])
-        this.loadImage[n] = false
+      loadKenkiImage: function (n) {
+        this.axios.get(this.kenkiImagePath(n))
+        .then(res => {
+          this.$set(this.loadImage, n, true)
+          console.log(res.status)
+        })
+        .catch(e => {
+          this.$set(this.loadImage, n, false)
+          console.log(e)
+        })          
       },
-      */
       isNew: function (p) {
         if(!p.sub_categories) return false;
         var news = [];
@@ -321,7 +314,6 @@
         this.specPage = insertElement;
       },
       parseCSV: function(text = '',delim) {
-        //if(!text) text ='';
         if (!delim) delim = ',';
         var tokenizer = new RegExp(delim + '|\r?\n|[^' + delim + '"\r\n][^' + delim + '\r\n]*|"(?:[^"]|"")*"', 'g');
         var record = 0, field = 0, data = [['']], qq = /""/g;
@@ -374,7 +366,8 @@
         })
         .then(data =>{
           this.product = data
-          this.changeMainImage(kenkiImagePath(0))
+          this.changeMainImage(this.kenkiImagePath(0))
+          for(var i=0;i<5;i++) this.loadKenkiImage(i)
           if(this.product.spec){
             this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
           }
@@ -389,7 +382,6 @@
     },
     created () {
       this.getProduct()
-      this.loadKenkiImage()
     },
     mounted () {
       this.$parent.title = this.title
@@ -420,7 +412,7 @@
           }).then((result) => {
             console.log('resulted')
             this.makeSpec(result, this.product.product.product_name, this.product.product.product_code)
-        });
+        })
       }
     }
   }
