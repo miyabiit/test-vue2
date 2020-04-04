@@ -62,6 +62,14 @@ const routes = [
       side: SideMenu,
       mainview: SinglePage
     }
+  },
+  {
+    path: '/singlecode/:Code',
+    name: 'singleCode',
+    components: {
+      side: SideMenu,
+      mainview: SinglePage
+    }
   }
 ]
 

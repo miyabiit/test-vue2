@@ -220,8 +220,11 @@
   export default {
     data: function () {
       return {
+        //params
         product_id: this.$route.params.Id,
         chartered_product_id: this.$route.params.CharterId,
+        product_code: this.$route.params.Code,
+        //
         product: {
             'product': {
               'product_code': ''
@@ -297,7 +300,7 @@
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){
-             insertElement += `<th>${dataArray[i][j]}</th>`;
+             insertElement += `<th><router-link :to="{ name: 'singlecode', params: {Code: ${dataArray[i][j]}}" >${dataArray[i][j]}</th>`;
            }else{
              if(j==0){
                insertElement += `<th>${dataArray[i][j]}</th>`;
@@ -346,38 +349,79 @@
         return brtext;
       },
       getProduct: function () {
-        var filter_id = this.product_id;
-        var url = process.env.VUE_APP_URL + '/stock_products/' + filter_id;
-        if(this.chartered_product_id){
-          filter_id = this.chartered_product_id;
-          url = process.env.VUE_APP_URL + '/chartered_stock_products/' + filter_id;          
+        var myToken = process.env.VUE_APP_TOKEN
+        var myComId = process.env.VUE_APP_COMPANY_ID
+        var filter_id = this.product_id
+        var params = {}
+        var url = process.env.VUE_APP_URL + '/stock_products/' + filter_id
+        if(this.product_code){
+          url = process.env.VUE_APP_URL + '/stock_products/search/'
+          params = {
+            'limit': 1, 
+            'stock_product': {
+              'product': {
+                'product_code': this.product_code
+              },
+              'company_id': comId
+            }
+          }
+          fetch(url, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${myToken}`              
+            },
+            body: JSON.stringify(params)
+          })
+          .then(res => {
+            return res.json()
+          })
+          .then(data =>{
+            this.product = data[0]
+            this.changeMainImage(this.kenkiImagePath(0))
+            for(var i=0;i<5;i++) this.loadKenkiImage(i)
+            if(this.product.spec){
+              this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
+            }
+            else{
+              console.log("axios call and targetCsvFile changed")
+              this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
+            }
+            this.title = this.product.product.title
+          })
+          .catch(e => console.error(e))          
+        }else{
+          if(this.chartered_product_id){
+            filter_id = this.chartered_product_id;
+            url = process.env.VUE_APP_URL + '/chartered_stock_products/' + filter_id;          
+          }
+          fetch(url, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${myToken}`
+            }
+          })
+          .then(res => {
+            return res.json()
+          })
+          .then(data =>{
+            this.product = data
+            this.changeMainImage(this.kenkiImagePath(0))
+            for(var i=0;i<5;i++) this.loadKenkiImage(i)
+            if(this.product.spec){
+              this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
+            }
+            else{
+              console.log("axios call and targetCsvFile changed")
+              this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
+            }
+            this.title = this.product.product.title
+          })
+          .catch(e => console.error(e))          
         }
-        var myToken = process.env.VUE_APP_TOKEN;
-        fetch(url, {
-          method: "GET",
-          mode: "cors",
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Token ${myToken}`
-          }
-        })
-        .then(res => {
-          return res.json()
-        })
-        .then(data =>{
-          this.product = data
-          this.changeMainImage(this.kenkiImagePath(0))
-          for(var i=0;i<5;i++) this.loadKenkiImage(i)
-          if(this.product.spec){
-            this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
-          }
-          else{
-            console.log("axios call and targetCsvFile changed")
-            this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
-          }
-          this.title = this.product.product.title
-        })
-        .catch(e => console.error(e))
       }
     },
     created () {
