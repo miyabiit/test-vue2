@@ -51,7 +51,7 @@
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
       <div id="spec" class="table-responsive">
-        <table id="product-spec-table" class="table" data-strong-column="2" v-html="specPage">
+        <table id="product-spec-table" class="table" v-html="specPage">
         </table>
       </div>
       <p class="p-2" v-html="brbr(product.spec_comment)"></p>
@@ -288,9 +288,12 @@
       makeSpec: function (d, name, code) {      
         const dataArray = this.parseCSV(d,',');
         var strongPos = -1
+        var tableType = 'old'
         if(dataArray[1][0]==''){
+          tableType = 'new'
           strongPos = dataArray[1].indexOf(code)
         }else{
+          tableType = 'old'
           strongPos = dataArray[1].indexOf(name)
         }
         let insertElement = '<tbody>';
@@ -300,7 +303,9 @@
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){
-             insertElement += `<th><router-link :to="{ name: 'singlecode', params: {Code: ${dataArray[i][j]}}" >${dataArray[i][j]}</th>`;
+             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`;
+           }else if(i==2 && tableType=='new'){
+             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`;
            }else{
              if(j==0){
                insertElement += `<th>${dataArray[i][j]}</th>`;
@@ -362,7 +367,7 @@
               'product': {
                 'product_code': this.product_code
               },
-              'company_id': comId
+              'company_id': myComId
             }
           }
           fetch(url, {
