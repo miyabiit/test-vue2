@@ -19,7 +19,7 @@ updated:
         <div v-for="category in sortCategories" v-bind:key="category.id">
           <div class="card">
             <div class="card-body" id="heading-1" >
-              <a v-on:click="toggleListInMainNavi(category)" v-bind:aria-expanded="category.show">
+              <a v-on:click="toggleListInMainNavi(category, sortCategories)" v-bind:aria-expanded="category.show">
               {{category.name}}
               </a>
             </div>
@@ -29,7 +29,7 @@ updated:
               <div class="card-body">
                 <div class="card child">
                   <div class="card-body" id="heading-1-1">
-                    <a v-on:click="toggleListInMainNavi(child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
+                    <a v-on:click="toggleListInMainNavi(child, category.child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
                       {{child.name}}
                     </a>
                   </div>
@@ -106,20 +106,23 @@ updated:
     },
     methods: {
       toggleList: function (menu){
-        menu.show = !menu.show;
+        menu.show = !menu.show
       },
-      toggleListInMainNavi: function (menu){
+      toggleListInMainNavi: function (menu, uppermenus = []){
+        for(var i=0;i<uppermenus.length;i++){
+          uppermenus[i].show = !uppermenus[i].show
+        }
         this.mainNavi.show = false;
         menu.show = !menu.show;
         this.$nextTick(()=>{
           this.mainNavi.show = true;
         })
-      }
+      },
     },
     computed: {
       sortCategories: function() {
         var cat = this.categories;
-        var cat2h = {};
+        var cat2h = {}; // idをキーにしたhash
         var mother_key = 0;
         for(var i=0;i<cat.length;i++){
           cat[i].show = false;
@@ -132,9 +135,10 @@ updated:
             cat2h[mother_key].child.push(cat[i]);
           }
         }
-        var catout = [];
+        var catout = []; // top category のみ。　あとは、child[]に入っている。
         for(var key in cat2h){
-          if(cat2h[key].position == 1){
+          //if(cat2h[key].position == 1){
+          if(!cat2h[key].category_id){
             catout.push(cat2h[key]);
           }
         }
