@@ -110,7 +110,7 @@ updated:
       },
       toggleListInMainNavi: function (menu, uppermenus = []){
         for(var i=0;i<uppermenus.length;i++){
-          uppermenus[i].show = !uppermenus[i].show
+          uppermenus[i].show = false
         }
         this.mainNavi.show = false;
         menu.show = !menu.show;
@@ -135,7 +135,7 @@ updated:
             cat2h[mother_key].child.push(cat[i]);
           }
         }
-        var catout = []; // top category のみ。　あとは、child[]に入っている。
+        var catout = []
         for(var key in cat2h){
           //if(cat2h[key].position == 1){
           if(!cat2h[key].category_id){
