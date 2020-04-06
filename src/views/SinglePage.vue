@@ -50,17 +50,13 @@
         </div>
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
-      <div id="spec" class="table-responsive">
-        <table id="product-spec-table" class="table">
-          <thead>
-            <th>商品コード</th>
-            <th v-for="item in lelatedProducts">
-              <router-link :to="{name: 'singleCode' ,params: {Code: item}}">{{item}}</router-link>
-            {{item}}
+        <table>
+          <tbody><tr>
+            <th v-for="item in lelatedProducts" :key="item.id">
+              <router-link :to="{name: 'singleCode' ,params: {Code: item.code}}">{{item.name}}</router-link>
             </th>
-          </thead>
+          </tr></tbody>
         </table>
-      </div>
       <div id="spec" class="table-responsive">
         <table id="product-spec-table" class="table" v-html="specPage">
         </table>
@@ -301,6 +297,7 @@
         const dataArray = this.parseCSV(d,',');
         var strongPos = -1
         var tableType = 'old'
+        var items = []
         if(dataArray[1][0]==''){
           tableType = 'new'
           strongPos = dataArray[1].indexOf(code)
@@ -315,11 +312,11 @@
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){
-             this.relatedProducts.push(dataArray[i][j])
-             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`;
+             items.push({'id': j, 'code': dataArray[i][j], 'name': dataArray[i][j]})
+             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`
            }else if(i==2 && tableType=='new'){
-             this.relatedProducts.push(dataArray[i][j])
-             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`;
+             items.push({'id': j, 'code': dataArray[1][j], 'name': dataArray[i][j]})
+             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`
            }else{
              if(j==0){
                insertElement += `<th>${dataArray[i][j]}</th>`;
@@ -333,7 +330,8 @@
          insertElement += '</tr>';
         }
         insertElement += '</tbody>'
-        this.specPage = insertElement;
+        this.specPage = insertElement
+        this.lelatedProducts = items
       },
       parseCSV: function(text = '',delim) {
         if (!delim) delim = ',';
@@ -368,6 +366,7 @@
         return brtext;
       },
       getProduct: function () {
+        this.lelatedProducts = []
         var myToken = process.env.VUE_APP_TOKEN
         var myComId = process.env.VUE_APP_COMPANY_ID
         var filter_id = this.product_id
@@ -477,6 +476,9 @@
             this.makeSpec(result, this.product.product.product_name, this.product.product.product_code)
         })
       }
-    }
+    },
+    /* beforeRouteUpdate(from, to, next){
+      
+    } */
   }
 </script>

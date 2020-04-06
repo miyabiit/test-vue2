@@ -63,9 +63,3 @@
     }
   }
 </script>
-
-<style>
-  @import "/css/bootstrap.min.css";
-  @import "/css/fontello.css";
-  @import "/css/site1.css";
-</style>
