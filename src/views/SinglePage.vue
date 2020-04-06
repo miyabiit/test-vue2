@@ -51,6 +51,17 @@
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
       <div id="spec" class="table-responsive">
+        <table id="product-spec-table" class="table">
+          <thead>
+            <th>商品コード</th>
+            <th v-for="item in lelatedProducts">
+              <router-link :to="{name: 'singleCode' ,params: {Code: item}}">{{item}}</router-link>
+            {{item}}
+            </th>
+          </thead>
+        </table>
+      </div>
+      <div id="spec" class="table-responsive">
         <table id="product-spec-table" class="table" v-html="specPage">
         </table>
       </div>
@@ -235,6 +246,7 @@
         specPage: '',
         onLoadedCSV: null,
         targetCsvFile: null,
+        lelatedProducts: [],
         // meta
         title: '商品カタログ',
         description: '',
@@ -303,8 +315,10 @@
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){
+             this.relatedProducts.push(dataArray[i][j])
              insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`;
            }else if(i==2 && tableType=='new'){
+             this.relatedProducts.push(dataArray[i][j])
              insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`;
            }else{
              if(j==0){
