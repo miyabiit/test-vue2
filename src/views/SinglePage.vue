@@ -50,16 +50,16 @@
         </div>
       </div>
       <h2 class="p-2 mt-5"><i class="icon-books"></i> 仕様</h2>
-        <table>
-          <tbody><tr>
-            <th v-for="item in lelatedProducts" :key="item.id">
+      <div id="spec" class="table-responsive">
+        <table id="product-spec-table" class="table">
+          <thead><tr>
+            <th width="150">商品コード</th>
+            <th width="10%" v-for="item in lelatedProducts" :key="item.id">
               <router-link :to="{name: 'singleCode' ,params: {Code: item.code}}">{{item.name}}</router-link>
             </th>
-          </tr></tbody>
-        </table>
-      <div id="spec" class="table-responsive">
-        <table id="product-spec-table" class="table" v-html="specPage">
-        </table>
+          </tr></thead>
+        <tbody id="product-spec-table" class="table" v-html="specPage">
+        </tbody></table>
       </div>
       <p class="p-2" v-html="brbr(product.spec_comment)"></p>
       
@@ -305,18 +305,16 @@
           tableType = 'old'
           strongPos = dataArray[1].indexOf(name)
         }
-        let insertElement = '<tbody>';
+        let insertElement = ''
         for(var i=0; i < dataArray.length; i++){
          if(i==0) continue;
          if(i==1 && (dataArray[i][0] == '')) continue;
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){
-             items.push({'id': j, 'code': dataArray[i][j], 'name': dataArray[i][j]})
-             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`
+             if(j>0) items.push({'id': j, 'code': dataArray[i][j], 'name': dataArray[i][j]})
            }else if(i==2 && tableType=='new'){
-             items.push({'id': j, 'code': dataArray[1][j], 'name': dataArray[i][j]})
-             insertElement += `<th><router-link :to="{ name: 'singleCode', params: {Code: ${dataArray[i][j]}}}" >${dataArray[i][j]}</router-link></th>`
+             if(j>0) items.push({'id': j, 'code': dataArray[1][j], 'name': dataArray[i][j]})
            }else{
              if(j==0){
                insertElement += `<th>${dataArray[i][j]}</th>`;
@@ -329,7 +327,7 @@
          }
          insertElement += '</tr>';
         }
-        insertElement += '</tbody>'
+        //insertElement += '</tbody>'
         this.specPage = insertElement
         this.lelatedProducts = items
       },
@@ -477,8 +475,13 @@
         })
       }
     },
-    /* beforeRouteUpdate(from, to, next){
-      
-    } */
+    beforeRouteUpdate(to, from, next){
+      console.log(to.params)
+      this.product_code = to.params.Code
+      this.product_id = null
+      this.chartered_product_id = null
+      this.getProduct()
+      next()
+    }
   }
 </script>
