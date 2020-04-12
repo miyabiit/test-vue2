@@ -66,9 +66,7 @@ updated:
 </div>
 </template>
 
-<script>
-	//import categories from "@/assets/jsons/categories.json"
-	
+<script>	
   export default {
     data: function () {
       return {
@@ -81,28 +79,17 @@ updated:
 				docsNavi: {
 					show: false
 				},
-        categories: [] //categories
+        sortCategories: [] //categories
+      }
+    },
+    props: {
+      categorySet: {
+        type: Object,
+        require: true
       }
     },
     mounted () {
-      var url = process.env.VUE_APP_URL + '/categories/search';
-      var myToken = process.env.VUE_APP_TOKEN;
-      var myComId = process.env.VUE_APP_COMPANY_ID;
-      var params = {'limit': 1000, 'company_id': myComId};
-      var myHeaders = {'Content-Type': 'application/json', 'Authorization': `Token ${myToken}` }
-      fetch(url, {
-        method: "POST",
-        mode: "cors",
-        headers : myHeaders,
-        body: JSON.stringify(params)
-      })
-      .then(res => {
-        return res.json()
-      })
-      .then(data => {
-        this.categories = data
-      })
-      .catch(e => console.error(e))
+      this.sortCategories = this.categorySet
     },
     methods: {
       toggleList: function (menu){
@@ -118,32 +105,6 @@ updated:
           this.mainNavi.show = true;
         })
       },
-    },
-    computed: {
-      sortCategories: function() {
-        var cat = this.categories;
-        var cat2h = {}; // idをキーにしたhash
-        var mother_key = 0;
-        for(var i=0;i<cat.length;i++){
-          cat[i].show = false;
-          cat[i].child = [];
-          cat2h[cat[i].id] = cat[i];
-        }
-        for(i=0;i<cat.length;i++){
-          mother_key = cat[i].category_id;
-          if(mother_key){
-            cat2h[mother_key].child.push(cat[i]);
-          }
-        }
-        var catout = []
-        for(var key in cat2h){
-          //if(cat2h[key].position == 1){
-          if(!cat2h[key].category_id){
-            catout.push(cat2h[key]);
-          }
-        }
-        return catout;
-      }
     },
     watch: {
     }
