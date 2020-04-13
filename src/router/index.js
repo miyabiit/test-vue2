@@ -4,6 +4,7 @@ import SideMenu from '@/views/SideMenu.vue'
 import CategoryMenu from '@/views/CategoryMenu.vue'
 import TiledList from '@/views/TiledList.vue'
 import SinglePage from '@/views/SinglePage.vue'
+import CategoryPage from '@/views/CategoryPage.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,7 @@ const routes = [
       mainview: CategoryMenu
     }
   },
+  // 所属category_id 
   {
     path: '/list/:Id',
     name: 'list',
@@ -23,6 +25,7 @@ const routes = [
       mainview: TiledList
     }
   },
+  // タグ（新入荷商品とか)
   {
     path: '/catlist/:Name',
     name: 'catlist',
@@ -31,14 +34,17 @@ const routes = [
       mainview: TiledList
     }
   },
+  // カテゴリーページに遷移
   {
     path: '/speclist/:Spec',
     name: 'speclist',
     components: {
       side: SideMenu,
-      mainview: TiledList
-    }
+      mainview: CategoryPage
+    },
+    props: true
   },
+  // 検索
   {
     path: '/search/:Keyword',
     name: 'search',
@@ -47,6 +53,7 @@ const routes = [
       mainview: TiledList
     }
   },
+  // 商品詳細
   {
     path: '/single/:Id',
     name: 'single',
@@ -55,6 +62,7 @@ const routes = [
       mainview: SinglePage
     }
   },
+  // 商品詳細（カテゴリー）
   {
     path: '/singlec/:CharterId',
     name: 'singleCharter',
