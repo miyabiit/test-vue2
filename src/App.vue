@@ -77,7 +77,7 @@
     },
     computed: {
       sortCategories: function() {
-        var cat = this.categories;
+        var cat = this.categories
         var cat2h = {}; // idをキーにしたhash
         var mother_key = 0;
         for(var i=0;i<cat.length;i++){

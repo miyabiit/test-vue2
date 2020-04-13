@@ -84,7 +84,7 @@ updated:
     },
     props: {
       categorySet: {
-        type: Object,
+        type: Array,
         require: true
       }
     },
@@ -107,6 +107,9 @@ updated:
       },
     },
     watch: {
+      categorySet(newSet){
+        this.sortCategories = newSet
+      }
     }
   }
 </script>
