@@ -42,7 +42,6 @@ const routes = [
       side: SideMenu,
       mainview: CategoryPage
     },
-    props: true
   },
   // 検索
   {

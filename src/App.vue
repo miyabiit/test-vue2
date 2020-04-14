@@ -53,8 +53,6 @@
     mounted : function () {
       //meta
       this.$emit("updateHead")
-      console.log("App mounted :" + this.title)
-      console.log("App mounted :" + this.keywords)
       //categories
       var url = process.env.VUE_APP_URL + '/categories/search'
       var myToken = process.env.VUE_APP_TOKEN
