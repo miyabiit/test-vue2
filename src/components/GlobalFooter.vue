@@ -12,32 +12,32 @@
       </div>
       <div class="footer_menu col-12 col-md-3 mt-3 mt-md-0 px-0 px-md-3">
         <ul class="my-0 ml-4 p-0">
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="/company/outline/index.html">会社紹介</a></li>
-          <li><a href="/company/group/index.html">グループ会社紹介</a></li>
-          <li><a href="/company/recruitment_career/index.html">キャリア採用情報</a></li>
-          <li><a href="/company/recruitment_fresh/index.html">新卒採用情報</a></li>
-          <li><a href="/company/privacy/index.html">個人情報保護基本方針（プライバシーポリシー）</a></li>
-          <li><a href="/company/personalinfo/index.html">特定個人情報の適正な取扱いに関する基本方針</a></li>
+          <li><a href="/../index.html">ホーム</a></li>
+          <li><a href="/../company/outline/index.html">会社紹介</a></li>
+          <li><a href="/../company/group/index.html">グループ会社紹介</a></li>
+          <li><a href="/../company/recruitment_career/index.html">キャリア採用情報</a></li>
+          <li><a href="/../company/recruitment_fresh/index.html">新卒採用情報</a></li>
+          <li><a href="/../company/privacy/index.html">個人情報保護基本方針（プライバシーポリシー）</a></li>
+          <li><a href="/../company/personalinfo/index.html">特定個人情報の適正な取扱いに関する基本方針</a></li>
           <li><a href="/products/">商品カタログ</a></li>
           <li><a href="/products/color-simulation/index.html">外装カラーシミュレーション</a></li>
           <li><a href="/products/used/index.html">中古機械・ハウス販売</a></li>
-          <li><a href="/office/index.html">営業所一覧</a></li>
+          <li><a href="/../office/index.html">営業所一覧</a></li>
         </ul>
       </div>
       <div class="footer_menu col-12 col-md-3 px-0 px-md-3">
         <ul class="my-0 ml-4 p-0">
-          <li><a href="/contact/index.php">お問い合わせ</a></li>
-          <li><a href="/callcenter/index.html">事故発生時連絡先</a></li>
-          <li><a href="/information/index.html">お知らせ一覧</a></li>
-          <li><a href="/document/general-conditions/index.html">レンタル約款</a></li>
-          <li><a href="/document/rental-support/index.html">レンタル物件サポート特約制度</a></li>
-          <li><a href="/document/special-contract/index.html">レンタル保険制度</a></li>
-          <li><a href="/document/law/index.html">法規</a></li>
-          <li><a href="/document/qualification/index.html">資格</a></li>
-          <li><a href="/document/unit/index.html">単位</a></li>
-          <li><a href="/document/guide/index.html">ご利用ガイド</a></li>
-          <li><a href="/sitemap/index.html">サイトマップ</a></li>
+          <li><a href="/../contact/index.php">お問い合わせ</a></li>
+          <li><a href="/../callcenter/index.html">事故発生時連絡先</a></li>
+          <li><a href="/../information/index.html">お知らせ一覧</a></li>
+          <li><a href="/../document/general-conditions/index.html">レンタル約款</a></li>
+          <li><a href="/../document/rental-support/index.html">レンタル物件サポート特約制度</a></li>
+          <li><a href="/../document/special-contract/index.html">レンタル保険制度</a></li>
+          <li><a href="/../document/law/index.html">法規</a></li>
+          <li><a href="/../document/qualification/index.html">資格</a></li>
+          <li><a href="/../document/unit/index.html">単位</a></li>
+          <li><a href="/../document/guide/index.html">ご利用ガイド</a></li>
+          <li><a href="/../sitemap/index.html">サイトマップ</a></li>
         </ul>
       </div>
       <div id="footer_company" class="col-12 col-md-3 mt-3 mt-md-0 px-0 px-md-3">

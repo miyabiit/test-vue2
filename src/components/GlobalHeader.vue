@@ -14,23 +14,23 @@
     </nav>
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="container">
-        <a id="logo" class="navbar-brand" href="index.html">甲陽建機</a>
+        <a id="logo" class="navbar-brand" href="../index.html">甲陽建機</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul class="navbar-nav nav nav-pills nav-fill w-100">
             <li class="nav-item active">
-              <a class="nav-link active" href="products/index.html">取扱商品</a>
+              <a class="nav-link active" href="/products/">取扱商品</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="company/outline/index.html">会社情報</a>
+              <a class="nav-link" href="/../company/outline/index.html">会社情報</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="office/index.html">営業所一覧</a>
+              <a class="nav-link" href="/../office/index.html">営業所一覧</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact/index.php">お問い合わせ</a>
+              <a class="nav-link" href="/../contact/index.php">お問い合わせ</a>
             </li>
           </ul>
         </div>

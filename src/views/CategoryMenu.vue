@@ -70,25 +70,25 @@
       <h2 class="p-2"><i class="icon-books"></i> 参考資料</h2>
       <div id="top_rental" class="row row-eq-height mt-1 mb-4 mx-0">
         <div class="col-4 border p-2">
-          <a href="document/general-conditions/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/rental.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタル約款</span></a>
+          <a href="/../document/general-conditions/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/rental.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタル約款</span></a>
         </div>
         <div class="col-4 border p-2">
-          <a href="document/rental-support/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/support.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタル物件サポート特約制度</span></a>
+          <a href="/../document/rental-support/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/support.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタル物件サポート特約制度</span></a>
         </div>
         <div class="col-4 border p-2">
-          <a href="document/special-contract/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/guarantee.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタル保障制度</span></a>
+          <a href="/../document/special-contract/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/guarantee.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタル保障制度</span></a>
         </div>
         <div class="col-4 border p-2">
-          <a href="document/law/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/law.jpg" class="d-block mx-auto mb-2"><span class="d-block">法規</span></a>
+          <a href="/../document/law/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/law.jpg" class="d-block mx-auto mb-2"><span class="d-block">法規</span></a>
         </div>
         <div class="col-4 border p-2">
-          <a href="document/qualification/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/certificate.jpg" class="d-block mx-auto mb-2"><span class="d-block">資格</span></a>
+          <a href="/../document/qualification/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/certificate.jpg" class="d-block mx-auto mb-2"><span class="d-block">資格</span></a>
         </div>
         <div class="col-4 border p-2">
-          <a href="document/unit/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/unit.jpg" class="d-block mx-auto mb-2"><span class="d-block">単位</span></a>
+          <a href="/../document/unit/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/unit.jpg" class="d-block mx-auto mb-2"><span class="d-block">単位</span></a>
         </div>
         <div class="col-4 border p-2">
-          <a href="document/guide/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/guide.jpg" class="d-block mx-auto mb-2"><span class="d-block">ご利用ガイド</span></a>
+          <a href="/../document/guide/index.html" class="d-block text-center clearfix h-100 p-3"><img src="/images/guide.jpg" class="d-block mx-auto mb-2"><span class="d-block">ご利用ガイド</span></a>
         </div>
       </div>
     </main>
