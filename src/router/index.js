@@ -71,7 +71,7 @@ const routes = [
     }
   },
   {
-    path: '/singlecode/:Code',
+    path: '/single/:Code',
     name: 'singleCode',
     components: {
       side: SideMenu,

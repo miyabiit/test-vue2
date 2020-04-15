@@ -259,11 +259,9 @@
         this.axios.get(this.kenkiImagePath(n))
         .then(res => {
           this.$set(this.loadImage, n, true)
-          console.log(res.status)
         })
         .catch(e => {
           this.$set(this.loadImage, n, false)
-          console.log(e)
         })          
       },
       isNew: function (p) {
@@ -453,7 +451,6 @@
           this.$parent.title = this.product.product.title
           this.$parent.description = this.product.meta_description
           this.$parent.keywords = this.product.meta_keywords
-          console.log("single watch and parent title:" + this.$parent.title)
       },
       'onLoadedCSV': function(){
           console.log("onLoadCSV: " + this.onLoadedCSV)
@@ -476,12 +473,25 @@
       }
     },
     beforeRouteUpdate(to, from, next){
-      console.log(to.params)
+      console.log("to.params", to.params)
       this.product_code = to.params.Code
       this.product_id = null
       this.chartered_product_id = null
       this.getProduct()
       next()
+    },
+    beforeRouteLeave(to, from, next){
+      console.log("befoeRouteLeave")
+      console.log("to.params", to.params)
+      if(to.params.Code){
+        this.product_code = to.params.Code
+        this.product_id = null
+        this.chartered_product_id = null
+        this.getProduct()
+        next()
+      }else{
+        next()
+      }
     }
   }
 </script>

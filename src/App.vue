@@ -101,8 +101,6 @@
     },
     watch: {
       'title': function (){
-        console.log("App watch :" + this.title)
-        console.log("App watch :" + this.keywords)
         this.$emit("updateHead");
       }
     }
