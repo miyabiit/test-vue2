@@ -130,7 +130,7 @@
       }
     },
     methods: {
-      setParams: function (searchClass, comId = 1, key = '', id = '', name = '', spec = ''){
+      setParams: function (searchClass, comId = 1, key = '', id = '', name = ''){
         // key -- search box
         // id --- category_id
         // name - sub_categories ex) tag 
@@ -175,9 +175,8 @@
         var myKey = this.$route.params.Keyword;
         var myId = this.$route.params.Id;
         var myName = this.$route.params.Name;
-        var mySpec = this.$route.params.Spec;
         var param = {};
-        param = this.setParams('stock_product', myComId, myKey, myId, myName, mySpec)
+        param = this.setParams('stock_product', myComId, myKey, myId, myName)
         fetch(url, {
           method: "POST",
           mode: "cors",
@@ -200,7 +199,7 @@
         
         //add chartered_stock_product
         url = process.env.VUE_APP_URL + '/chartered_stock_products/search';
-        param = this.setParams('stock_product', myComId, myKey, myId, myName, mySpec)
+        param = this.setParams('stock_product', myComId, myKey, myId, myName)
         fetch(url, {
           method: "POST",
           mode: "cors",
