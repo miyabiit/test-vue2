@@ -444,6 +444,8 @@
     mounted () {
       this.$parent.title = this.title
       this.$parent.$emit("udpateHead")
+      //breadcrumbs
+      this.$parent.$emit("setBreadcrumbs", this.product_id)
     },
     watch: {
       '$route': 'getProduct',
