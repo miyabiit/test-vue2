@@ -442,10 +442,8 @@
       this.getProduct()
     },
     mounted () {
-      this.$parent.title = this.title
-      this.$parent.$emit("udpateHead")
-      //breadcrumbs
-      this.$parent.$emit("setBreadcrumbs", this.product_id)
+      this.$parent.category_id = this.product.category_id
+      this.$parent.active_page_title = this.product.product.title
     },
     watch: {
       '$route': 'getProduct',
@@ -453,6 +451,9 @@
           this.$parent.title = this.product.product.title
           this.$parent.description = this.product.meta_description
           this.$parent.keywords = this.product.meta_keywords
+          //breadcrumbs
+          this.$parent.category_id = this.product.category_id
+          this.$parent.active_page_title = this.product.product.title
       },
       'onLoadedCSV': function(){
           console.log("onLoadCSV: " + this.onLoadedCSV)
@@ -475,21 +476,22 @@
       }
     },
     beforeRouteUpdate(to, from, next){
-      console.log("to.params", to.params)
       this.product_code = to.params.Code
       this.product_id = null
       this.chartered_product_id = null
       this.getProduct()
+      this.$parent.category_id = this.product.category_id
+      this.$parent.active_page_title = this.product.product.title
       next()
     },
     beforeRouteLeave(to, from, next){
-      console.log("befoeRouteLeave")
-      console.log("to.params", to.params)
       if(to.params.Code){
         this.product_code = to.params.Code
         this.product_id = null
         this.chartered_product_id = null
         this.getProduct()
+        this.$parent.category_id = this.product.category_id
+        this.$parent.active_page_title = this.product.product.title
         next()
       }else{
         next()

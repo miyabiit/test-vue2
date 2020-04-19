@@ -222,10 +222,17 @@
       }
     },
     mounted () {
-      this.filterProducts();
+      this.filterProducts()
+      this.$parent.category_id = this.$route.params.Id
+      this.$parent.active_page_title = ''
     },
     watch: {
       '$route': 'filterProducts'
+    },
+    beforeRouteUpdate(to, from, next){
+      this.$parent.category_id = this.$route.params.Id
+      this.$parent.active_page_title = ''
+      next()
     }
   }
 </script>

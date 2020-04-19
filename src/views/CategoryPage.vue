@@ -53,7 +53,8 @@
       for(var i=0; i<this.myTopCategory.child.length; i++){
         this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
       }
-      //this.setImages()
+      this.$parent.category_id = this.myTopCategory.id
+      this.$parent.active_page_name = ''
     },
     methods: {
       kenkiImagePath: function (product_code,n) {

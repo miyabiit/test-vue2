@@ -100,6 +100,9 @@
       return {
       }
     },
+    mounted: function (){
+      this.$parent.category_id = null
+    },
     methods: {
     },
     watch: {
