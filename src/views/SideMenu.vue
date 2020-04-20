@@ -54,13 +54,13 @@ updated:
 			<a class="side_menu mt-2" v-on:click="toggleList(docsNavi)" v-bind:aria-expanded="docsNavi.show"><i class="icon-books"></i>参考資料</a>
 			<transition>
       <div id="side_docs" v-show="docsNavi.show">
-        <a href="document/general-conditions/index.html">レンタル約款</a>
-        <a href="document/rental-support/index.html">レンタル物件サポート特約制度</a>
-        <a href="document/special-contract/index.html">レンタル保障制度</a>
-        <a href="document/law/index.html">法規</a>
-        <a href="document/qualification/index.html">資格</a>
-        <a href="document/unit/index.html">単位</a>
-        <a href="document/guide/index.html">ご利用ガイド</a>
+        <a href="/../document/general-conditions/index.html">レンタル約款</a>
+        <a href="/../document/rental-support/index.html">レンタル物件サポート特約制度</a>
+        <a href="/../document/special-contract/index.html">レンタル保障制度</a>
+        <a href="/../document/law/index.html">法規</a>
+        <a href="/../document/qualification/index.html">資格</a>
+        <a href="/../document/unit/index.html">単位</a>
+        <a href="/../document/guide/index.html">ご利用ガイド</a>
       </div>
 			</transition>
 </div>

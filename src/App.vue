@@ -191,6 +191,9 @@
       },
       'category_id': function () {
         this.setBreadcrumbs(this.category_id)
+      },
+      'active_page_title': function () {
+        this.setBreadcrumbs(this.category_id)
       }
     }
   }
