@@ -4,8 +4,8 @@
       <div id="sub-menu-content" class="container text-white">
         <ul class="list-group list-group-horizontal-sm py-2">
           <li class="list-group-item p-0"><router-link to="/" class="py-1 px-4 active">商品カタログ</router-link></li>
-          <li class="list-group-item p-0"><router-link to="/color-simulation/index.html" class="py-1 px-4">外装カラーシミュレーション</router-link></li>
-          <li class="list-group-item p-0"><router-link to="/used/index.html" class="py-1 px-4">中古機械・ハウス販売</router-link></li>
+          <li class="list-group-item p-0"><router-link to="/../products/color-simulation/index.html" class="py-1 px-4">外装カラーシミュレーション</router-link></li>
+          <li class="list-group-item p-0"><router-link to="/../products/used/index.html" class="py-1 px-4">中古機械・ハウス販売</router-link></li>
         </ul>
       </div>
     </div>

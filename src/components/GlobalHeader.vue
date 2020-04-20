@@ -14,7 +14,7 @@
     </nav>
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="container">
-        <a id="logo" class="navbar-brand" href="../index.html">甲陽建機</a>
+        <a id="logo" class="navbar-brand" href="/../index.html">甲陽建機</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
