@@ -26,7 +26,7 @@
       </div>
       <div class="row p-3 mx-0">
         <div class="col-12">
-          <p>{{product.product.title}}</p>
+          <!-- p>{{product.product.title}}</p -->
         </div>
         <div class="col-12">
           <img id="product_image" :src="mainImage" class="d-block w-100" :alt="product.product.title">
@@ -87,11 +87,13 @@
          </a>
        </div -->
       
-      <h2 class="p-2 mt-5"><i class="icon-spec"></i> 商品説明</h2>
-      <p class="p-2" v-html="brbr(product.product.description_a)"></p>
-      <p class="p-2" v-html="brbr(product.product.description_b)"></p>
+      <div v-if="product.product.description_a">
+        <h2 class="p-2 mt-5"><i class="icon-spec"></i> 商品説明</h2>
+        <p class="p-2" v-html="brbr(product.product.description_a)"></p>
+        <p class="p-2" v-html="brbr(product.product.description_b)"></p>
+      </div>
       
-      <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連商品（オプション・販売品など）</h2>
+      <!-- h2 class="p-2 mt-5"><i class="icon-link"></i> 関連商品（オプション・販売品など）</h2 -->
       <!-- div class="related-items">
          <a href="#" class="bg-white m-2">
            <img src="/images/product/img1.png" class="w-100 border">
@@ -115,28 +117,33 @@
          </a>
       </div -->
       
-      <div v-if="product.staff_comment_published"> 
-        <h2 class="p-2 mt-5"><i class="icon-comment"></i> 担当者より</h2>
-        <p class="p-2">{{product.staff_comment}}</p>
+      <div v-if="product.staff_comment">
+        <div v-if="product.staff_comment_published"> 
+          <h2 class="p-2 mt-5"><i class="icon-comment"></i> 担当者より</h2>
+          <p class="p-2">{{product.staff_comment}}</p>
+        </div>        
       </div>
-      <div v-if="product.price_info_published">
-        <h2 class="p-2 mt-5"><i class="icon-price"></i> 参考価格</h2>
-        <div id="price" class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>レンタル料金（日割）</th>
-                <th>基本料金 / サポート料金（日割）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td>{{product.price_info}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
+      <div v-if="product.price_info">
+        <div v-if="product.price_info_published">
+          <h2 class="p-2 mt-5"><i class="icon-price"></i> 参考価格</h2>
+          <div id="price" class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>レンタル料金（日割）</th>
+                  <th>基本料金 / サポート料金（日割）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>{{product.price_info}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>        
       </div>
       
       <div v-if="product.video_license_published && product.video_license_valid">
@@ -146,56 +153,66 @@
         <p class="p-2">{{product.video_comment}}</p>
       </div>
 
-      <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
-      <div class="row mx-0">
-       <div v-for="(file,index) in product.file_props" v-bind:key="index">
-         <div class="col-6 mb-2">
-           <a href="file.url" class="btn btn-outline-info btn-block" download><i class="icon-pdf"></i>{{file.name}}</a>
+      <div v-if="product.file_props.length">
+        <h2 class="p-2 mt-5"><i class="icon-download"></i> ダウンロード</h2>
+        <div class="row mx-0">
+         <div v-for="(file,index) in product.file_props" v-bind:key="index">
+           <div class="col-6 mb-2">
+             <a href="file.url" class="btn btn-outline-info btn-block" download><i class="icon-pdf"></i>{{file.name}}</a>
+           </div>
          </div>
-       </div>
+        </div>
       </div>
       
-      <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連サイト</h2>
-      <div id="links" class="row px-3 mx-0">
-       <div v-for="(myLink,index) in product.link_props" v-bind:key="index">
-         <a href="myLink.url" class="btn btn-outline-info btn-block text-left" target="_blank">{{myLink.name}}</a>    
-       </div>
+      <div v-if="product.link_props.length">
+        <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連サイト</h2>
+        <div id="links" class="row px-3 mx-0">
+         <div v-for="(myLink,index) in product.link_props" v-bind:key="index">
+           <a href="myLink.url" class="btn btn-outline-info btn-block text-left" target="_blank">{{myLink.name}}</a>    
+         </div>
+        </div>        
+      </div>
+      
+      <div v-if="product.faq">
+        <div v-if="product.faq_published">
+          <h2 class="p-2 mt-5"><i class="icon-faq"></i> FAQ</h2>
+          <div class="faq px-3 mb-4" v-html="brbr(product.faq)">
+          </div>
+          <!-- div class="faq px-3 mb-4">
+             <div class="faq_q mb-2">個人でも借りることはできますか？</div>
+             <div class="faq_a mb-2">はい。個人の方もご利用いただけます。レンタル手続きの流れに従って連絡ください。</div>
+          </div>
+          <div class="faq px-3 mb-4">
+             <div class="faq_q mb-2">借りた営業所とは違う営業所に返却してもいいですか?</div>
+             <div class="faq_a mb-2">お借りいただいた営業所で精算いたしますので、別の営業所への返却はできません。</div>
+          </div -->
+        </div>        
       </div>
        
-      <div v-if="product.faq_published">
-        <h2 class="p-2 mt-5"><i class="icon-faq"></i> FAQ</h2>
-        <div class="faq px-3 mb-4" v-html="brbr(product.faq)">
-        </div>
-        <!-- div class="faq px-3 mb-4">
-           <div class="faq_q mb-2">個人でも借りることはできますか？</div>
-           <div class="faq_a mb-2">はい。個人の方もご利用いただけます。レンタル手続きの流れに従って連絡ください。</div>
-        </div>
-        <div class="faq px-3 mb-4">
-           <div class="faq_q mb-2">借りた営業所とは違う営業所に返却してもいいですか?</div>
-           <div class="faq_a mb-2">お借りいただいた営業所で精算いたしますので、別の営業所への返却はできません。</div>
-        </div -->
-      </div>
-       
-       <div v-if="product.description_published">
+      <div v-if="product.description">
+        <div v-if="product.description_published">
         <h2 class="p-2 mt-5"><i class="icon-comment-ex"></i> 備考</h2>
         <p class="p-2">{{product.description}}</p>
-       </div>
+        </div>        
+      </div>
       
-      <div v-if="product.address_info_published">
-         <h2 class="p-2 mt-5"><i class="icon-contact"></i> お問い合わせ</h2>
-         <div class="row px-3 mb-5 mx-0">
-           <div class="col-12 col-md-6">
-             <!-- p><span class="font-weight-bold d-block">甲陽建機リース株式会社</span>甲府営業所<br>担当：山田</p -->
-             <p><span class="font-weight-bold d-block">{{product.address_info}}</span></p>
+      <div v-if="product.address_info">
+        <div v-if="product.address_info_published">
+           <h2 class="p-2 mt-5"><i class="icon-contact"></i> お問い合わせ</h2>
+           <div class="row px-3 mb-5 mx-0">
+             <div class="col-12 col-md-6">
+               <!-- p><span class="font-weight-bold d-block">甲陽建機リース株式会社</span>甲府営業所<br>担当：山田</p -->
+               <p><span class="font-weight-bold d-block">{{product.address_info}}</span></p>
+             </div>
+             <div class="col012 col-md-6">
+               <!-- p class="contact_tel mb-0">055-237-7821</p -->
+               <p>お気軽にお問い合わせください</p>
+             </div>
            </div>
-           <div class="col012 col-md-6">
-             <!-- p class="contact_tel mb-0">055-237-7821</p -->
-             <p>お気軽にお問い合わせください</p>
-           </div>
-         </div>
+        </div>        
       </div>
        
-       <h2 class="p-2 mt-5"><i class="icon-excavator"></i> 商品バックナンバー</h2>
+       <!-- h2 class="p-2 mt-5"><i class="icon-excavator"></i> 商品バックナンバー</h2 -->
        <!-- div class="backnumber-items">
            <a href="#" class="bg-white m-2">
              <img src="/images/product/img1.png" class="w-100 border">
