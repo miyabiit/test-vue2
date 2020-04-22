@@ -87,7 +87,7 @@
          </a>
        </div -->
       
-      <div v-if="product.product.description_a">
+      <div v-if="product.product.description_b">
         <h2 class="p-2 mt-5"><i class="icon-spec"></i> 商品説明</h2>
         <p class="p-2" v-html="brbr(product.product.description_a)"></p>
         <p class="p-2" v-html="brbr(product.product.description_b)"></p>
@@ -164,7 +164,7 @@
         </div>
       </div>
       
-      <div v-if="product.link_props.length">
+      <div v-if="product.link_props">
         <h2 class="p-2 mt-5"><i class="icon-link"></i> 関連サイト</h2>
         <div id="links" class="row px-3 mx-0">
          <div v-for="(myLink,index) in product.link_props" v-bind:key="index">
@@ -253,7 +253,9 @@
             'product': {
               'product_code': ''
             },
-            'image_props': []
+            'image_props': [],
+            'file_props': [],
+            'link_props': []
         },
         mainImage: '',
         specPage: '',
