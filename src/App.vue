@@ -118,11 +118,11 @@
                 },
                 {
                   name: this.sortCategories[i].name,
-                  path: '/speclist/' + this.breadcrumbs[i].name,
+                  path: '/speclist/' + this.sortCategories[i].name,
                   active: false
                 },
                 {
-                  name: this.sortCatgegories[i].child[j].name,
+                  name: this.sortCategories[i].child[j].name,
                   path: '',
                   active: true
                 },

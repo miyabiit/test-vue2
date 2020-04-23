@@ -29,9 +29,14 @@ updated:
               <div class="card-body">
                 <div class="card child">
                   <div class="card-body" id="heading-1-1">
+                    <div v-if="child.child.length > 0">
                     <a v-on:click="toggleListInMainNavi(child, category.child)" v-bind:aria-expanded="child.show" aria-controls="collapse-1-1">
                       {{child.name}}
                     </a>
+                    </div>
+                    <div v-else>
+                      <router-link class="product" :to="{ name: 'list', params: {Id: child.id}}">{{child.name}}</router-link>
+                    </div>
                   </div>
                   <transition>
                   <div v-if="child.show" aria-labelledby="heading-1-1">

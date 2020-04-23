@@ -1,7 +1,7 @@
 <template>
     <main id="catalog" class="order-1 order-md-2 col-12 col-md-9 py-0 px-0 pl-md-5 mt-3 mt-md-0 mx-0 bd-content" role="main">
-      <h2 class="p-2"><i class="icon-search"></i> 特集から探す</h2>
-      <div id="special_search" class="row row-eq-height mt-1 mb-4 mx-0">
+      <!-- h2 class="p-2"><i class="icon-search"></i> 特集から探す</h2 -->
+      <!-- div id="special_search" class="row row-eq-height mt-1 mb-4 mx-0">
         <div class="col-4 border p-2">
           <router-link class="d-block text-center clearfix p-3" :to="{ name: 'catlist', params: { Name: '新入荷'}}"><img src="/images/special01.jpg" class="d-block mx-auto mb-2"><span class="d-block">新入荷商品</span></router-link>
         </div>
@@ -11,7 +11,7 @@
         <div class="col-4 border p-2">
           <router-link class="d-block text-center clearfix p-3" :to="{ name: 'catlist', params: { Name: '災害'}}"><img src="/images/special03.jpg" class="d-block mx-auto mb-2"><span class="d-block">災害支援商品</span></router-link>
         </div>
-      </div>
+      </div -->
       <h2 class="p-2"><i class="icon-search"></i> 機種一覧から探す</h2>
       <div id="category_search" class="row row-eq-height mt-1 mx-0">
         <div class="col-4 border p-2">
