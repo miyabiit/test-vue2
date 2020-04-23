@@ -5,6 +5,7 @@ import CategoryMenu from '@/views/CategoryMenu.vue'
 import TiledList from '@/views/TiledList.vue'
 import SinglePage from '@/views/SinglePage.vue'
 import CategoryPage from '@/views/CategoryPage.vue'
+import CategoryPage2 from '@/views/CategoryPage2.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,15 @@ const routes = [
     components: {
       side: SideMenu,
       mainview: CategoryPage
+    },
+  },
+  // カテゴリーページに遷移
+  {
+    path: '/speclist/:Spec',
+    name: 'speclist2',
+    components: {
+      side: SideMenu,
+      mainview: CategoryPage2
     },
   },
   // 検索

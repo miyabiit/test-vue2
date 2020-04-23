@@ -62,7 +62,7 @@
           <img src="/images/category08.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">通信計測機器</span></router-link>
         </div>
         <div class="col-4 border p-2">
-          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '保安'}}">
+          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist2', params: { Spec: '保安'}}">
           <img src="/images/category20.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">保安商品</span></router-link>
         </div>
         <div class="col-4 border p-2">
