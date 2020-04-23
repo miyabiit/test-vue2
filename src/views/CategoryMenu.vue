@@ -19,28 +19,32 @@
           <img src="/images/category01.jpg" class="d-block mx-auto mb-2"><span class="d-block">掘削機（バックホー・油圧ショベル）</span></router-link>
         </div>
         <div class="col-4 border p-2">
+          <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: '解体'}}">
+          <img src="/images/category19.jpg" class="d-block mx-auto mb-2"><span class="d-block">解体・林業・アタッチメント</span></router-link>
+        </div>
+        <div class="col-4 border p-2">
           <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: 'レンタカー'}}">
           <img src="/images/category02.jpg" class="d-block mx-auto mb-2"><span class="d-block">レンタカー</span></router-link>
-        </div>
-        <div class="col-4 border p-2">
-          <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: '道路機械'}}">
-          <img src="/images/category03.jpg" class="d-block mx-auto mb-2"><span class="d-block">道路機械</span></router-link>
-        </div>
-        <div class="col-4 border p-2">
-          <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: '解体'}}">
-          <img src="/images/category01.jpg" class="d-block mx-auto mb-2"><span class="d-block">解体・林業・アタッチメント</span></router-link>
         </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: '高所'}}">
           <img src="/images/category04.jpg" class="d-block mx-auto mb-2"><span class="d-block">高所作業車</span></router-link>
         </div>
         <div class="col-4 border p-2">
+          <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: '道路機械'}}">
+          <img src="/images/category03.jpg" class="d-block mx-auto mb-2"><span class="d-block">道路機械</span></router-link>
+        </div>
+        <div class="col-4 border p-2">
           <router-link class="d-block text-center clearfix h-100 p-3" :to="{ name: 'speclist', params: { Spec: '整地'}}">
-          <img src="/images/category03.jpg" class="d-block mx-auto mb-2"><span class="d-block">整地・運搬機械</span></router-link>
+          <img src="/images/category09.jpg" class="d-block mx-auto mb-2"><span class="d-block">整地・運搬機械</span></router-link>
         </div>
       </div>
       
       <div id="category_search_s" class="row row-eq-height mb-4 mx-0">
+        <div class="col-4 border p-2">
+          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '水中ポンプ'}}">
+          <img src="/images/category10.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">水中ポンプ・水処理機械</span></router-link>
+        </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '発電'}}">
           <img src="/images/category05.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">発電・溶接・照明機器</span></router-link>
@@ -54,16 +58,20 @@
           <img src="/images/category07.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">ハウス・備品</span></router-link>
         </div>
         <div class="col-4 border p-2">
-          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '水中ポンプ'}}">
-          <img src="/images/category10.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">水中ポンプ・水処理機械</span></router-link>
+          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '通信'}}">
+          <img src="/images/category08.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">通信計測機器</span></router-link>
+        </div>
+        <div class="col-4 border p-2">
+          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '保安'}}">
+          <img src="/images/category20.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">保安商品</span></router-link>
         </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: 'コンクリート機器'}}">
-          <img src="/images/category11.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">コンクリート機器</span></router-link>
+          <img src="/images/category10.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">コンクリート機器</span></router-link>
         </div>
         <div class="col-4 border p-2">
-          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '特定現場'}}">
-          <img src="/images/category17.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">特定現場仕様</span></router-link>
+          <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '汎用'}}">
+          <img src="/images/category12.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">汎用機器</span></router-link>
         </div>
       </div>
       
