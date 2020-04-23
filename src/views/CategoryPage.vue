@@ -3,7 +3,7 @@
     <h2 id="product_parent" class="p-2"><i class="icon-bulldozer"></i>{{myTopCategory.name}}</h2>
     <div v-for="child in myTopCategory.child" v-bind:key="child.id">
       <h3 class="product_child py-2 px-3 font-weight-bold" data-toggle="collapse" href="#category1" role="button" aria-expanded="true" aria-controls="category1">{{child.name}}</h3>
-      <div id="category1" class="collapse row p-3 mx-0 show">
+      <div v-if="child.child.length > 0" id="category1" class="collapse row p-3 mx-0 show">
         <div class="col-12 col-md-4">
           <a href=""><img :src="categoryImage[child.id]" class="d-block w-100 product_child_border" :alt="child.name"></a>
         </div>
@@ -11,6 +11,14 @@
           <div v-for="children in child.child" v-bind:key="children.id">
             <router-link :to="{name: 'list', params: {Id: children.id}}" class="btn btn-outline-warning btn-block text-left btn-child">{{children.name}}</router-link>
           </div>
+        </div>
+      </div>
+      <div v-else id="category1" class="collapse row p-3 mx-0 show">
+        <div class="col-12 col-md-4">
+          <a href=""><img :src="categoryImage[child.id]" class="d-block w-100 product_child_border" :alt="child.name"></a>
+        </div>
+        <div class="col-12 col-md-8 mt-3 mt-md-0">
+          <router-link :to="{name: 'list', params: {Id: child.id}}" class="btn btn-outline-warning btn-block text-left btn-child">{{child.name}}</router-link>
         </div>
       </div>
     </div>
@@ -51,7 +59,11 @@
       this.sortCategories = this.categorySet
       this.setMyTopCategory()
       for(var i=0; i<this.myTopCategory.child.length; i++){
-        this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
+        if(this.myTopCategory.child[i].child.length > 0){
+          this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
+        }else{
+          this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].id)
+        }
       }
       this.$parent.category_id = this.myTopCategory.id
       this.$parent.active_page_name = ''
@@ -106,7 +118,11 @@
         this.sortCategories = newSet
         this.setMyTopCategory()
         for(var i=0; i<this.myTopCategory.child.length; i++){
-          this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
+          if(this.myTopCategory.child[i].child.length > 0){
+            this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
+          }else{
+            this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].id)
+          }
         }
       }
     }
