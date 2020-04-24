@@ -21,12 +21,12 @@
           <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_shaken">車検</span>
           <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_souken">送検</span>
           <span class="badge badge-info px-2 mr-1 align-top" v-if="product.product.checking_teiji">定時</span>
-          <span id="license_icons_desc" class="d-block"><a href="#"><i class="icon-faq"></i>アイコンについて</a><br>{{product.product.qualification_comment}}</span>
+          <span id="license_icons_desc" class="d-block"><a href="../../document/about-icon/index.html"><i class="icon-faq"></i>アイコンについて</a></span>
         </div>
       </div>
       <div class="row p-3 mx-0">
         <div class="col-12">
-          <!-- p>{{product.product.title}}</p -->
+          <!-- p>{{product.product.qualification_comment}}</p -->
         </div>
         <div class="col-12">
           <img id="product_image" :src="mainImage" class="d-block w-100" :alt="product.product.title">
