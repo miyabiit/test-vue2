@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "axios-cookiejar-support": "^0.5.1",
     "core-js": "^3.6.4",
     "element-ui": "^2.4.5",
     "vue": "^2.6.11",
