@@ -315,7 +315,7 @@
         var strongPos = -1
         var tableType = 'old'
         var items = []
-        if(dataArray[1][0]==''){
+        if(dataArray[1][0]=='' || dataArray[1][0] == 'product_tag'){
           tableType = 'new'
           strongPos = dataArray[1].indexOf(code)
         }else{
@@ -325,7 +325,7 @@
         let insertElement = ''
         for(var i=0; i < dataArray.length; i++){
          if(i==0) continue;
-         if(i==1 && (dataArray[i][0] == '')) continue;
+         if(i==1 && (dataArray[i][0] == '' || dataArray[i][0] == 'product_tag')) continue;
          insertElement += '<tr>';
          for(var j=0; j<dataArray[i].length; j++){
            if(i==1){

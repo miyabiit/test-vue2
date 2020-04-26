@@ -46,7 +46,7 @@ const routes = [
   },
   // カテゴリーページに遷移
   {
-    path: '/speclist/:Spec',
+    path: '/speclist2/:Spec',
     name: 'speclist2',
     components: {
       side: SideMenu,
@@ -80,8 +80,9 @@ const routes = [
       mainview: SinglePage
     }
   },
+  // 商品詳細（コード指定）
   {
-    path: '/single/:Code',
+    path: '/singlecode/:Code',
     name: 'singleCode',
     components: {
       side: SideMenu,

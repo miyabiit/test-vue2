@@ -8,7 +8,7 @@
           お電話の場合 <a href="tel:0552377801" id="top-contact-tel">055-237-7801</a>
           受付時間7:00〜18:30（日・祝日を除く）
           </div>
-          <div class="col-12 col-md-3 text-left text-md-right w-auto">メールでのお問い合わせは<a href="contact/index.php">こちら<i class="icon-right-open"></i></a></div>
+          <div class="col-12 col-md-3 text-left text-md-right w-auto">メールでのお問い合わせは<a href="/../contact/index.php">こちら<i class="icon-right-open"></i></a></div>
         </div>
       </div>
     </nav>
