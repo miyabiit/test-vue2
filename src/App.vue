@@ -12,11 +12,11 @@
       </ol>
     </nav>
     <div class="row flex-xl-nowrap">
-      <router-view name="mainview" :categorySet="sortCategories"/>
-      <div class="order-2 order-md-1 col-12 col-md-3 px-0 bd-sidebar">
+      <div class="order-1 order-md-1 col-12 col-md-3 px-0 bd-sidebar">
         <item-search/>
         <router-view name="side" :categorySet="sortCategories"/>
       </div>
+      <router-view name="mainview" :categorySet="sortCategories"/>
     </div>
   </div>
   <global-footer/>
