@@ -15,10 +15,13 @@
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="container">
         <a id="logo" class="navbar-brand" href="/../index.html">甲陽建機</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- button class="navbar-toggler" v-on:click="toggleList(menu)" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button -->
+        <button class="navbar-toggler" v-on:click="toggleList(menu)" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarMenu">
+        <div v-if="menu.show" class="expand navbar-collapse" :aria-expanded="menu.show" id="navbarMenu">
           <ul class="navbar-nav nav nav-pills nav-fill w-100">
             <li class="nav-item active">
               <a class="nav-link active" href="/products/">取扱商品</a>
@@ -38,3 +41,21 @@
     </nav>
 </div>
 </template>
+
+<script>
+  export default {
+    data: function (){
+      return {
+        menu : {
+          show: false
+        }
+      }
+    },
+    methods: {
+      toggleList: function (menu){
+        menu.show = !menu.show
+      }
+    }
+  }
+</script>
+
