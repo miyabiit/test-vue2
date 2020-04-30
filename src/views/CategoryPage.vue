@@ -59,7 +59,6 @@
       if(this.categorySet.length>0){
         this.sortCategories = this.categorySet
         this.setMyTopCategory()
-        console.log(this.myTopCategory)
         for(var i=0; i<this.myTopCategory.child.length; i++){
           if(this.myTopCategory.child[i].child.length > 0){
             this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
