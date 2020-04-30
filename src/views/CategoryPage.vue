@@ -1,3 +1,4 @@
+
 <template>
   <main id="product" class="order-1 order-md-2 col-12 col-md-9 py-0 px-0 pl-md-5 mt-3 mt-md-0 mx-0 bd-content" role="main">
     <h2 id="product_parent" class="p-2"><i class="icon-bulldozer"></i>{{myTopCategory.name}}</h2>
@@ -54,18 +55,21 @@
         require: true
       }
     },
-    created () {
-      this.sortCategories = this.categorySet
-      this.setMyTopCategory()
-      for(var i=0; i<this.myTopCategory.child.length; i++){
-        if(this.myTopCategory.child[i].child.length > 0){
-          this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
-        }else{
-          this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].id)
+    mounted () {
+      if(this.categorySet.length>0){
+        this.sortCategories = this.categorySet
+        this.setMyTopCategory()
+        console.log(this.myTopCategory)
+        for(var i=0; i<this.myTopCategory.child.length; i++){
+          if(this.myTopCategory.child[i].child.length > 0){
+            this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].child[0].id)
+          }else{
+            this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].id)
+          }
         }
+        this.$parent.category_id = this.myTopCategory.id
+        this.$parent.active_page_name = ''
       }
-      this.$parent.category_id = this.myTopCategory.id
-      this.$parent.active_page_name = ''
     },
     methods: {
       kenkiImagePath: function (product_code,n) {
@@ -123,6 +127,8 @@
             this.getImagePath(this.myTopCategory.child[i].id, this.myTopCategory.child[i].id)
           }
         }
+        this.$parent.category_id = this.myTopCategory.id
+        this.$parent.active_page_name = ''
       }
     }
     
