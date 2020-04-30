@@ -1,7 +1,7 @@
 <template>
   <main id="product" class="order-1 order-md-2 col-12 col-md-9 py-0 px-0 pl-md-5 mt-3 mt-md-0 mx-0 bd-content" role="main">
     <!-- h2 id="product_child" class="p-2 mb-0 d-none"><i class="icon-bulldozer"></i>掘削機械</h2 -->
-    <!-- 並べ替え -->.
+    <!-- 並べ替え -->
     <!--div class="row my-2">
       <div class="col-12 px-0 text-center">
         <div class="btn-group btn-group-toggle head_sorter" data-toggle="buttons">

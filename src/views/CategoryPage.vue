@@ -48,14 +48,13 @@
         categoryImage: {}
       }
     },
-    // props: ['categorySet', 'Spec'],
     props: {
       categorySet: {
         type: Array,
         require: true
       }
     },
-    mounted () {
+    created () {
       this.sortCategories = this.categorySet
       this.setMyTopCategory()
       for(var i=0; i<this.myTopCategory.child.length; i++){
@@ -73,7 +72,7 @@
         return '/kenki_images/1/' + product_code + '-' + ('00' + (n+1)).slice(-2) + '.jpg'
       },
       setMyTopCategory: function (){
-        var target = {}
+        var target = this.myTopCategory
         var targetItems = []
         var specName = this.$route.params.Spec
         targetItems = this.sortCategories.filter(function(item){

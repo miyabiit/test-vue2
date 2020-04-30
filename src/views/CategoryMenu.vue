@@ -67,7 +67,7 @@
         </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: 'コンクリート機器'}}">
-          <img src="/images/category10.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">コンクリート機器</span></router-link>
+          <img src="/images/category11.jpg" class="d-block d-lg-inline-block mx-auto pr-0 pr-lg-1"><span class="d-block d-lg-inline-block">コンクリート機器</span></router-link>
         </div>
         <div class="col-4 border p-2">
           <router-link class="d-block text-center text-lg-left clearfix" :to="{ name: 'speclist', params: { Spec: '汎用'}}">
