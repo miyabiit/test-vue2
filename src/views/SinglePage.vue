@@ -499,9 +499,9 @@
       this.product_id = null
       this.chartered_product_id = null
       this.getProduct()
+      next()
       this.$parent.category_id = this.product.category_id
       this.$parent.active_page_title = this.product.product.title
-      next()
     },
     beforeRouteLeave(to, from, next){
       if(to.params.Code){
@@ -509,9 +509,9 @@
         this.product_id = null
         this.chartered_product_id = null
         this.getProduct()
+        next()
         this.$parent.category_id = this.product.category_id
         this.$parent.active_page_title = this.product.product.title
-        next()
       }else{
         next()
       }
