@@ -259,7 +259,8 @@
         },
         mainImage: '',
         specPage: '',
-        onLoadedCSV: null,
+        isCsvLoad: false
+        onLoadedCSV: '',
         targetCsvFile: null,
         lelatedProducts: [],
         // meta
@@ -368,12 +369,15 @@
         return data;
       },
       loadCsvFile: function (file) {
-        const reader = new FileReader();
-        console.log("loadCsvFile: " + file)
-        reader.onload = function() {
-          this.onLoadedCSV = reader.result
-        }
-        reader.readAsDataURL(file)
+        this.axios.get(file)
+        .then(res => {
+          this.onLoadedCSV = res
+          this.$set(this.isCsvLoad, true)
+        })
+        .catch(e => {
+          this.onLoadedCSV = ''
+          this.$set(this.isCsvLoad, false)
+        })
       },
       brbr: function(text){
         if(!text) text ='';
@@ -414,13 +418,16 @@
             this.product = data[0]
             this.changeMainImage(this.kenkiImagePath(0))
             for(var i=0;i<5;i++) this.loadKenkiImage(i)
+            this.loadCsvFile('/spec_csv/' + this.product.category.name + '.csv')
+            /*
             if(this.product.spec){
               this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
             }
             else{
-              console.log("axios call and targetCsvFile changed")
+              this.onLoadedCSV = true
               this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
             }
+            */
             this.title = this.product.product.title
           })
           .catch(e => console.error(e))          
@@ -444,13 +451,15 @@
             this.product = data
             this.changeMainImage(this.kenkiImagePath(0))
             for(var i=0;i<5;i++) this.loadKenkiImage(i)
+            this.loadCsvFile('/spec_csv/' + this.product.category.name + '.csv')
+            /*
             if(this.product.spec){
               this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
             }
             else{
-              console.log("axios call and targetCsvFile changed")
               this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
             }
+            */
             this.title = this.product.product.title
           })
           .catch(e => console.error(e))          
@@ -474,24 +483,8 @@
           this.$parent.category_id = this.product.category_id
           this.$parent.active_page_title = this.product.product.title
       },
-      'onLoadedCSV': function(){
-          console.log("onLoadCSV: " + this.onLoadedCSV)
-          if(this.onLoadedCSV) this.makeSpec(this.onLoadedCSV, this.product.product.product_name, this.product.product.product_code)
-      },
-      'targetCsvFile': function (){
-          console.log('watched targetCsvFile');
-          new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-              resolve(e.target.result);
-              reject(e.target.error);
-            }
-            console.log('watched :'+ this.targetCsvFile);
-            reader.readAsDataURL('/myweb/spec_csv/this.targetCsvFile');
-          }).then((result) => {
-            console.log('resulted')
-            this.makeSpec(result, this.product.product.product_name, this.product.product.product_code)
-        })
+      'isCsvLoad': function(){
+          if(this.isCsvLoad) this.makeSpec(this.loadCsvFile, this.product.product.product_name, this.product.product.product_code)
       }
     },
     beforeRouteUpdate(to, from, next){
