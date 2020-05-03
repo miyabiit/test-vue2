@@ -53,13 +53,14 @@
       <div id="spec" class="table-responsive">
         <table id="product-spec-table" class="table">
           <thead><tr>
-            <th width="150">商品コード</th>
+            <th width="1%">商品コード</th>
             <th width="10%" v-for="item in lelatedProducts" :key="item.id">
               <router-link :to="{name: 'singleCode' ,params: {Code: item.code}}">{{item.name}}</router-link>
             </th>
           </tr></thead>
-        <tbody id="product-spec-table" class="table" v-html="specPage">
-        </tbody></table>
+          <tbody id="product-spec-table" class="table" v-html="specPage">
+          </tbody>
+        </table>
       </div>
       <p class="p-2" v-html="brbr(product.spec_comment)"></p>
       
@@ -336,7 +337,7 @@
              if(j>0) items.push({'id': j, 'code': dataArray[1][j], 'name': dataArray[i][j]})
            }else{
              if(j==0){
-               insertElement += `<th>${dataArray[i][j]}</th>`;
+               insertElement += `<th width="10%">${dataArray[i][j]}</th>`;
              }else if(j==strongPos){
                insertElement += `<td class="go-red">${dataArray[i][j]}</td>`;
              }else{
