@@ -259,9 +259,10 @@
         },
         mainImage: '',
         specPage: '',
-        isCsvLoad: false
-        onLoadedCSV: '',
-        targetCsvFile: null,
+        specFile: {
+          isLoad: false,
+          loadedCsv: ''
+        },
         lelatedProducts: [],
         // meta
         title: '商品カタログ',
@@ -371,12 +372,13 @@
       loadCsvFile: function (file) {
         this.axios.get(file)
         .then(res => {
-          this.onLoadedCSV = res
-          this.$set(this.isCsvLoad, true)
+          this.specFile.loadedCsv = res.data
+          this.$set(this.specFile,'isLoad',true)
+          if(this.specFile.isLoad) this.makeSpec(this.spcFile.loadedCsv, this.product.product.product_name, this.product.product.product_code)
         })
         .catch(e => {
-          this.onLoadedCSV = ''
-          this.$set(this.isCsvLoad, false)
+          this.specFile.loadedCsv = ''
+          this.$set(this.specFile,'isLoad',false)
         })
       },
       brbr: function(text){
@@ -424,8 +426,7 @@
               this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
             }
             else{
-              this.onLoadedCSV = true
-              this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
+              this.specFile.isLoad = true
             }
             */
             this.title = this.product.product.title
@@ -457,7 +458,7 @@
               this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
             }
             else{
-              this.targetCsvFile = '/spec_csv/' + this.product.category.name + '.csv'
+              this.onLoadedCSV = true
             }
             */
             this.title = this.product.product.title
@@ -483,15 +484,16 @@
           this.$parent.category_id = this.product.category_id
           this.$parent.active_page_title = this.product.product.title
       },
-      'isCsvLoad': function(){
-          if(this.isCsvLoad) this.makeSpec(this.loadCsvFile, this.product.product.product_name, this.product.product.product_code)
+      'specFile.isLoad': function(){
+          if(this.specFile.isLoad) this.makeSpec(this.specFile.loadedCsv, this.product.product.product_name, this.product.product.product_code)
       }
     },
     beforeRouteUpdate(to, from, next){
       this.product_code = to.params.Code
       this.product_id = null
       this.chartered_product_id = null
-      this.getProduct()
+      this.specPage = ''
+      //this.getProduct()
       next()
       this.$parent.category_id = this.product.category_id
       this.$parent.active_page_title = this.product.product.title
@@ -501,7 +503,8 @@
         this.product_code = to.params.Code
         this.product_id = null
         this.chartered_product_id = null
-        this.getProduct()
+        this.specPage = ''
+        //this.getProduct()
         next()
         this.$parent.category_id = this.product.category_id
         this.$parent.active_page_title = this.product.product.title
