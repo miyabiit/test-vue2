@@ -377,8 +377,9 @@
           if(this.specFile.isLoad) this.makeSpec(this.spcFile.loadedCsv, this.product.product.product_name, this.product.product.product_code)
         })
         .catch(e => {
-          this.specFile.loadedCsv = ''
+          this.specFile.loadedCsv = this.product.spec
           this.$set(this.specFile,'isLoad',false)
+          this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
         })
       },
       brbr: function(text){
@@ -421,14 +422,6 @@
             this.changeMainImage(this.kenkiImagePath(0))
             for(var i=0;i<5;i++) this.loadKenkiImage(i)
             this.loadCsvFile('/spec_csv/' + this.product.category.name + '.csv')
-            /*
-            if(this.product.spec){
-              this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
-            }
-            else{
-              this.specFile.isLoad = true
-            }
-            */
             this.title = this.product.product.title
           })
           .catch(e => console.error(e))          
@@ -453,14 +446,6 @@
             this.changeMainImage(this.kenkiImagePath(0))
             for(var i=0;i<5;i++) this.loadKenkiImage(i)
             this.loadCsvFile('/spec_csv/' + this.product.category.name + '.csv')
-            /*
-            if(this.product.spec){
-              this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
-            }
-            else{
-              this.onLoadedCSV = true
-            }
-            */
             this.title = this.product.product.title
           })
           .catch(e => console.error(e))          
@@ -485,7 +470,11 @@
           this.$parent.active_page_title = this.product.product.title
       },
       'specFile.isLoad': function(){
-          if(this.specFile.isLoad) this.makeSpec(this.specFile.loadedCsv, this.product.product.product_name, this.product.product.product_code)
+          if(this.specFile.isLoad){
+            this.makeSpec(this.specFile.loadedCsv, this.product.product.product_name, this.product.product.product_code)
+          }else{
+            this.makeSpec(this.product.spec, this.product.product.product_name, this.product.product.product_code)
+          }
       }
     },
     beforeRouteUpdate(to, from, next){
